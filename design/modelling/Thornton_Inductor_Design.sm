@@ -1,0 +1,3071 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Studio Desktop" version="1.0.8238.30484"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>551d9de0-24bd-4714-8c0f-f997ae8fe508</id>
+      <revision>268</revision>
+    </identity>
+    <metadata lang="eng">
+      <author>Joao Antonio Cardoso</author>
+    </metadata>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>3</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>false</significantDigitsMode>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>0</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="true" viewMode="0" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true">
+      <paper id="1" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="39" bottom="39" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Studio Desktop" version="1.0.8238.30484" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.11.8238.30484" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.12.8238.30484" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="TextRegion" version="1.11.8238.30484" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="AreaRegion" version="1.11.8238.30484" guid="4974b228-4974-44cf-8274-bf2936b4a766" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="36" top="9" width="573" height="30" color="#ff0000" fontSize="16" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 16px; color: #ff0000;">Planilha de Calculo para Indutores Thornton</p>
+        </content>
+      </text>
+    </region>
+    <region left="27" top="45" width="78" height="23" color="#000000" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime;">Legenda:</p>
+        </content>
+      </text>
+    </region>
+    <region left="108" top="45" width="254" height="23" color="#000000" bgColor="#00ff00" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; background-color: #00ff00;">&lt;CAMPOS DE ENTRADA, EDITÁVEIS&gt;</p>
+        </content>
+      </text>
+    </region>
+    <region left="108" top="63" width="294" height="23" color="#000000" bgColor="#ffff00" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; background-color: #ffff00;">&lt;CAMPOS IMPORTANTES, NÃO EDITÁVEIS&gt;</p>
+        </content>
+      </text>
+    </region>
+    <region left="108" top="81" width="454" height="23" color="#000000" bgColor="#c0c0c0" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; background-color: #c0c0c0;">&lt;CÁLCULOS INTERMEDIÁRIOS E OUTROS CAMPOS NÃO EDITÁVEIS&gt;</p>
+        </content>
+      </text>
+    </region>
+    <region left="27" top="117" width="110" height="23" color="#000000" fontSize="10" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime;">Referências:</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="144" width="380" height="18" color="#000000" fontSize="7" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 7px;">Dados: http://www.thornton.com.br/pdf/CATALOGO%20THORNTON.pdf</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="162" width="674" height="28" color="#000000" fontSize="7" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 7px;">Metodologia: http://www.joinville.udesc.br/portal/professores/sergiovgo/materiais/Apostila_Projeto_Fisico_De_Magneticos.pdf</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="180" width="470" height="18" color="#000000" fontSize="7" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 7px;">Exemplos: http://intranet.ctism.ufsm.br/gsec/Apostilas/projetomagneticos.pdf</p>
+        </content>
+      </text>
+    </region>
+    <region left="27" top="216" width="245" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Parâmetros de Entrada</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="261" width="74" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Indutancia</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">L</e>
+          <e type="operand">22</e>
+          <e type="operand" style="unit">μH</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="144" top="261" width="82" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Frequencia de Operaçao</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">f</e>
+          <e type="operand">40</e>
+          <e type="operand" style="unit">kHz</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="324" top="261" width="82" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Temperatura Ambiente</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Ta</e>
+          <e type="operand">50</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="495" top="261" width="76" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Fator de Ocupaçao do Carretel</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Kw</e>
+          <e type="operand">0.70</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="315" width="106" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Corrente Media no Indutor</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">IL_mean</e>
+          <e type="operand">9</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="252" top="315" width="122" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Corrente Eficaz no Indutor</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">IL_rms</e>
+          <e type="operand">9.65</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="495" top="315" width="128" height="50" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Densidade de Corrente Maxima</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">J_max</e>
+          <e type="operand">450</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="369" width="130" height="24" color="#000000" bgColor="#00ff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Corrente Maxima no Indutor</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">IL_max</e>
+          <e type="operand">15.25</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="252" top="369" width="98" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Ondulaçao de Corrente no Indutor</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ΔIL</e>
+          <e type="operand">12.5</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="423" width="114" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Densidade de Fluxo Magnetico Magnetico</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">B_max</e>
+          <e type="operand">0.35</e>
+          <e type="operand" style="unit">T</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="342" top="423" width="107" height="33" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Coeficiente de Perdas por Correntes Parasitas</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Kf</e>
+          <e type="operand">4</e>
+          <e type="operand">10</e>
+          <e type="operand">10</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="477" width="134" height="42" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Permeabilidade Magnetica do Ar</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">μo</e>
+          <e type="operand">4</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10</e>
+          <e type="operand">7</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">H</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="342" top="486" width="99" height="33" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Coeficiente de Perdas por Histerese</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Kn</e>
+          <e type="operand">4</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region top="549" color="#000000">
+      <area single="true" collapsed="true" />
+    </region>
+    <region left="27" top="567" width="355" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Cálculos para Escolha do Núcleo</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="612" width="90" height="33" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Escolha do Nucleo: AeAw Mínimo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">AeAw</e>
+          <e type="operand">L</e>
+          <e type="operand">IL_max</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">IL_rms</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">B_max</e>
+          <e type="operand">J_max</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Kw</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.2937</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="675" width="708" height="324" color="#000000" bgColor="#ffff80" fontSize="10">
+      <math optimize="2" decimalPlaces="1" exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>                     Ae       Aw        le      lt      V_nucleo    AeAw      Núcleo  Linha</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">0.312</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.26</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">4.28</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">3.8</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.34</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.08</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-20</e>
+          <e type="operand">1</e>
+          <e type="operand">0.60</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.80</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">6.7</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">5.6</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">4.00</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.48</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-30/7</e>
+          <e type="operand">2</e>
+          <e type="operand">1.20</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.85</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">6.7</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">6.7</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">8.00</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.02</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-30/14</e>
+          <e type="operand">3</e>
+          <e type="operand">1.81</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.57</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">9.7</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">8.7</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">17.10</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">2.84</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-42/15</e>
+          <e type="operand">4</e>
+          <e type="operand">2.40</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.57</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">9.7</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10.5</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">23.30</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">3.77</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-42/20</e>
+          <e type="operand">5</e>
+          <e type="operand">3.54</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">2.50</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.2</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">11.6</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">42.50</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">8.85</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-55</e>
+          <e type="operand">6</e>
+          <e type="operand">2.66</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">5.48</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14.70</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10.14</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">39.10</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14.57</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-65/13</e>
+          <e type="operand">7</e>
+          <e type="operand">5.32</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">3.70</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14.70</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10.14</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">78.20</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">19.68</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-65/26</e>
+          <e type="operand">8</e>
+          <e type="operand">7.98</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">3.70</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14.70</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10.14</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">117.30</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">29.53</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-65/39</e>
+          <e type="operand">9</e>
+          <e type="operand">6.45</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">9.68</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">21.77</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">15.37</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">140.45</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">62.43</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-76/25</e>
+          <e type="operand">10</e>
+          <e type="operand">19.35</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">9.68</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">21.77</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">32.13</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">421.35</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">187.30</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="string">EE-76/76</e>
+          <e type="operand">11</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">EE-80/20</e>
+          <e type="operand">12</e>
+          <e type="operand">12</e>
+          <e type="operand">8</e>
+          <e type="function" args="98">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="1026" width="76" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Linha correspondente ao núcleo escolhido</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Linha</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="405" top="1026" width="82" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Núcleo Escolhido</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">nucleo</e>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">Linha</e>
+          <e type="operand">7</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand" style="string">EE-30/7</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1080" width="66" height="33" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Área da perna central do núcleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Ae</e>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">Linha</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="324" top="1080" width="56" height="24" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Comprimento médio de uma espira</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">l_espira</e>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">Linha</e>
+          <e type="operand">4</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">5.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1152" width="66" height="33" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Área da janela do carretel</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Aw</e>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">Linha</e>
+          <e type="operand">2</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.8</e>
+        </result>
+      </math>
+    </region>
+    <region left="324" top="1152" width="50" height="33" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Volume do núcleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">V_nucleo</e>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">Linha</e>
+          <e type="operand">5</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">4</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1224" width="74" height="33" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Produto de áreas do núcleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">AeAw</e>
+          <e type="operand">TabelaNucleos</e>
+          <e type="operand">Linha</e>
+          <e type="operand">6</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.48</e>
+        </result>
+      </math>
+    </region>
+    <region top="1296" color="#000000">
+      <area single="true" collapsed="true" />
+    </region>
+    <region left="27" top="1314" width="421" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Cálculo do Nº de Espiras e Entreferro</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="1350" width="66" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Numero de Espiras</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">N'</e>
+          <e type="operand">L</e>
+          <e type="operand">IL_max</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">B_max</e>
+          <e type="operand">Ae</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">15.9762</e>
+        </result>
+      </math>
+    </region>
+    <region left="252" top="1350" width="26" height="24" color="#000000" bgColor="#00ff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="por">
+          <content>
+            <p>Número de Espiras Arredondado</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">N</e>
+          <e type="operand">N'</e>
+          <e type="operand">0</e>
+          <e type="function" args="2">round</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">16</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1404" width="80" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Comprimento do Entreferro</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">lentfr</e>
+          <e type="operand">N</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">μo</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Ae</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.8774</e>
+        </result>
+      </math>
+    </region>
+    <region left="27" top="1467" width="322" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Cálculos para Escolha do Fio</p>
+        </content>
+      </text>
+    </region>
+    <region left="45" top="1512" width="90" height="33" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Bitola do Fio minima (calculado para CC)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A_cu_min</e>
+          <e type="operand">IL_rms</e>
+          <e type="operand">J_max</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2.1444</e>
+        </result>
+      </math>
+    </region>
+    <region left="369" top="1512" width="72" height="24" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="2">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Profundidade de Penetraçao</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Δ</e>
+          <e type="operand">7.5</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">f</e>
+          <e type="function" args="1">sqrt</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.375</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1575" width="90" height="33" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Bitola do Fio maxima (calculado para CA)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A_cu_max</e>
+          <e type="operand">π</e>
+          <e type="operand">2</e>
+          <e type="operand">Δ</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">1.7671</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1638" width="80" height="24" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Diametro Minimo do Fio para garantir a densidade J definida</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">D_min</e>
+          <e type="operand">2</e>
+          <e type="operand">A_cu_min</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">sqrt</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.1652</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1692" width="64" height="24" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="2">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Diametro Maximo do Fio para evitar efeito pelicular</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">D_max</e>
+          <e type="operand">2</e>
+          <e type="operand">Δ</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.75</e>
+        </result>
+      </math>
+    </region>
+    <region left="45" top="1755" width="88" height="24" color="#000000" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Percentual da Corrente CA em relaçao a corrente CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ΔIL</e>
+          <e type="operand">IL_mean</e>
+          <e type="operator" args="2">/</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">%</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">138.8889</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="1836" width="572" height="911" color="#000000" bgColor="#ffff80" fontSize="8">
+      <math optimize="2" exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>           AWG   D_cu     A_cu     D_w       A_w      R/m(20ºC)  R/m(100ºC)  I(DC)@450A/cm²</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">TabelaFios</e>
+          <e type="operand">10</e>
+          <e type="operand">0.259</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.052620</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.273</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.058572</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000033</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000044</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">23.679</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">11</e>
+          <e type="operand">0.231</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.041729</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.244</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.046738</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000041</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000055</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">18.778</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">12</e>
+          <e type="operand">0.205</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.033092</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.218</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.037309</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000052</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000070</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14.892</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">13</e>
+          <e type="operand">0.183</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.026243</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.195</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.029793</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000066</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000080</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">11.809</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">14</e>
+          <e type="operand">0.163</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.020811</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.174</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.23800</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000083</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000111</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">9.365</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">15</e>
+          <e type="operand">0.145</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.016504</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.156</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.019021</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000104</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000140</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">7.427</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">16</e>
+          <e type="operand">0.129</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.013088</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.139</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.015207</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000132</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000176</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">5.890</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">17</e>
+          <e type="operand">0.115</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.010379</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.124</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.012164</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000166</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000222</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">4.671</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">18</e>
+          <e type="operand">0.102</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.008231</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.111</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.009735</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000209</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000280</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">3.704</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">19</e>
+          <e type="operand">0.091</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.006527</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.100</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.007794</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000264</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000353</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">2.937</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">20</e>
+          <e type="operand">0.081</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.005176</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.089</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.006244</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000333</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000445</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">2.329</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">21</e>
+          <e type="operand">0.072</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.004105</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.080</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.005004</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000420</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000561</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.847</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">22</e>
+          <e type="operand">0.064</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.003255</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.071</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.004013</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000530</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000708</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.465</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">23</e>
+          <e type="operand">0.057</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002582</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.064</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.003221</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000668</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000892</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.162</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">24</e>
+          <e type="operand">0.051</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002047</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.057</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002586</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000842</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001125</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.921</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">25</e>
+          <e type="operand">0.045</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001624</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.051</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002078</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001062</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001419</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.731</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">26</e>
+          <e type="operand">0.040</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001287</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.046</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001671</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001339</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001789</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.579</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">27</e>
+          <e type="operand">0.036</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001021</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.041</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001344</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001689</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002256</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.459</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">28</e>
+          <e type="operand">0.032</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000810</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.037</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.001083</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002129</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002845</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.364</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">29</e>
+          <e type="operand">0.029</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000642</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.033</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000872</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.002685</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.003587</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.289</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">30</e>
+          <e type="operand">0.025</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000509</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.030</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000704</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.003386</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.004523</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.229</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">31</e>
+          <e type="operand">0.023</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000404</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.027</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000568</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.004269</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.005704</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.182</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">32</e>
+          <e type="operand">0.020</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000320</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.024</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000459</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.005384</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.007192</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.144</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">33</e>
+          <e type="operand">0.018</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000254</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.022</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000371</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.006789</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.009070</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.114</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">34</e>
+          <e type="operand">0.016</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000201</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.020</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000300</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.008560</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.011437</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.091</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">35</e>
+          <e type="operand">0.014</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000160</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.018</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000243</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.010795</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.014422</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.072</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">36</e>
+          <e type="operand">0.013</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000127</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.016</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000197</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.013612</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.018186</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.057</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">37</e>
+          <e type="operand">0.011</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000100</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.014</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000160</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.017165</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.022932</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.045</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">38</e>
+          <e type="operand">0.010</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000080</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.013</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000130</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.021644</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.028917</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.036</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">39</e>
+          <e type="operand">0.009</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000063</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.012</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000106</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.027293</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.036464</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.028</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">40</e>
+          <e type="operand">0.008</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000050</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.010</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000086</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.034417</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.045981</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.023</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">41</e>
+          <e type="operand">0.007</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000040</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.009</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.000070</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.043399</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.057982</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">cm</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">0.018</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">32</e>
+          <e type="operand">8</e>
+          <e type="function" args="258">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="54" top="2871" width="68" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Fio AWG Escolhido</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Fio</e>
+          <e type="operand">16</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="54" top="2934" width="90" height="33" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Bitola do Fio Comercial</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A_cu</e>
+          <e type="operand">TabelaFios</e>
+          <e type="operand">Fio</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">3</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">1.3088</e>
+        </result>
+      </math>
+    </region>
+    <region left="279" top="2934" width="90" height="33" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Bitola do Fio Comercial com Isolante</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A_w</e>
+          <e type="operand">TabelaFios</e>
+          <e type="operand">Fio</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">5</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">1.5207</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3006" width="76" height="41" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistencia por metro do Fio Comercial</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">R_metro</e>
+          <e type="operand">TabelaFios</e>
+          <e type="operand">Fio</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">7</e>
+          <e type="function" args="3">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0176</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="360" top="3006" width="133" height="33" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistividade Eletrica do Cobre do Fio Comercial</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ρ_cu</e>
+          <e type="operand">R_metro</e>
+          <e type="operand">A_cu</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2.3035</e>
+          <e type="operand">10</e>
+          <e type="operand">8</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3087" width="58" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Numero de Condutores</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">n_cond'</e>
+          <e type="operand">A_cu_min</e>
+          <e type="operand">A_cu</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.6385</e>
+        </result>
+      </math>
+    </region>
+    <region left="243" top="3087" width="18" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Numero de Condutores Arredondado</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">n_cond</e>
+          <e type="operand">n_cond'</e>
+          <e type="operand">0</e>
+          <e type="function" args="2">round</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2</e>
+        </result>
+      </math>
+    </region>
+    <region left="486" top="3087" width="84" height="24" color="#000000" bgColor="#00ff00" fontSize="10">
+      <math optimize="2" exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Numero de Condutores Escolhido</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">n_cond</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region top="3150" color="#000000">
+      <area single="true" collapsed="true" />
+    </region>
+    <region left="27" top="3168" width="443" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Cálculo das Perdas Considerando tudo CC</p>
+        </content>
+      </text>
+    </region>
+    <region left="54" top="3204" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistencia do Cobre considerando tudo CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">R_cobre</e>
+          <e type="operand">R_metro</e>
+          <e type="operand">l_espira</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">N</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n_cond</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0079</e>
+          <e type="operand" style="unit">Ω</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="423" top="3204" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas no Cobre considerando tudo CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_cu</e>
+          <e type="operand">R_cobre</e>
+          <e type="operand">IL_rms</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.7343</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3267" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Variaçao da Densidade de Fluxo Magnetico</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ΔB</e>
+          <e type="operand">B_max</e>
+          <e type="operand">ΔIL</e>
+          <e type="operand">IL_max</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.2869</e>
+          <e type="operand" style="unit">T</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="423" top="3267" width="96" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas no Nucleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_nucleo</e>
+          <e type="operand">ΔB</e>
+          <e type="operand">2.4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">Kn</e>
+          <e type="operand">f</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Kf</e>
+          <e type="operand">f</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">V_nucleo</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">T</e>
+          <e type="operand">7</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mW</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">447.5151</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3321" width="92" height="41" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistencia Termica do Nucleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Rt_nucleo</e>
+          <e type="operand">23</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">1.48</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">AeAw</e>
+          <e type="bracket">(</e>
+          <e type="operand">0.37</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">23.0002</e>
+        </result>
+      </math>
+    </region>
+    <region left="423" top="3321" width="88" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Elevaçao da Temperatura</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ΔT</e>
+          <e type="operand">P_cu</e>
+          <e type="operand">P_nucleo</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand">Rt_nucleo</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">27.1808</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region top="3402" color="#000000">
+      <area single="true" collapsed="true" />
+    </region>
+    <region left="27" top="3420" width="410" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Cálculo das Perdas Separando CC e CA</p>
+        </content>
+      </text>
+    </region>
+    <region left="54" top="3456" width="32" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Corrente RMS da parte CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">IL_rms_DC</e>
+          <e type="operand">IL_mean</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="function" args="1">sqrt</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">9</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="342" top="3456" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Corrente RMS da parte AC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">IL_rms_AC</e>
+          <e type="operand">ΔIL</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">12</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">sqrt</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">3.6084</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3510" width="90" height="33" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Area efetiva do cobre para CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A_cu_DC</e>
+          <e type="operand">n_cond</e>
+          <e type="operand">A_cu</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2.6176</e>
+        </result>
+      </math>
+    </region>
+    <region left="342" top="3510" width="90" height="33" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Area efetiva do cobre para CA</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A_cu_CA</e>
+          <e type="operand">n_cond</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">TabelaFios</e>
+          <e type="operand">Fio</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="function" args="3">el</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">TabelaFios</e>
+          <e type="operand">Fio</e>
+          <e type="operand">9</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="function" args="3">el</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">Δ</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2.1559</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3573" width="80" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistencia para corrente CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">R_DC</e>
+          <e type="operand">ρ_cu</e>
+          <e type="operand">l_espira</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">N</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">A_cu_DC</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mΩ</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">7.8848</e>
+        </result>
+      </math>
+    </region>
+    <region left="342" top="3573" width="80" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistencia para corrente CA</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">R_CA</e>
+          <e type="operand">ρ_cu</e>
+          <e type="operand">l_espira</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">N</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">A_cu_CA</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mΩ</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">9.5733</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3627" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas para corrente CC</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_cu_DC</e>
+          <e type="operand">R_DC</e>
+          <e type="operand">IL_rms_DC</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.6387</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="342" top="3627" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas para corrente CA</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_cu_CA</e>
+          <e type="operand">R_CA</e>
+          <e type="operand">IL_rms_AC</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.1247</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3681" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas totais no Cobre</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_cu</e>
+          <e type="operand">P_cu_DC</e>
+          <e type="operand">P_cu_CA</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.7633</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3735" width="72" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Variaçao da Densidade de Fluxo Magnetico</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ΔB</e>
+          <e type="operand">B_max</e>
+          <e type="operand">ΔIL</e>
+          <e type="operand">IL_max</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.2869</e>
+          <e type="operand" style="unit">T</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="3735" width="96" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas no Nucleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_nucleo</e>
+          <e type="operand">ΔB</e>
+          <e type="operand">2.4</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">Kn</e>
+          <e type="operand">f</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Kf</e>
+          <e type="operand">f</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">V_nucleo</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">A</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">T</e>
+          <e type="operand">7</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mW</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">447.5151</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3789" width="92" height="41" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Resistencia Termica do Nucleo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Rt_nucleo</e>
+          <e type="operand">23</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">1.48</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">AeAw</e>
+          <e type="bracket">(</e>
+          <e type="operand">0.37</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">23.0002</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="3789" width="88" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Elevaçao da Temperatura</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">ΔT</e>
+          <e type="operand">P_cu</e>
+          <e type="operand">P_nucleo</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand">Rt_nucleo</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">27.8494</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="3852" width="275" height="24" color="#000000" bgColor="#ffff00" fontSize="10">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Perdas totais no Indutor</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">P_total</e>
+          <e type="operand">P_nucleo</e>
+          <e type="operand">P_cu</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.2108</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="3852" width="88" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Temperatura de Regime do Indutor</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">T</e>
+          <e type="operand">ΔT</e>
+          <e type="operand">ΔT</e>
+          <e type="function" args="1">UnitsOf</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">Ta</e>
+          <e type="operand">Ta</e>
+          <e type="function" args="1">UnitsOf</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">77.8494</e>
+        </result>
+      </math>
+    </region>
+    <region top="3915" color="#000000">
+      <area single="true" collapsed="true" />
+    </region>
+    <region left="18" top="3933" width="289" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Possibilidade de Execução</p>
+        </content>
+      </text>
+    </region>
+    <region left="54" top="3969" width="90" height="33" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Janela do carretel ocupada</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Aw_occ</e>
+          <e type="operand">N</e>
+          <e type="operand">n_cond</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">A_w</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Kw</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">cm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.6952</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="3969" width="50" height="24" color="#000000" bgColor="#ffff00" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Possibilidade de Exeuçao (Exec&lt;1)</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Exec</e>
+          <e type="operand">Aw_occ</e>
+          <e type="operand">Aw</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.869</e>
+        </result>
+      </math>
+    </region>
+    <region top="4032" color="#000000">
+      <area single="true" collapsed="true" />
+    </region>
+    <region left="18" top="4059" width="289" height="26" color="#0000ff" fontSize="14" isBreakable="false">
+      <text lang="por" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-family: Courier Prime; font-size: 14px; color: #0000ff;">Materiais para Fabricação</p>
+        </content>
+      </text>
+    </region>
+    <region left="54" top="4095" width="26" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Fio AWG Escolhido</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">Fio</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">16</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="4095" width="82" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Núcleo Escolhido</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">nucleo</e>
+        </input>
+        <result action="numeric">
+          <e type="operand" style="string">EE-30/7</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="4149" width="26" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Número de Espiras no carretel</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">N</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">16</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="4149" width="80" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Comprimento do Entreferro</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">lentfr</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.8774</e>
+        </result>
+      </math>
+    </region>
+    <region left="54" top="4203" width="18" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Número de Fios em Paralelo</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">n_cond</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">2</e>
+        </result>
+      </math>
+    </region>
+    <region left="414" top="4203" width="48" height="24" color="#000000" bgColor="#c0c0c0" fontSize="10" showInputData="false">
+      <math decimalPlaces="1" exponentialThreshold="5">
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>Comprimento máximo do fio</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">l_espira</e>
+          <e type="operand">N</e>
+          <e type="operator" args="2">*</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+  </regions>
+</worksheet>
