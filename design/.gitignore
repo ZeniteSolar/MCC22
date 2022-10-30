@@ -4,5 +4,5 @@ __pycache__
 *.raw
 *.log
 *.plt
-modelling/simulations_ltspice
+modelling/simulations_ltspice/*optimizing_components.txt
 modelling/simulations_psim/data

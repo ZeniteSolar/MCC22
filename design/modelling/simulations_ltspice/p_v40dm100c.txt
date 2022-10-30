@@ -1,0 +1,37 @@
+﻿*************************************************
+* Copyright 2020 © Vishay Intertechnology, Inc. *
+* All rights reserved.                          *
+*************************************************
+*Mar 29, 2021
+*DD Vishay semiconduttori italiana SPA
+*davide.dapra@vishay.com
+*File Name: V40DM100C.txt
+*This document is intended as a SPICE modeling guideline and does not
+*constitute a commercial product datasheet. Designers should refer to the
+*appropriate datasheet of the same number for guaranteed specification
+*limits.
+
+
+*Model fit device at 25°C
+*DEVICE=V40DM100C,D
+
+**************************************************** 
+
+.MODEL V40DM100C D
+
++ IS=2.4896E-6
++ N=1.2468
++ RS=9.0294E-3
++ IKF=8.0001
++ CJO=3.1817E-9
++ M=1.5721
++ VJ=7.9588
++ ISR=39.738E-9
++ NR=3.7993
++ BV=130
++ IBV=120.00E-6
++ TT=18.735E-9
++ EG=1.13
++ XTI=2.12
+
+.ENDS
