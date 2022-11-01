@@ -510,6 +510,54 @@
         )
       )
     )
+    (symbol "pspice:CAP" (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
+      (property "Reference" "C" (id 0) (at 2.54 3.81 90)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "CAP" (id 1) (at 2.54 -3.81 90)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "simulation" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Capacitor symbol for simulation only" (id 5) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "CAP_0_1"
+        (polyline
+          (pts
+            (xy -3.81 -1.27)
+            (xy 3.81 -1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -3.81 1.27)
+            (xy 3.81 1.27)
+          )
+          (stroke (width 0) (type default) (color 0 0 0 0))
+          (fill (type none))
+        )
+      )
+      (symbol "CAP_1_1"
+        (pin passive line (at 0 6.35 270) (length 5.08)
+          (name "~" (effects (font (size 1.016 1.016))))
+          (number "1" (effects (font (size 1.016 1.016))))
+        )
+        (pin passive line (at 0 -6.35 90) (length 5.08)
+          (name "~" (effects (font (size 1.016 1.016))))
+          (number "2" (effects (font (size 1.016 1.016))))
+        )
+      )
+    )
   )
 
   (junction (at 31.75 29.21) (diameter 0) (color 0 0 0 0)
@@ -1022,7 +1070,7 @@
     (in_bom yes) (on_board yes)
     (uuid 1d8fa865-3a39-4780-a602-ee901cdd15ba)
     (property "Reference" "R101" (id 0) (at 132.08 136.525 90))
-    (property "Value" "1.0mOhms 1% 5W 50ppm" (id 1) (at 135.255 141.605 90))
+    (property "Value" "1.0mR 1% 5W 50ppm" (id 1) (at 135.255 141.605 90))
     (property "Footprint" "" (id 2) (at 132.08 140.843 90)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -1199,6 +1247,25 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 7a29ae0d-364c-4ce9-8aa0-1fd54fb20024))
+  )
+
+  (symbol (lib_id "pspice:CAP") (at 72.39 146.05 0) (unit 1)
+    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (uuid 531f251f-60c9-4830-8a36-8187cb0e1525)
+    (property "Reference" "C?" (id 0) (at 77.47 144.7799 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "CAP" (id 1) (at 77.47 147.3199 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "" (id 2) (at 72.39 146.05 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (id 3) (at 72.39 146.05 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 76b01144-096e-424e-9fc3-5a89606293fa))
+    (pin "2" (uuid 175c1b58-8534-412a-b64f-25821b226596))
   )
 
   (symbol (lib_id "power:GND") (at 143.51 94.615 0) (unit 1)
@@ -1393,7 +1460,7 @@
     (in_bom yes) (on_board yes)
     (uuid cc73e715-df22-4d48-ab63-8ba1a51f3455)
     (property "Reference" "R102" (id 0) (at 198.755 136.525 90))
-    (property "Value" "1.5mOhms 1% 5W 50ppm" (id 1) (at 198.755 141.605 90))
+    (property "Value" "1.5mR 1% 5W 50ppm" (id 1) (at 198.755 141.605 90))
     (property "Footprint" "" (id 2) (at 198.755 140.843 90)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2128,19 +2195,19 @@
       (reference "#PWR0803") (unit 1) (value "GND") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/20157452-1e1e-41c5-a84e-31df37303bb3"
-      (reference "C201") (unit 1) (value "4.7u") (footprint "")
+      (reference "C201") (unit 1) (value "50V 4.7uF X7R ±10% 1206") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/7ad35a94-6480-4b6e-8e6b-97b8bf5258e2"
-      (reference "C202") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C202") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/39d59c94-c858-453d-9c4b-9fdb33628177"
-      (reference "C203") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C203") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d1101648-873a-4b77-b221-9c1eb8a55e9c"
-      (reference "C204") (unit 1) (value "4.7u") (footprint "")
+      (reference "C204") (unit 1) (value "50V 4.7uF X7R ±10% 1206") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/00000000-0000-0000-0000-0000608046b1"
-      (reference "C205") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C205") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/5485eecf-a236-47a0-9cd2-822f8fbdf19b"
       (reference "C206") (unit 1) (value "50V 100nF X7R ±10% 0402") (footprint "")
@@ -2161,46 +2228,46 @@
       (reference "C211") (unit 1) (value "50V 100nF X7R ±10% 0402") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/1af0c89f-6bba-492d-895f-bc795c33a273"
-      (reference "C301") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C301") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/107c9914-d09c-4da6-9a9a-d13349cbaf1b"
-      (reference "C302") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C302") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/38a62e37-279d-4068-be6d-24e5478bd850"
-      (reference "C303") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C303") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/0d46bb52-7210-4f4c-a5c7-2e9c6d0820e2"
-      (reference "C304") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C304") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/4c7a15e6-3ab3-416c-98b1-2ce6eedb7986"
-      (reference "C305") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C305") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/e47056cf-4f78-4460-8abd-81f55ea6af3b"
-      (reference "C306") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C306") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9ccef82c-1d53-46b4-ae95-0196c3b6b6af"
-      (reference "C307") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C307") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9415359a-876b-4ee4-9d0a-36a621709476"
-      (reference "C308") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C308") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/0d9a85bf-3668-487c-80ed-a28fd5c33377"
-      (reference "C309") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C309") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/4c1a070f-6cbe-4eba-9286-1f580549aee8"
-      (reference "C310") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C310") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/bdc6829c-5606-47d9-8ed2-6e513d952473"
-      (reference "C311") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C311") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/2eea4db5-6bee-416f-8df8-1fe54b53b8e5"
-      (reference "C312") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C312") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/e2641d3a-7b44-4bf8-aa4d-eba76f10c059"
-      (reference "C313") (unit 1) (value "4.7u") (footprint "")
+      (reference "C313") (unit 1) (value "50V 4.7uF X7R ±10% 1206") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/7ae1f00c-7117-4cf1-abd5-b1ed2a74d009"
-      (reference "C314") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C314") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/4e31352a-bce4-4e76-8fde-e21fa6d08010"
       (reference "C401") (unit 1) (value "250V 10nF X7R ±10% 1206") (footprint "")
@@ -2233,13 +2300,13 @@
       (reference "C502") (unit 1) (value "50V 1uF X5R ±10% 0603") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/f684004e-7c27-47dd-b0e2-49c08cd17134"
-      (reference "C503") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C503") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/f5dcce97-8d75-4ea6-86b6-a25f2579cfe6"
-      (reference "C504") (unit 1) (value "50V 10n 0805") (footprint "")
+      (reference "C504") (unit 1) (value "50V 10nF 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/d582b990-d8b6-408a-8a97-42e21e077a33"
-      (reference "C505") (unit 1) (value "50V 100n 0805") (footprint "")
+      (reference "C505") (unit 1) (value "50V 100nF 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/db3f931d-7573-48c8-8a4b-e970d5947684"
       (reference "C506") (unit 1) (value "50V 1uF X5R ±10% 0603") (footprint "")
@@ -2266,37 +2333,40 @@
       (reference "C701") (unit 1) (value "50V 100nF X7R ±10% 0402") (footprint "")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-000060a214af"
-      (reference "C702") (unit 1) (value "50V 4.7n ") (footprint "")
+      (reference "C702") (unit 1) (value "50V 4.7nF X7R ±5% 0603") (footprint "")
+    )
+    (path "/531f251f-60c9-4830-8a36-8187cb0e1525"
+      (reference "C?") (unit 1) (value "CAP") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/5486abae-dfb1-4bfc-8d0e-8e9b477eeba3"
-      (reference "Cc401") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc401") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/205e1c7d-caa0-4e74-95da-735475b41562"
-      (reference "Cc402") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc402") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/da40b05e-6f38-4382-8a0a-199cc41250aa"
-      (reference "Cc403") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc403") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/5b40e12a-dcb2-4674-8041-3bd7db4323b7"
-      (reference "Cc404") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc404") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/78a4262f-466a-404f-b6ec-e42067328fad"
-      (reference "Cc405") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc405") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/f53412b1-42c2-4480-962d-8ff138be84eb"
-      (reference "Cc406") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc406") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/9d4e9540-9742-457f-8b94-853edb5ac0f6"
-      (reference "Cc407") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc407") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/f74f574e-f749-4fd2-83cc-00468108d54d"
-      (reference "Cc408") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc408") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/fa4a887d-63de-48d6-ba9d-749f0e9e0e3e"
-      (reference "Cc409") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc409") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/d37f952e-fa61-4a7b-8c4f-23ecc1b74335"
-      (reference "Cc410") (unit 1) (value "250V X7R 10% 1uF 20mOhms 2220") (footprint "")
+      (reference "Cc410") (unit 1) (value "250V 1uF X7R ±10% 20mR 2220") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/21d07ee1-9cbb-4519-bc2d-f455ee1869c4"
       (reference "Ci401") (unit 1) (value "NC") (footprint "")
@@ -2305,34 +2375,34 @@
       (reference "Ci402") (unit 1) (value "NC") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/1b33c78c-4b62-4524-bccd-455677d1e9da"
-      (reference "Ci403") (unit 1) (value "22u 63V") (footprint "")
+      (reference "Ci403") (unit 1) (value "63V 22uF A767 ±20% EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/5bb5111d-c656-4554-abda-302b884923bb"
-      (reference "Ci404") (unit 1) (value "22u 63V") (footprint "")
+      (reference "Ci404") (unit 1) (value "63V 22uF A767 ±20% EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/77d63fe7-5814-4506-80d7-48616a641a85"
-      (reference "Ci405") (unit 1) (value "22u 63V") (footprint "")
+      (reference "Ci405") (unit 1) (value "63V 22uF A767 ±20% EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/2ef2e527-fab0-4213-8f71-363164196c68"
-      (reference "Ci406") (unit 1) (value "22u 63V") (footprint "")
+      (reference "Ci406") (unit 1) (value "63V 22uF A767 ±20% EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/605b5f8b-e34b-4ae5-9a3b-a534819df640"
-      (reference "Co401") (unit 1) (value "100V X7R 10% 10uF 3mOhms 1210") (footprint "")
+      (reference "Co401") (unit 1) (value "100V 10uF X7R ±10% 3mR 1210") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/018d5371-14c2-4130-b50c-b58d452d7789"
-      (reference "Co402") (unit 1) (value "100V X7R 10% 10uF 3mOhms 1210") (footprint "")
+      (reference "Co402") (unit 1) (value "100V 10uF X7R ±10% 3mR 1210") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/d8acafa2-2073-4dcf-9578-fcd45a7ba763"
-      (reference "Co403") (unit 1) (value "100V 22uF 105°C Al. Pol 38mOhms") (footprint "")
+      (reference "Co403") (unit 1) (value "100V 22uF A767  ±20% 38mR EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/70e02094-9752-446a-882f-2b3c46a41c94"
-      (reference "Co404") (unit 1) (value "100V 22uF 105°C Al. Pol 38mOhms") (footprint "")
+      (reference "Co404") (unit 1) (value "100V 22uF A767  ±20% 38mR EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/db4ea620-3d85-4f9d-83ad-0f821635904a"
-      (reference "Co405") (unit 1) (value "100V 22uF 105°C Al. Pol 38mOhms") (footprint "")
+      (reference "Co405") (unit 1) (value "100V 22uF A767  ±20% 38mR EB") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/7d2d4756-2957-4d7d-a196-00e4dce2d62d"
-      (reference "Co406") (unit 1) (value "100V 22uF 105°C Al. Pol 38mOhms") (footprint "")
+      (reference "Co406") (unit 1) (value "100V 22uF A767  ±20% 38mR EB") (footprint "")
     )
     (path "/168383a3-b386-4ccd-977d-a205de11b063"
       (reference "D101") (unit 1) (value "LL4148") (footprint "")
@@ -2524,31 +2594,31 @@
       (reference "Q402") (unit 1) (value "BSC093N15NS5") (footprint "Zenite:PG-TDSON-8-FL")
     )
     (path "/1d8fa865-3a39-4780-a602-ee901cdd15ba"
-      (reference "R101") (unit 1) (value "1.0mOhms 1% 5W 50ppm") (footprint "")
+      (reference "R101") (unit 1) (value "1.0mR 1% 5W 50ppm") (footprint "")
     )
     (path "/cc73e715-df22-4d48-ab63-8ba1a51f3455"
-      (reference "R102") (unit 1) (value "1.5mOhms 1% 5W 50ppm") (footprint "")
+      (reference "R102") (unit 1) (value "1.5mR 1% 5W 50ppm") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/37d38b07-c2ef-4d50-b9ab-62fd1b7d026d"
       (reference "R201") (unit 1) (value "BOOT0") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/6766f36d-0b2c-49af-8694-d68d34212d56"
-      (reference "R202") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
+      (reference "R202") (unit 1) (value "10kR 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/00000000-0000-0000-0000-000060805b49"
-      (reference "R203") (unit 1) (value "10k") (footprint "")
+      (reference "R203") (unit 1) (value "10kR 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/97dc9649-902b-40ae-aa82-d413a91be7f3"
-      (reference "R204") (unit 1) (value "1k") (footprint "")
+      (reference "R204") (unit 1) (value "1kR 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/28f2f0d4-cfd0-461f-98d3-a0e13e049b3c"
-      (reference "R205") (unit 1) (value "1k") (footprint "")
+      (reference "R205") (unit 1) (value "1kR 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/44b7f33e-7a2c-455b-87d2-7281cc7ef773"
-      (reference "R206") (unit 1) (value "1k") (footprint "")
+      (reference "R206") (unit 1) (value "1kR 0805") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/39f0b900-d3f5-4477-bcb1-ada215c6d34a"
-      (reference "R207") (unit 1) (value "1k") (footprint "")
+      (reference "R207") (unit 1) (value "1kR 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9142cd31-94d5-46bd-8f1e-498b2062c730"
       (reference "R301") (unit 1) (value "?") (footprint "")
@@ -2602,70 +2672,70 @@
       (reference "R317") (unit 1) (value "?") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/aba8f2b7-9c6b-402d-b629-5fa5f1dcafff"
-      (reference "R318") (unit 1) (value "100R") (footprint "")
+      (reference "R318") (unit 1) (value "100R 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/d1beef80-c140-443a-8525-39ad3177400c"
-      (reference "R319") (unit 1) (value "100R") (footprint "")
+      (reference "R319") (unit 1) (value "100R 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/74a26c8c-22cd-4d39-9b9a-91ad4a583a17"
-      (reference "R320") (unit 1) (value "100R") (footprint "")
+      (reference "R320") (unit 1) (value "100R 0805") (footprint "")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/b801789e-159e-4db7-924e-e3fe7aef0ada"
-      (reference "R321") (unit 1) (value "100R") (footprint "")
+      (reference "R321") (unit 1) (value "100R 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/5dbcfee2-cdd5-4c8d-a288-4e6c4cbd5f7b"
-      (reference "R401") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R401") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/120151ea-e52d-46e5-9db6-e4d83014dbca"
-      (reference "R402") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R402") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/91b574b2-75f0-4562-8e92-a4254e66871f"
-      (reference "R403") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R403") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/5f89dde4-e633-430f-8d51-b0eed4d79e84"
-      (reference "R404") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R404") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/e35ccd57-bb59-4b4e-b11a-38e7d264c9e4"
       (reference "R405") (unit 1) (value "0R") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/56349715-00a5-4835-8643-af4f065c1a09"
-      (reference "R406") (unit 1) (value "1R") (footprint "")
+      (reference "R406") (unit 1) (value "1R 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/7007b584-869f-4e06-9369-28c5cdf7a957"
-      (reference "R407") (unit 1) (value "1R") (footprint "")
+      (reference "R407") (unit 1) (value "1R 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/3ebd2f4e-1365-4dd6-b01a-004b43ba6498"
-      (reference "R408") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R408") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/b1e596bd-43af-4c3e-963a-e0431da1a6e4"
-      (reference "R409") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R409") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/e077041d-65b6-464b-8498-4543adf3565d"
-      (reference "R410") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R410") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/bed97938-38bc-4f9c-8f59-401e0acb25cd"
-      (reference "R411") (unit 1) (value "2W 200V 10Ω ±5% 2512") (footprint "")
+      (reference "R411") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/04ded07e-2f7e-4bab-a928-05c66b9115d6"
       (reference "R412") (unit 1) (value "0R") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/84c1a05c-b7b1-4c67-9723-f7955551537f"
-      (reference "R501") (unit 1) (value "4.7R") (footprint "")
+      (reference "R501") (unit 1) (value "4.7R 0805") (footprint "")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/297f1a2a-6697-4030-bebe-5218c549d11c"
-      (reference "R502") (unit 1) (value "4.7R") (footprint "")
+      (reference "R502") (unit 1) (value "4.7R 0805") (footprint "")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-000060708c99"
-      (reference "R701") (unit 1) (value "4k7") (footprint "")
+      (reference "R701") (unit 1) (value "4k7 0805") (footprint "")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-000060a1b053"
-      (reference "R702") (unit 1) (value "300R") (footprint "")
+      (reference "R702") (unit 1) (value "300R 0805") (footprint "")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-000060a1d2be"
-      (reference "R703") (unit 1) (value "520R") (footprint "")
+      (reference "R703") (unit 1) (value "520R 0805") (footprint "")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-000060a1d7fb"
-      (reference "R704") (unit 1) (value "520R") (footprint "")
+      (reference "R704") (unit 1) (value "520R 0805") (footprint "")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-00006093bf3d"
       (reference "R705") (unit 1) (value "NC") (footprint "")
