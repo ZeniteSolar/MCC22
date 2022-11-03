@@ -1,5 +1,6 @@
 (sym_lib_table
-  (lib (name "STM32G431C8T6")(type "Legacy")(uri "${KIPRJMOD}/libs/STM32G431C8T6.lib")(options "")(descr ""))
-  (lib (name "zenite")(type "KiCad")(uri "${KIPRJMOD}/libs/zenite.kicad_sym")(options "")(descr ""))
+  (lib (name "Controle-rescue")(type "Legacy")(uri "/home/alejopm/Documents/zenite/MAM21/hardware/Controle/Controle/Controle-rescue.lib")(options "")(descr "")(disabled))
+  (lib (name "STM32G431C8T6")(type "Legacy")(uri "/home/alejopm/Documents/zenite/MAM21/hardware/Controle/Controle/STM32G431C8T6.lib")(options "")(descr "")(disabled))
+  (lib (name "zenite")(type "KiCad")(uri "${KIPRJMOD}/ZeniteKicadLib/zenite.kicad_sym")(options "")(descr ""))
   (lib (name "tl7726idr")(type "KiCad")(uri "${KIPRJMOD}/libs/tl7726idr.kicad_sym")(options "")(descr "")(disabled))
 )
