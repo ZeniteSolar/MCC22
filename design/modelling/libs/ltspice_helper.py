@@ -1,4 +1,6 @@
 def convert_ltspice_step_simulation_data_to_csv(datasets: list, output_filename: str, input_separator: str = '\t', output_separator: str = ',', expoents: dict = {
+    "g": 'e9',
+    "meg": 'e6',
     "k": 'e3',
     "m": 'e-3',
     "u": 'e-6',
@@ -23,9 +25,9 @@ def convert_ltspice_step_simulation_data_to_csv(datasets: list, output_filename:
 
         filename = dataset["file"]
         file = open(filename, 'r')
-        lines = file.readlines()
+        # lines = file.readlines()
 
-        for (k, line) in enumerate(lines):
+        for (k, line) in enumerate(file):
             if k == 0:
                 variables_cols = line[:-1].split(input_separator)
 
@@ -33,12 +35,15 @@ def convert_ltspice_step_simulation_data_to_csv(datasets: list, output_filename:
                 # found the "Step Information: Li=10u Cc=1u Lo=10u  (Run: 1/36)"
 
                 # Start the new dataset
-                cases_raw = line.split(' ')[2:5]
+                cases_raw = line.split('Step Information: ')[1].split(
+                    '  (Run')[0].split(' ')
+
                 indexes_dict = {}
                 for variable in cases_raw:
                     key, value = variable.split('=')
+                    value = value.lower()
                     has_expoent = [key in value for key in expoents.keys()]
-                    if has_expoent:
+                    if True in has_expoent:
                         value = value[:-1] + expoents[value[-1]]
                     indexes_dict[key] = value
 
@@ -62,9 +67,9 @@ def convert_ltspice_step_simulation_data_to_csv(datasets: list, output_filename:
 
 
 def example():
-    dataset_filename = "simulations_ltspice/simulation_optimization_dataset.csv"
+    dataset_filename = "simulation_optimization_dataset.csv"
     datasets = [
-        {"fsw": '40e3', "file": "simulations_ltspice/1_cuk_40khz_optimizing_components.txt"}
+        {"fsw": '40e3', "file": "../simulations_ltspice/1_cuk_40khz_optimizing_components.txt"}
     ]
 
     convert_ltspice_step_simulation_data_to_csv(
@@ -72,7 +77,7 @@ def example():
 
     import pandas as pd
 
-    dataset_filename = "simulations_ltspice/simulation_optimization_dataset.csv"
+    dataset_filename = "simulation_optimization_dataset.csv"
     df = pd.read_csv(dataset_filename)
     print(df)
 
