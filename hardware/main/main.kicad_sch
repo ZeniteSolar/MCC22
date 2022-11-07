@@ -928,6 +928,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 1ffded5e-302d-4a9a-80a2-6e28f770b3df)
   )
+  (wire (pts (xy 114.935 80.645) (xy 131.445 80.645))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 203f63f7-958c-4dbc-a2fe-ff2cc73bbf9b)
+  )
   (wire (pts (xy 135.89 139.065) (xy 137.16 139.065))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 217f2e44-9da9-40bf-baf3-e952cbb9e452)
@@ -1068,6 +1072,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 6daee000-ccd0-4b34-b123-283535f112c8)
   )
+  (wire (pts (xy 114.935 78.74) (xy 131.445 78.74))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 73d47c55-889b-42ef-804d-b392d55e8399)
+  )
   (wire (pts (xy 161.29 151.765) (xy 168.91 151.765))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 7434869c-462f-498b-8063-e139296c17b7)
@@ -1080,9 +1088,9 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 7e232a61-d115-46b2-9466-7cb88f1eb35a)
   )
-  (wire (pts (xy 114.935 80.01) (xy 131.445 80.01))
+  (wire (pts (xy 114.935 83.82) (xy 131.445 83.82))
     (stroke (width 0) (type default) (color 0 0 0 0))
-    (uuid 8a27a83a-85f8-4923-a0ab-4396d0e87aa5)
+    (uuid 8b03c583-37cf-4b87-9a87-53e62355fee4)
   )
   (wire (pts (xy 156.21 88.265) (xy 161.29 88.265))
     (stroke (width 0) (type default) (color 0 0 0 0))
@@ -2039,14 +2047,14 @@
     (pin "4" (uuid 9163d6b5-1654-4a1e-93cd-9c5fcd09d4a2))
   )
 
-  (sheet (at 88.9 44.45) (size 26.035 43.18) (fields_autoplaced)
+  (sheet (at 88.9 44.45) (size 26.035 46.355) (fields_autoplaced)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
     (uuid 5ce5fb2d-189a-4c71-a5ce-76d878c8bc18)
     (property "Sheet name" "Analog" (id 0) (at 88.9 43.7384 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheet file" "Analog.kicad_sch" (id 1) (at 88.9 88.2146 0)
+    (property "Sheet file" "Analog.kicad_sch" (id 1) (at 88.9 91.3896 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
     (pin "V_bat_in+" input (at 88.9 53.34 180)
@@ -2056,10 +2064,6 @@
     (pin "V_bat_in-" input (at 88.9 55.245 180)
       (effects (font (size 1.016 1.016)) (justify left))
       (uuid 332952e2-8984-46f5-b1d1-c15d19a5fb93)
-    )
-    (pin "Overvoltage_interrupt" output (at 114.935 80.01 0)
-      (effects (font (size 1.016 1.016)) (justify right))
-      (uuid 329a5988-e68f-4943-b381-8648004a94c0)
     )
     (pin "I_panel_in+" input (at 88.9 62.23 180)
       (effects (font (size 1.016 1.016)) (justify left))
@@ -2125,7 +2129,7 @@
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 86b176a2-44f2-44a6-97bb-ceaa395fc037)
     )
-    (pin "GND" input (at 101.6 87.63 270)
+    (pin "GND" input (at 101.6 90.805 270)
       (effects (font (size 1.016 1.016)) (justify left))
       (uuid fcf47fe9-6601-4054-9c89-37ee3ebb82ea)
     )
@@ -2136,6 +2140,18 @@
     (pin "V_Rad" input (at 114.935 75.565 0)
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 83c71031-e516-4e4b-81a3-91dda00a3168)
+    )
+    (pin "Vbat_comp_in_EXT" output (at 114.935 78.74 0)
+      (effects (font (size 1.016 1.016)) (justify right))
+      (uuid 2f705f6d-a48a-464f-8ba1-1c582d8dce76)
+    )
+    (pin "Vbat_comp_EXT" input (at 114.935 80.645 0)
+      (effects (font (size 1.016 1.016)) (justify right))
+      (uuid 167ae69a-e0fd-4678-a552-301656d4302e)
+    )
+    (pin "Vbat_comp" input (at 114.935 83.82 0)
+      (effects (font (size 1.016 1.016)) (justify right))
+      (uuid 44c31d47-a393-4e13-b03f-cb07d2a39275)
     )
   )
 
@@ -2377,9 +2393,17 @@
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 016ac25b-004f-4224-acc3-5b08177fcea6)
     )
-    (pin "Overvoltage_Interrupt" input (at 131.445 80.01 180)
+    (pin "Vbat_comp_EXT" input (at 131.445 80.645 180)
       (effects (font (size 1.016 1.016)) (justify left))
-      (uuid 054d014c-fac6-4399-8b56-b098d54bd6a6)
+      (uuid fa179ff1-b070-4546-95e9-d2e3f4ddb833)
+    )
+    (pin "Vbat_comp_in_EXT" input (at 131.445 78.74 180)
+      (effects (font (size 1.016 1.016)) (justify left))
+      (uuid f18ced98-37d6-431a-ab8b-c34799739287)
+    )
+    (pin "Vbat_comp" input (at 131.445 83.82 180)
+      (effects (font (size 1.016 1.016)) (justify left))
+      (uuid 7db48be7-7d24-441e-8dc8-96be1c2bbb4b)
     )
   )
 
@@ -2469,6 +2493,24 @@
     )
     (path "/4d3c5e46-d00e-407e-83fc-c95042c68e86"
       (reference "#PWR0112") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/61e88691-4a6e-444a-a8fa-6fc4ea4d57b1"
+      (reference "#PWR0113") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/e71e4456-9d41-4c00-96dd-c784b5611e57"
+      (reference "#PWR0114") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/56285478-ef89-4a57-8eee-d03c1823e4af"
+      (reference "#PWR0115") (unit 1) (value "GNDA") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/b8f61f9c-06c1-40f9-a89c-349de5c5cc92"
+      (reference "#PWR0116") (unit 1) (value "GNDA") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/32b45182-94f3-46b1-a424-4585413dda44"
+      (reference "#PWR0117") (unit 1) (value "GNDA") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/193f2fa2-4963-436f-990a-eb724d6883da"
+      (reference "#PWR0118") (unit 1) (value "GNDA") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/f63aed26-bfdb-469b-a9f7-d886bb8f3b52"
       (reference "#PWR0201") (unit 1) (value "GND") (footprint "")
@@ -2905,6 +2947,9 @@
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/79fd20eb-1a85-4afd-8de1-8cd93ec39423"
       (reference "D204") (unit 1) (value "LED_0") (footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder")
     )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/9d41b42a-b039-4a35-b044-6eaa920c116d"
+      (reference "D205") (unit 1) (value "Bat_OverV_Out") (footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder")
+    )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9fb4c33f-5a45-4a3c-b901-c82d2e05eb1e"
       (reference "D301") (unit 1) (value "ESD351DPYR") (footprint "Diode_SMD:D_0402_1005Metric_Pad0.77x0.64mm_HandSolder")
     )
@@ -3049,6 +3094,18 @@
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/ec199855-a97e-4205-9933-fc6f6cc999ae"
       (reference "JP203") (unit 1) (value "Analog_Ref") (footprint "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm")
     )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d59251c6-1dcd-4e74-a7b4-a29ca8ce84e2"
+      (reference "JP204") (unit 1) (value "ID_0") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d01ef1c7-343d-4cfd-9c79-3a2f939a02f8"
+      (reference "JP205") (unit 1) (value "ID_1") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d16577f1-cd45-4bb8-8c16-60f0259d54c7"
+      (reference "JP206") (unit 1) (value "ID_2") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/37b23684-4d2c-4def-8636-74742085388a"
+      (reference "JP207") (unit 1) (value "ID_3") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm")
+    )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/92078646-f255-459b-b626-986c8ba27a42"
       (reference "JP301") (unit 1) (value "Disable_Vpanel") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm")
     )
@@ -3124,6 +3181,9 @@
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/39f0b900-d3f5-4477-bcb1-ada215c6d34a"
       (reference "R207") (unit 1) (value "1kR 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/fb01cb78-13f6-4e1c-a8f6-1082a37aef82"
+      (reference "R208") (unit 1) (value "1kR 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9142cd31-94d5-46bd-8f1e-498b2062c730"
       (reference "R301") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
@@ -3187,6 +3247,18 @@
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/b801789e-159e-4db7-924e-e3fe7aef0ada"
       (reference "R321") (unit 1) (value "100R 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/e04de51b-7a24-4839-a652-c84e2402b9e3"
+      (reference "R322") (unit 1) (value "NC") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/278a9185-bcf1-42ed-9194-e75ece3bd37b"
+      (reference "R323") (unit 1) (value "NC") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/ff196370-2d0d-40c4-baee-bd5a0a8427ee"
+      (reference "R324") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/60cc7f1e-b16e-4ed0-b6c7-dda10aedeed5"
+      (reference "R325") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/120151ea-e52d-46e5-9db6-e4d83014dbca"
       (reference "R402") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder")
     )
@@ -3249,6 +3321,9 @@
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/5189ca6c-c347-4868-9445-246373c6c94b"
       (reference "TP202") (unit 1) (value "DB_1") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/6688947b-9ff9-46d3-8692-70446d611d3a"
+      (reference "TP203") (unit 1) (value "Timer_Break") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/b6040504-a017-4434-a4ba-a1ed179eebcc"
       (reference "U201") (unit 1) (value "REF3430QDGKRQ1") (footprint "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm")
