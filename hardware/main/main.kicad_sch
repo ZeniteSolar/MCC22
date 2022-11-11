@@ -928,7 +928,7 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 1ffded5e-302d-4a9a-80a2-6e28f770b3df)
   )
-  (wire (pts (xy 114.935 80.645) (xy 131.445 80.645))
+  (wire (pts (xy 114.935 82.55) (xy 131.445 82.55))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 203f63f7-958c-4dbc-a2fe-ff2cc73bbf9b)
   )
@@ -1004,6 +1004,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 47282cfa-1fa8-4326-9487-a8c7bffd02d4)
   )
+  (wire (pts (xy 114.935 78.105) (xy 131.445 78.105))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 4b5e870e-9c3c-41e4-ac73-a63056acb247)
+  )
   (wire (pts (xy 143.51 90.805) (xy 143.51 94.615))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 4d58b34a-679e-430f-8cb5-c8c2ec47b6c2)
@@ -1072,7 +1076,7 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 6daee000-ccd0-4b34-b123-283535f112c8)
   )
-  (wire (pts (xy 114.935 78.74) (xy 131.445 78.74))
+  (wire (pts (xy 114.935 80.645) (xy 131.445 80.645))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 73d47c55-889b-42ef-804d-b392d55e8399)
   )
@@ -1088,7 +1092,7 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 7e232a61-d115-46b2-9466-7cb88f1eb35a)
   )
-  (wire (pts (xy 114.935 83.82) (xy 131.445 83.82))
+  (wire (pts (xy 114.935 85.725) (xy 131.445 85.725))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 8b03c583-37cf-4b87-9a87-53e62355fee4)
   )
@@ -2141,17 +2145,21 @@
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 83c71031-e516-4e4b-81a3-91dda00a3168)
     )
-    (pin "Vbat_comp_in_EXT" output (at 114.935 78.74 0)
+    (pin "Vbat_comp_in_EXT" output (at 114.935 80.645 0)
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 2f705f6d-a48a-464f-8ba1-1c582d8dce76)
     )
-    (pin "Vbat_comp_EXT" input (at 114.935 80.645 0)
+    (pin "Vbat_comp_EXT" input (at 114.935 82.55 0)
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 167ae69a-e0fd-4678-a552-301656d4302e)
     )
-    (pin "Vbat_comp" input (at 114.935 83.82 0)
+    (pin "Vbat_comp" input (at 114.935 85.725 0)
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 44c31d47-a393-4e13-b03f-cb07d2a39275)
+    )
+    (pin "V_temp_amb" output (at 114.935 78.105 0)
+      (effects (font (size 1.016 1.016)) (justify right))
+      (uuid 02697861-034a-4b9e-823f-f30596c5d29c)
     )
   )
 
@@ -2393,17 +2401,21 @@
       (effects (font (size 1.016 1.016)) (justify right))
       (uuid 016ac25b-004f-4224-acc3-5b08177fcea6)
     )
-    (pin "Vbat_comp_EXT" input (at 131.445 80.645 180)
+    (pin "Vbat_comp_EXT" input (at 131.445 82.55 180)
       (effects (font (size 1.016 1.016)) (justify left))
       (uuid fa179ff1-b070-4546-95e9-d2e3f4ddb833)
     )
-    (pin "Vbat_comp_in_EXT" input (at 131.445 78.74 180)
+    (pin "Vbat_comp_in_EXT" input (at 131.445 80.645 180)
       (effects (font (size 1.016 1.016)) (justify left))
       (uuid f18ced98-37d6-431a-ab8b-c34799739287)
     )
-    (pin "Vbat_comp" input (at 131.445 83.82 180)
+    (pin "Vbat_comp" input (at 131.445 85.725 180)
       (effects (font (size 1.016 1.016)) (justify left))
       (uuid 7db48be7-7d24-441e-8dc8-96be1c2bbb4b)
+    )
+    (pin "TempAmb" input (at 131.445 78.105 180)
+      (effects (font (size 1.016 1.016)) (justify left))
+      (uuid 9ed59ea4-2a20-4529-a69e-791d1bb28c9a)
     )
   )
 
@@ -2419,6 +2431,9 @@
   )
 
   (symbol_instances
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/1e553ed4-a691-495b-9278-6820977380b1"
+      (reference "#FLG0101") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/b0fe2fb5-9f2f-426d-8035-f6835d9f919d"
       (reference "#FLG0201") (unit 1) (value "PWR_FLAG") (footprint "")
     )
@@ -2511,6 +2526,15 @@
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/193f2fa2-4963-436f-990a-eb724d6883da"
       (reference "#PWR0118") (unit 1) (value "GNDA") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/bee3214e-e421-4772-8c83-ad5568736553"
+      (reference "#PWR0119") (unit 1) (value "GNDA") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/4c404a6f-0e60-4281-a817-821187ae11b1"
+      (reference "#PWR0120") (unit 1) (value "GNDA") (footprint "")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9d953905-6755-4dec-8f07-065091da4c26"
+      (reference "#PWR0121") (unit 1) (value "GNDA") (footprint "")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/f63aed26-bfdb-469b-a9f7-d886bb8f3b52"
       (reference "#PWR0201") (unit 1) (value "GND") (footprint "")
@@ -2803,6 +2827,9 @@
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/7ae1f00c-7117-4cf1-abd5-b1ed2a74d009"
       (reference "C314") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/2ac1ed03-33c8-4b8c-b570-943c320ca45b"
+      (reference "C315") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+    )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/c561d144-7014-40dd-a775-b54aea95849a"
       (reference "C402") (unit 1) (value "NC") (footprint "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder")
     )
@@ -2970,6 +2997,9 @@
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/7f4b3daa-209d-4c62-bd64-2573b13cb40b"
       (reference "D307") (unit 1) (value "ESD351DPYR") (footprint "Diode_SMD:D_0402_1005Metric_Pad0.77x0.64mm_HandSolder")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/1185eefd-da67-4685-8b2f-0e8a95137277"
+      (reference "D308") (unit 1) (value "ESD351DPYR") (footprint "Diode_SMD:D_0402_1005Metric_Pad0.77x0.64mm_HandSolder")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/8c2965bf-7fda-4142-840c-5525f14abc56"
       (reference "D401") (unit 1) (value "C2848681 150V 1A Schottky") (footprint "Diode_SMD:D_SMA")
@@ -3268,6 +3298,9 @@
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/60cc7f1e-b16e-4ed0-b6c7-dda10aedeed5"
       (reference "R325") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/db4eec22-47ef-4d84-9a21-898cfa5fe900"
+      (reference "R326") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/120151ea-e52d-46e5-9db6-e4d83014dbca"
       (reference "R402") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder")
     )
@@ -3325,6 +3358,9 @@
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/e7a53d00-6228-41ef-850e-56b8e4790624"
       (reference "TH302") (unit 1) (value "NTC 10k 1SDNT2012X103F3950FTF") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/b3577bf8-7070-4383-8b5c-580170ce1fd5"
+      (reference "TH303") (unit 1) (value "NTC 10k 1SDNT2012X103F3950FTF") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/30ca56b9-4d53-4bd9-8772-ff4aae6f3f04"
       (reference "TP201") (unit 1) (value "DB_0") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
     )
@@ -3333,6 +3369,24 @@
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/6688947b-9ff9-46d3-8692-70446d611d3a"
       (reference "TP203") (unit 1) (value "Timer_Break") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/25bd6447-1ccc-4e4d-b14c-b68a9f5f5ad7"
+      (reference "TP401") (unit 1) (value "G0") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/16ac69bc-3aec-4096-b6af-41551737d161"
+      (reference "TP402") (unit 1) (value "G1") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/06e26549-4a4b-419e-9e16-4d8dcc76ff3f"
+      (reference "TP?") (unit 1) (value "A") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/670bb6a3-fb93-4584-acf0-49a733cb3778"
+      (reference "TP?") (unit 1) (value "S") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/e348b287-fbec-44f0-ae2d-4ad1b2c9a00e"
+      (reference "TP?") (unit 1) (value "C") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/f52d92a2-4078-4c46-8f47-a7e748267828"
+      (reference "TP?") (unit 1) (value "D") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/b6040504-a017-4434-a4ba-a1ed179eebcc"
       (reference "U201") (unit 1) (value "REF3430QDGKRQ1") (footprint "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm")
