@@ -3376,17 +3376,17 @@
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/16ac69bc-3aec-4096-b6af-41551737d161"
       (reference "TP402") (unit 1) (value "G1") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/06e26549-4a4b-419e-9e16-4d8dcc76ff3f"
-      (reference "TP?") (unit 1) (value "A") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/f52d92a2-4078-4c46-8f47-a7e748267828"
+      (reference "TP403") (unit 1) (value "D") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/670bb6a3-fb93-4584-acf0-49a733cb3778"
-      (reference "TP?") (unit 1) (value "S") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+      (reference "TP404") (unit 1) (value "S") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/e348b287-fbec-44f0-ae2d-4ad1b2c9a00e"
-      (reference "TP?") (unit 1) (value "C") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+      (reference "TP405") (unit 1) (value "C") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/f52d92a2-4078-4c46-8f47-a7e748267828"
-      (reference "TP?") (unit 1) (value "D") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/06e26549-4a4b-419e-9e16-4d8dcc76ff3f"
+      (reference "TP406") (unit 1) (value "A") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/b6040504-a017-4434-a4ba-a1ed179eebcc"
       (reference "U201") (unit 1) (value "REF3430QDGKRQ1") (footprint "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm")
