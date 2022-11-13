@@ -747,7 +747,6 @@
     )
   )
 
-
   (junction (at 156.21 186.69) (diameter 0) (color 0 0 0 0)
     (uuid 03af90ff-b35a-40ef-a8e3-902b0f3143a2)
   )
@@ -1638,7 +1637,7 @@
     (uuid fffc505c-d068-4e00-be64-40e72519ddee)
   )
 
-  (label "V_panel_adc+" (at 179.07 45.72 0)
+  (label "V_panel_adc+" (at 222.885 53.34 0)
     (effects (font (size 1.016 1.016)) (justify left bottom))
     (uuid 002d9d1f-1204-404b-8f68-360b183e800d)
   )
@@ -1694,7 +1693,7 @@
     (effects (font (size 1.016 1.016)) (justify left bottom))
     (uuid 2c0ed5b8-064d-46fe-a7b0-27e1a4074c48)
   )
-  (label "V_temp_diode" (at 222.885 53.34 0)
+  (label "V_temp_diode" (at 179.07 45.72 0)
     (effects (font (size 1.016 1.016)) (justify left bottom))
     (uuid 397d52d5-9fdb-4eeb-889d-d4df890770e2)
   )
