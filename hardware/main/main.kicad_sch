@@ -3124,9 +3124,6 @@
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/54b2c90f-536d-4732-a856-a908da67beff"
       (reference "JP201") (unit 1) (value "Enable Stm32 Supply") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
     )
-    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/51cefcb5-ba01-486b-b8e2-abdd433e4f0f"
-      (reference "JP202") (unit 1) (value "Enable Voltage Reference") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
-    )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/ec199855-a97e-4205-9933-fc6f6cc999ae"
       (reference "JP203") (unit 1) (value "Analog_Ref") (footprint "Jumper:SolderJumper-3_P2.0mm_Open_TrianglePad1.0x1.5mm")
     )
