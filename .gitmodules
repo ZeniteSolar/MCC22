@@ -1,0 +1,3 @@
+[submodule "hardware/main/ZeniteKicadLib"]
+	path = hardware/main/ZeniteKicadLib
+	url = git@github.com:ZeniteSolar/ZeniteKicadLib.git
