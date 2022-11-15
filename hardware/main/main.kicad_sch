@@ -1483,7 +1483,7 @@
     (uuid 21a4452f-2cea-4c15-afa8-91505c7a34d8)
     (property "Reference" "JP102" (id 0) (at 43.815 31.2252 0))
     (property "Value" "Enable_Analog" (id 1) (at 43.815 33.7621 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 43.815 35.56 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 43.815 35.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 43.815 35.56 0)
@@ -1590,7 +1590,7 @@
     (uuid 3c60d6aa-1db8-4c96-8e55-ab0a7940769e)
     (property "Reference" "JP106" (id 0) (at 161.29 116.84 0))
     (property "Value" "Enable_PWM" (id 1) (at 161.29 114.935 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 161.29 112.395 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 161.29 112.395 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 161.29 112.395 0)
@@ -1605,7 +1605,7 @@
     (uuid 3de9086a-c6d8-4316-bec6-69e8439acd39)
     (property "Reference" "JP109" (id 0) (at 220.98 82.0252 0))
     (property "Value" "CAN_H" (id 1) (at 220.98 83.82 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 220.98 86.36 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 220.98 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 220.98 86.36 0)
@@ -1735,7 +1735,7 @@
     (uuid 6d9aff8f-97b8-43a3-bded-c76722ddfd98)
     (property "Reference" "JP105" (id 0) (at 44.45 66.1502 0))
     (property "Value" "Enable_CAN" (id 1) (at 44.45 68.6871 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 44.45 70.485 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 44.45 70.485 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 44.45 70.485 0)
@@ -1767,7 +1767,7 @@
     (uuid 8ca28a50-f767-4098-bc37-5c866a0eebab)
     (property "Reference" "JP104" (id 0) (at 44.45 58.5302 0))
     (property "Value" "Enable_Driver" (id 1) (at 44.45 61.0671 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 44.45 62.865 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 44.45 62.865 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 44.45 62.865 0)
@@ -1782,7 +1782,7 @@
     (uuid a8415152-4189-493e-b536-1b916501f627)
     (property "Reference" "JP108" (id 0) (at 166.37 92.71 0))
     (property "Value" "CAN_TX" (id 1) (at 166.37 90.805 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 166.37 88.265 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 166.37 88.265 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 166.37 88.265 0)
@@ -1851,7 +1851,7 @@
     (uuid b7288454-8cdc-4c3e-8929-34e8523e160e)
     (property "Reference" "JP107" (id 0) (at 166.37 82.0252 0))
     (property "Value" "CAN_RX" (id 1) (at 166.37 83.82 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 166.37 86.36 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 166.37 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 166.37 86.36 0)
@@ -1866,7 +1866,7 @@
     (uuid bfcbd445-644a-4770-9ece-86c4e402e46c)
     (property "Reference" "JP103" (id 0) (at 44.45 50.9102 0))
     (property "Value" "Enable_STM_5V" (id 1) (at 44.45 53.4471 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 44.45 55.245 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 44.45 55.245 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 44.45 55.245 0)
@@ -2005,7 +2005,7 @@
     (uuid f8cda1b5-606e-46d0-8522-0f1496ca48b9)
     (property "Reference" "JP101" (id 0) (at 43.815 24.8752 0))
     (property "Value" "Enable_STM_3V3" (id 1) (at 43.815 27.4121 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 43.815 29.21 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 43.815 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 43.815 29.21 0)
@@ -2020,7 +2020,7 @@
     (uuid fb9fb5e9-694b-46a0-8d48-194908c2a8ef)
     (property "Reference" "JP110" (id 0) (at 220.98 92.71 0))
     (property "Value" "CAN_L" (id 1) (at 220.98 90.805 0))
-    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm" (id 2) (at 220.98 88.265 0)
+    (property "Footprint" "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm" (id 2) (at 220.98 88.265 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 220.98 88.265 0)
@@ -3095,70 +3095,70 @@
       (reference "J802") (unit 1) (value "RJ45_Shielded") (footprint "Zenite:RJ45_YH59_01")
     )
     (path "/f8cda1b5-606e-46d0-8522-0f1496ca48b9"
-      (reference "JP101") (unit 1) (value "Enable_STM_3V3") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP101") (unit 1) (value "Enable_STM_3V3") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/21a4452f-2cea-4c15-afa8-91505c7a34d8"
-      (reference "JP102") (unit 1) (value "Enable_Analog") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP102") (unit 1) (value "Enable_Analog") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/bfcbd445-644a-4770-9ece-86c4e402e46c"
-      (reference "JP103") (unit 1) (value "Enable_STM_5V") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP103") (unit 1) (value "Enable_STM_5V") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/8ca28a50-f767-4098-bc37-5c866a0eebab"
-      (reference "JP104") (unit 1) (value "Enable_Driver") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP104") (unit 1) (value "Enable_Driver") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/6d9aff8f-97b8-43a3-bded-c76722ddfd98"
-      (reference "JP105") (unit 1) (value "Enable_CAN") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP105") (unit 1) (value "Enable_CAN") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/3c60d6aa-1db8-4c96-8e55-ab0a7940769e"
-      (reference "JP106") (unit 1) (value "Enable_PWM") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP106") (unit 1) (value "Enable_PWM") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/b7288454-8cdc-4c3e-8929-34e8523e160e"
-      (reference "JP107") (unit 1) (value "CAN_RX") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP107") (unit 1) (value "CAN_RX") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/a8415152-4189-493e-b536-1b916501f627"
-      (reference "JP108") (unit 1) (value "CAN_TX") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP108") (unit 1) (value "CAN_TX") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/3de9086a-c6d8-4316-bec6-69e8439acd39"
-      (reference "JP109") (unit 1) (value "CAN_H") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP109") (unit 1) (value "CAN_H") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/fb9fb5e9-694b-46a0-8d48-194908c2a8ef"
-      (reference "JP110") (unit 1) (value "CAN_L") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP110") (unit 1) (value "CAN_L") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/54b2c90f-536d-4732-a856-a908da67beff"
-      (reference "JP201") (unit 1) (value "Enable Stm32 Supply") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP201") (unit 1) (value "Enable Stm32 Supply") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/ec199855-a97e-4205-9933-fc6f6cc999ae"
       (reference "JP203") (unit 1) (value "Analog_Ref") (footprint "Zenite:SolderJumper-3_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d59251c6-1dcd-4e74-a7b4-a29ca8ce84e2"
-      (reference "JP204") (unit 1) (value "ID_0") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP204") (unit 1) (value "ID_0") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d01ef1c7-343d-4cfd-9c79-3a2f939a02f8"
-      (reference "JP205") (unit 1) (value "ID_1") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP205") (unit 1) (value "ID_1") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/d16577f1-cd45-4bb8-8c16-60f0259d54c7"
-      (reference "JP206") (unit 1) (value "ID_2") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP206") (unit 1) (value "ID_2") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/37b23684-4d2c-4def-8636-74742085388a"
-      (reference "JP207") (unit 1) (value "ID_3") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP207") (unit 1) (value "ID_3") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/92078646-f255-459b-b626-986c8ba27a42"
-      (reference "JP301") (unit 1) (value "Disable_Vpanel") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP301") (unit 1) (value "Disable_Vpanel") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/de9dd2ff-371e-45a6-8baa-b89867deeaa9"
-      (reference "JP302") (unit 1) (value "Disable_Vbat") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP302") (unit 1) (value "Disable_Vbat") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/fc38e992-c0e4-4ae4-9dfb-9ae5c8c274a1"
-      (reference "JP303") (unit 1) (value "Disabel_Ipanel") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP303") (unit 1) (value "Disabel_Ipanel") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/11a7f527-552a-4611-83a7-550c1d4654df"
-      (reference "JP304") (unit 1) (value "Disable_Ibat") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP304") (unit 1) (value "Disable_Ibat") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/c36b1644-663d-4ef8-9fee-99d91105766b"
-      (reference "JP501") (unit 1) (value "Enable_Driver") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP501") (unit 1) (value "Enable_Driver") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/8ea6c08b-5f8a-4254-953e-67d099b4bc0e"
-      (reference "JP502") (unit 1) (value "Enable_Driver_5V") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.5x0.5mm")
+      (reference "JP502") (unit 1) (value "Enable_Driver_5V") (footprint "Zenite:SolderJumper-2_P0.5mm_Open_TrianglePad0.8x0.5mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/818ce0e1-e903-4f20-8f82-776d69b0c6a4"
       (reference "L401") (unit 1) (value "22uH 16A 13.2mOhms Shilded, ( ~3W core + copper losses)") (footprint "Zenite:L_Pulse_PM227")
@@ -3300,6 +3300,9 @@
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/db4eec22-47ef-4d84-9a21-898cfa5fe900"
       (reference "R326") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/c9fb0cbc-b09d-4d26-b538-f9d7f47ebfd3"
+      (reference "R401") (unit 1) (value "10kR 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/120151ea-e52d-46e5-9db6-e4d83014dbca"
       (reference "R402") (unit 1) (value "2W 200V 10R ±5% 2512") (footprint "Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder")
