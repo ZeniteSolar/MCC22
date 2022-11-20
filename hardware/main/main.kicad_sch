@@ -2916,6 +2916,9 @@
     (path "/73a8e499-3dce-4b6e-8ddf-03683d44bfb8"
       (reference "#PWR0121") (unit 1) (value "GND") (footprint "")
     )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/61e5d348-0dd8-4631-8389-03197af3423a"
+      (reference "#PWR0122") (unit 1) (value "GND") (footprint "")
+    )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/f63aed26-bfdb-469b-a9f7-d886bb8f3b52"
       (reference "#PWR0201") (unit 1) (value "GND") (footprint "")
     )
@@ -3149,6 +3152,9 @@
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/db0a7be8-e95e-4e9a-8622-e72c0668213f"
       (reference "C211") (unit 1) (value "50V 100nF X7R ±10% 0402") (footprint "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/43c7bea9-207d-4cc7-9651-4e3002e8ad2b"
+      (reference "C212") (unit 1) (value "25V 10uF X5R ±10% 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/1af0c89f-6bba-492d-895f-bc795c33a273"
       (reference "C301") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
@@ -3567,14 +3573,14 @@
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/4a078a08-4e14-4a1c-a475-015b093c4e14"
       (reference "NT201") (unit 1) (value "GNDA") (footprint "Resistor_SMD:R_0201_0603Metric")
     )
-    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/f82dcf96-dc98-421c-aef5-fdfa3438a067"
-      (reference "NT301") (unit 1) (value "GNDA") (footprint "Resistor_SMD:R_0201_0603Metric")
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/fabf00c6-7f7d-4b4a-b42a-aee9946ffe36"
+      (reference "NT202") (unit 1) (value "GNDS") (footprint "Resistor_SMD:R_0201_0603Metric")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/a346c15d-2fe7-4749-aced-cf1fd4e6e9f0"
-      (reference "NT?") (unit 1) (value "3V3S") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT203") (unit 1) (value "3V3S") (footprint "Resistor_SMD:R_0201_0603Metric")
     )
-    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/fabf00c6-7f7d-4b4a-b42a-aee9946ffe36"
-      (reference "NT?") (unit 1) (value "GNDS") (footprint "Resistor_SMD:R_0201_0603Metric")
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/f82dcf96-dc98-421c-aef5-fdfa3438a067"
+      (reference "NT301") (unit 1) (value "GNDA") (footprint "Resistor_SMD:R_0201_0603Metric")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/6c99f1f9-eafe-45ec-8483-09510e905baa"
       (reference "PS501") (unit 1) (value "PDSE1-S5-S24-S") (footprint "Converter_DCDC:Converter_DCDC_Murata_MEE3SxxxxSC_THT")
@@ -3760,13 +3766,13 @@
       (reference "TH303") (unit 1) (value "NTC 10k 1SDNT2012X103F3950FTF") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/30ca56b9-4d53-4bd9-8772-ff4aae6f3f04"
-      (reference "TP201") (unit 1) (value "DB_0") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
+      (reference "TP201") (unit 1) (value "DB_0") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/5189ca6c-c347-4868-9445-246373c6c94b"
-      (reference "TP202") (unit 1) (value "DB_1") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
+      (reference "TP202") (unit 1) (value "DB_1") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/6688947b-9ff9-46d3-8692-70446d611d3a"
-      (reference "TP203") (unit 1) (value "Timer_Break") (footprint "TestPoint:TestPoint_Pad_2.0x2.0mm")
+      (reference "TP203") (unit 1) (value "Timer_Break") (footprint "TestPoint:TestPoint_Pad_1.0x1.0mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/25bd6447-1ccc-4e4d-b14c-b68a9f5f5ad7"
       (reference "TP401") (unit 1) (value "G0") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
@@ -3811,7 +3817,7 @@
       (reference "U501") (unit 1) (value "1EDI60N12AF") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/928491fe-3bfe-4b2d-9fd0-bf4405232f71/45b34e39-8a86-4ca9-a65a-5ab8d5890b57"
-      (reference "U601") (unit 1) (value "VXO7805-1000") (footprint "Zenite:TO-220-3_Horizontal_TabDown_SMD_3")
+      (reference "U601") (unit 1) (value "VXO7805-1000") (footprint "Package_TO_SOT_THT:TO-220-3_Vertical")
     )
     (path "/928491fe-3bfe-4b2d-9fd0-bf4405232f71/027c1a4b-890d-4472-9765-7a0db85b522b"
       (reference "U602") (unit 1) (value "AMS1117-3.3") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
