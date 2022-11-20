@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.0
+          "min_clearance": 0.508
         }
       },
       "diff_pair_dimensions": [
@@ -55,20 +55,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "clearance|22802121|167406002|1687ac8b-2e06-49d8-8e58-904e8c6f481e|b5897ee2-a6c8-46f2-ac37-10d1b1bf4bf7",
-        "clearance|22970000|167530000|1687ac8b-2e06-49d8-8e58-904e8c6f481e|0bfb3ca9-0aab-4bc1-a4ba-f55b83cc7c3f",
-        "clearance|22970000|167682755|b341ce54-442b-4d26-b48b-79923dbeac41|1687ac8b-2e06-49d8-8e58-904e8c6f481e",
-        "clearance|25470000|167549014|33393991-f3ff-4540-ad02-d8f1bbd250a6|d9271b0f-ebf5-4288-9239-55a687de1a40",
-        "clearance|25470000|167585000|33393991-f3ff-4540-ad02-d8f1bbd250a6|fea35c67-e106-45ff-bde1-88c5b31e293d",
-        "clearance|25470000|167585000|83ed2e64-81c3-4ce6-9f50-a0c870a28c81|33393991-f3ff-4540-ad02-d8f1bbd250a6",
-        "clearance|25470000|167585000|d77a3c9c-3a91-4666-b84c-830203c5b982|33393991-f3ff-4540-ad02-d8f1bbd250a6",
-        "clearance|69370188|170162804|55fa390e-747d-44a2-980f-28dca0a8a92f|7e1e9303-de37-4360-bb37-77a29c2db818",
-        "clearance|69796450|172520790|73e9f39a-4c78-4358-a8da-739bfd872c32|d8b95b1f-481f-40b7-8fcc-5e1f0920a6e6",
-        "clearance|69965000|170020000|55fa390e-747d-44a2-980f-28dca0a8a92f|0fa684b1-37bd-4ad2-bdc2-d75e04b6861a",
-        "clearance|70000000|172314000|0968cfcf-757d-4a03-a3c8-b44b008c7e56|73e9f39a-4c78-4358-a8da-739bfd872c32",
-        "clearance|70015000|172280000|73e9f39a-4c78-4358-a8da-739bfd872c32|c119b646-8a51-409b-84ba-ad026f793c78"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -147,16 +134,8 @@
           "drill": 0.0
         },
         {
-          "diameter": 0.7,
+          "diameter": 0.9,
           "drill": 0.3
-        },
-        {
-          "diameter": 0.8,
-          "drill": 0.3
-        },
-        {
-          "diameter": 0.8,
-          "drill": 0.4
         },
         {
           "diameter": 1.2,
