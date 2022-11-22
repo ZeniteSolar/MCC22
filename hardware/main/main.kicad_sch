@@ -1619,7 +1619,7 @@
     (property "Value" "NetTie_2" (id 1) (at 130.937 123.3928 90)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
-    (property "Footprint" "Resistor_SMD:R_0201_0603Metric" (id 2) (at 130.175 125.095 0)
+    (property "Footprint" "Zenite:NetTie-2_SMD_Pad0.3mm" (id 2) (at 130.175 125.095 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 130.175 125.095 0)
@@ -1701,7 +1701,7 @@
     (property "Value" "NetTie_2" (id 1) (at 205.232 143.3072 90)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
-    (property "Footprint" "Resistor_SMD:R_0201_0603Metric" (id 2) (at 204.47 141.605 0)
+    (property "Footprint" "Zenite:NetTie-2_SMD_Pad0.3mm" (id 2) (at 204.47 141.605 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 204.47 141.605 0)
@@ -1789,7 +1789,7 @@
     (property "Value" "Resistor_SMD:R_0201_0603Metric" (id 1) (at 194.437 143.3072 90)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
-    (property "Footprint" "Resistor_SMD:R_0201_0603Metric" (id 2) (at 193.675 141.605 0)
+    (property "Footprint" "Zenite:NetTie-2_SMD_Pad0.3mm" (id 2) (at 193.675 141.605 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 193.675 141.605 0)
@@ -2159,7 +2159,7 @@
     (property "Reference" "D102" (id 0) (at 229.743 63.3003 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "LL4148" (id 1) (at 229.743 65.8372 90)
+    (property "Value" "BYD77" (id 1) (at 229.743 65.8372 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Diode_SMD:D_MiniMELF_Handsoldering" (id 2) (at 227.965 64.135 90)
@@ -2181,7 +2181,7 @@
     (property "Value" "NetTie_2" (id 1) (at 141.732 123.3928 90)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
-    (property "Footprint" "Resistor_SMD:R_0201_0603Metric" (id 2) (at 140.97 125.095 0)
+    (property "Footprint" "Zenite:NetTie-2_SMD_Pad0.3mm" (id 2) (at 140.97 125.095 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 140.97 125.095 0)
@@ -3151,10 +3151,13 @@
       (reference "C210") (unit 1) (value "50V 100nF X7R ±10% 0402") (footprint "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/db0a7be8-e95e-4e9a-8622-e72c0668213f"
-      (reference "C211") (unit 1) (value "50V 100nF X7R ±10% 0402") (footprint "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder")
+      (reference "C211") (unit 1) (value "50V 10nF X7R ±10% 0402") (footprint "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/43c7bea9-207d-4cc7-9651-4e3002e8ad2b"
       (reference "C212") (unit 1) (value "25V 10uF X5R ±10% 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+    )
+    (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/49b59b43-63f6-43b2-b358-79ff943bbc02"
+      (reference "C213") (unit 1) (value "50V 1uF X7R ±10% 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/1af0c89f-6bba-492d-895f-bc795c33a273"
       (reference "C301") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
@@ -3181,16 +3184,16 @@
       (reference "C308") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/0d9a85bf-3668-487c-80ed-a28fd5c33377"
-      (reference "C309") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+      (reference "C309") (unit 1) (value "?") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/4c1a070f-6cbe-4eba-9286-1f580549aee8"
-      (reference "C310") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+      (reference "C310") (unit 1) (value "?") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/bdc6829c-5606-47d9-8ed2-6e513d952473"
-      (reference "C311") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+      (reference "C311") (unit 1) (value "?") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/2eea4db5-6bee-416f-8df8-1fe54b53b8e5"
-      (reference "C312") (unit 1) (value "50V 100nF 0805") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+      (reference "C312") (unit 1) (value "?") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/e2641d3a-7b44-4bf8-aa4d-eba76f10c059"
       (reference "C313") (unit 1) (value "50V 4.7uF X7R ±10% 1206") (footprint "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder")
@@ -3331,7 +3334,7 @@
       (reference "D101") (unit 1) (value "LL4148") (footprint "Diode_SMD:D_MiniMELF_Handsoldering")
     )
     (path "/b36941b7-89ca-4b27-b577-7fcb0c646e0a"
-      (reference "D102") (unit 1) (value "LL4148") (footprint "Diode_SMD:D_MiniMELF_Handsoldering")
+      (reference "D102") (unit 1) (value "BYD77") (footprint "Diode_SMD:D_MiniMELF_Handsoldering")
     )
     (path "/98351f9e-a513-4453-9bea-8ce23a737cf1"
       (reference "D103") (unit 1) (value "ESD351DPYR") (footprint "Diode_SMD:D_0402_1005Metric_Pad0.77x0.64mm_HandSolder")
@@ -3410,6 +3413,9 @@
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/c448a2c8-6d22-4c5c-917c-df54777a88e9"
       (reference "D413") (unit 1) (value "SMF64A") (footprint "Diode_SMD:D_SOD-123F")
+    )
+    (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/ed3f1b97-f50b-4587-84da-a7d02883329a"
+      (reference "D414") (unit 1) (value "SMF64A") (footprint "Diode_SMD:D_SOD-123F")
     )
     (path "/928491fe-3bfe-4b2d-9fd0-bf4405232f71/367c0417-ae18-4300-882a-609aad58d23e"
       (reference "D601") (unit 1) (value "ESD351DPYR") (footprint "Diode_SMD:D_0402_1005Metric_Pad0.77x0.64mm_HandSolder")
@@ -3559,28 +3565,28 @@
       (reference "Li401") (unit 1) (value "22uH 16A 13.2mOhms Shilded, ( ~3W core + copper losses)") (footprint "Zenite:L_Pulse_PM227")
     )
     (path "/0a3fd457-5819-4141-9654-a542b12c750e"
-      (reference "NT101") (unit 1) (value "NetTie_2") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT101") (unit 1) (value "NetTie_2") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/b509d497-acd7-4043-99fc-2a75266f97cb"
-      (reference "NT102") (unit 1) (value "NetTie_2") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT102") (unit 1) (value "NetTie_2") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/2fd20720-f125-4a62-9d21-5e74924924e0"
-      (reference "NT103") (unit 1) (value "Resistor_SMD:R_0201_0603Metric") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT103") (unit 1) (value "Resistor_SMD:R_0201_0603Metric") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/2148a207-a307-4814-b0ce-90c653e2ccfe"
-      (reference "NT104") (unit 1) (value "NetTie_2") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT104") (unit 1) (value "NetTie_2") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/4a078a08-4e14-4a1c-a475-015b093c4e14"
-      (reference "NT201") (unit 1) (value "GNDA") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT201") (unit 1) (value "GNDA") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/fabf00c6-7f7d-4b4a-b42a-aee9946ffe36"
-      (reference "NT202") (unit 1) (value "GNDS") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT202") (unit 1) (value "GNDS") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/a346c15d-2fe7-4749-aced-cf1fd4e6e9f0"
-      (reference "NT203") (unit 1) (value "3V3S") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT203") (unit 1) (value "3V3S") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/f82dcf96-dc98-421c-aef5-fdfa3438a067"
-      (reference "NT301") (unit 1) (value "GNDA") (footprint "Resistor_SMD:R_0201_0603Metric")
+      (reference "NT301") (unit 1) (value "GNDA") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/6c99f1f9-eafe-45ec-8483-09510e905baa"
       (reference "PS501") (unit 1) (value "PDSE1-S5-S24-S") (footprint "Converter_DCDC:Converter_DCDC_Murata_MEE3SxxxxSC_THT")
@@ -3673,16 +3679,16 @@
       (reference "R317") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/aba8f2b7-9c6b-402d-b629-5fa5f1dcafff"
-      (reference "R318") (unit 1) (value "100R 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+      (reference "R318") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/d1beef80-c140-443a-8525-39ad3177400c"
-      (reference "R319") (unit 1) (value "100R 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+      (reference "R319") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/74a26c8c-22cd-4d39-9b9a-91ad4a583a17"
-      (reference "R320") (unit 1) (value "100R 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+      (reference "R320") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/b801789e-159e-4db7-924e-e3fe7aef0ada"
-      (reference "R321") (unit 1) (value "100R 0805") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+      (reference "R321") (unit 1) (value "?") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/e04de51b-7a24-4839-a652-c84e2402b9e3"
       (reference "R322") (unit 1) (value "NC") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
@@ -3766,13 +3772,13 @@
       (reference "TH303") (unit 1) (value "NTC 10k 1SDNT2012X103F3950FTF") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/30ca56b9-4d53-4bd9-8772-ff4aae6f3f04"
-      (reference "TP201") (unit 1) (value "DB_0") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+      (reference "TP201") (unit 1) (value "DB_0") (footprint "Zenite:TestPoint_Pad_1.0x1.0mm_small")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/5189ca6c-c347-4868-9445-246373c6c94b"
-      (reference "TP202") (unit 1) (value "DB_1") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
+      (reference "TP202") (unit 1) (value "DB_1") (footprint "Zenite:TestPoint_Pad_1.0x1.0mm_small")
     )
     (path "/d443602e-c945-466d-a5b3-f4f57ead3f21/6688947b-9ff9-46d3-8692-70446d611d3a"
-      (reference "TP203") (unit 1) (value "Timer_Break") (footprint "TestPoint:TestPoint_Pad_1.0x1.0mm")
+      (reference "TP203") (unit 1) (value "Timer_Break") (footprint "Zenite:TestPoint_Pad_1.0x1.0mm_small")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/25bd6447-1ccc-4e4d-b14c-b68a9f5f5ad7"
       (reference "TP401") (unit 1) (value "G0") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
@@ -3823,7 +3829,7 @@
       (reference "U602") (unit 1) (value "AMS1117-3.3") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
     )
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/00000000-0000-0000-0000-00006092be2a"
-      (reference "U701") (unit 1) (value "MCP2551") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+      (reference "U701") (unit 1) (value "MCP2561") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
   )
 )
