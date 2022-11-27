@@ -3,13 +3,11 @@
 # 4-layer, 1oz copper
 (rule "Minimum Trace Width and Spacing (inner layer)"
 	(constraint track_width (min 5mil))
-	(constraint clearance (min 5mil))
 	(layer inner)
 	(condition "A.Type == 'track'"))
 
 (rule "Minimum Trace Width and Spacing (outer layer)"
 	(constraint track_width (min 3.5mil))
-	(constraint clearance (min 3.5mil))
 	(layer outer)
 	(condition "A.Type == 'track'"))
 
