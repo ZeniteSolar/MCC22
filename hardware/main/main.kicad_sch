@@ -2853,6 +2853,9 @@
     (path "/670910d0-0d6c-46e7-abfa-eec10cdf1aa2/6d6e7541-9017-4b87-9197-2f34decb6a78"
       (reference "#FLG0701") (unit 1) (value "PWR_FLAG") (footprint "")
     )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/4796a67b-6998-473e-8313-7d362751362f"
+      (reference "#PWR01") (unit 1) (value "GNDA") (footprint "")
+    )
     (path "/c14bd6ee-3ab5-4925-bc69-6183259ae2d5"
       (reference "#PWR0101") (unit 1) (value "+3V3") (footprint "")
     )
@@ -3587,6 +3590,9 @@
     )
     (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/f82dcf96-dc98-421c-aef5-fdfa3438a067"
       (reference "NT301") (unit 1) (value "GNDA") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
+    )
+    (path "/5ce5fb2d-189a-4c71-a5ce-76d878c8bc18/9fe0baec-d8b8-4593-b1c2-d81943d982cd"
+      (reference "NT302") (unit 1) (value "GNDA") (footprint "Zenite:NetTie-2_SMD_Pad0.3mm")
     )
     (path "/9e3280d3-dce3-416e-a0bb-0596067104fa/cc3e596f-ddde-41c2-a2e5-ac6a660b9c6c/6c99f1f9-eafe-45ec-8483-09510e905baa"
       (reference "PS501") (unit 1) (value "PDSE1-S5-S24-S") (footprint "Converter_DCDC:Converter_DCDC_Murata_MEE3SxxxxSC_THT")
