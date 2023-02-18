@@ -19,3 +19,6 @@ MPPT Battery charger
 <img style="background-color:white"  src="images/real_top.jpeg" alt="Soldered" align="center" width="600"/>
 <img style="background-color:white"  src="images/real_bottom.jpeg" alt="Soldered" align="center" width="600"/>
 
+### Tests
+
+All tests are in [this](./tests/tests.md) separated document.
