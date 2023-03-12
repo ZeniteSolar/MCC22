@@ -21,7 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "machine.h"
+#include "control.h"
+#include "comparators.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -117,6 +119,9 @@ int main(void)
 	MX_DAC1_Init();
 	MX_TIM2_Init();
 	/* USER CODE BEGIN 2 */
+	machine_init();
+	comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_2, 2.3);
+	comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
 
 	/* USER CODE END 2 */
 
@@ -127,6 +132,13 @@ int main(void)
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+		machine_run();
+		
+		if (adc_ready)
+		{
+			adc_ready = 0;
+			control_run();
+		}
 	}
 	/* USER CODE END 3 */
 }
