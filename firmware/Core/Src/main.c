@@ -21,9 +21,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <string.h>
 #include "machine.h"
 #include "control.h"
 #include "comparators.h"
+#include "pwm.h"
+#include "adc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,21 +110,8 @@ int main(void)
 
 	/* USER CODE END SysInit */
 
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_DMA_Init();
-	MX_ADC1_Init();
-	MX_CAN1_Init();
-	MX_TIM1_Init();
-	MX_USART1_UART_Init();
-	MX_COMP1_Init();
-	MX_COMP2_Init();
-	MX_DAC1_Init();
-	MX_TIM2_Init();
-	/* USER CODE BEGIN 2 */
-	machine_init();
-	comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_2, 2.3);
-	comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
+    adc_init(&hadc1, &htim2);
+    pwm_init(&htim1);
 
 	/* USER CODE END 2 */
 
