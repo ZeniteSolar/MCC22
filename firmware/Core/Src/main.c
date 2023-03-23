@@ -36,6 +36,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+volatile uint8_t data_uart[24];
+volatile uint8_t half_buffer = 0;
+volatile uint8_t full_buffer = 0;
+volatile uint8_t half_buffer = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -110,6 +114,7 @@ int main(void)
 
 	/* USER CODE END SysInit */
 
+    HAL_UART_Receive_DMA(&huart1, data_uart, sizeof(data_uart) / sizeof(uint8_t));
     adc_init(&hadc1, &htim2);
     pwm_init(&htim1);
 
@@ -689,6 +694,25 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+    half_buffer = 1;
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    full_buffer = 1;
+}
+
+/**
+ * Uart message recived interrupt callback
+ */
+
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+
+    // printf("batata %d\n", huart->ErrorCode);
+}
 /* USER CODE END 4 */
 
 /**
