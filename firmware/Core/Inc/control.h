@@ -10,6 +10,8 @@ typedef enum
 {
     // Perturb and Observe
     PEO,
+    // Perturb and Observe with dynamic step
+    PEO_DYN_STEP,
     // Brute Force
     BRUTE_FORCE,
     // Proportional Integrator

@@ -18,7 +18,7 @@ void brute_force_init(float initial_duty)
 
 float brute_force_run(const volatile inputs_t *inputs)
 {
-    static float step = 0.001;
+    static float step = 0.00003;
     float pi = inputs->v_p * inputs->i_p;
     
     if (pi > metadata.absolute_mpp_power)
@@ -29,7 +29,10 @@ float brute_force_run(const volatile inputs_t *inputs)
     actual_duty += step;
 
     if (actual_duty > PWM_MAX)
+    {
+        actual_duty = PWM_MAX;
         metadata.done = 1;
+    }
 
     return actual_duty;
 }

@@ -3,6 +3,7 @@
 #include "brute_force.h"
 #include "fixed.h"
 #include "pi.h"
+#include "peo_dynamic_step.h"
 
 static control_t control;
 
@@ -55,6 +56,12 @@ void control_set_peo(float initial_duty)
     control.algorithm_running = PEO;
 }
 
+void control_set_peo_dynamic_step(float initial_duty)
+{
+    peo_dynamic_step_init(initial_duty);
+    control.algorithm_running = PEO_DYN_STEP;
+}
+
 void control_set_pi(float initial_duty)
 {
     pi_init(initial_duty);
@@ -66,6 +73,7 @@ void control_set_fixed(float initial_duty)
     fixed_init(initial_duty);
     control.algorithm_running = FIXED;
 }
+
 
 void control_start(void)
 {
@@ -88,11 +96,11 @@ void control_set_enable(FunctionalState enable)
 void control_script(void)
 {
 
-    // When brute force ends initialize the continuous algorithm
-    if (control.algorithm_running == BRUTE_FORCE && brute_force_get_metadata()->done)
-    {
-        control_set_peo(brute_force_get_metadata()->absolute_mpp_duty);
-    }
+    // // When brute force ends initialize the continuous algorithm
+    // if (control.algorithm_running == BRUTE_FORCE && brute_force_get_metadata()->done)
+    // {
+    //     control_set_peo(brute_force_get_metadata()->absolute_mpp_duty);
+    // }
 
     // if power is too low, maybe the algorithm is lost
     if (control.inputs->v_p * control.inputs->i_p <= MINIMUM_POWER)
@@ -113,6 +121,9 @@ void control_run(void)
         break;
     case PEO:
         duty = peo_run(control.inputs);
+        break;
+    case PEO_DYN_STEP:
+        duty = peo_dynamic_step_run(control.inputs);
         break;
     case PI:
         duty = pi_run(control.inputs);
