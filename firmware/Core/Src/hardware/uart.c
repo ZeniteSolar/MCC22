@@ -141,7 +141,6 @@ void parse_write_duty(parser_t *parser, command_t *command)
 {
     float duty = get_command_float(parser, command);
     pwm_set_duty(duty);
-    printf("writing duty %f\n", duty);
 }
 
 void parse_write_freq(parser_t *parser, command_t *command)
@@ -149,34 +148,30 @@ void parse_write_freq(parser_t *parser, command_t *command)
     /* In kHz*/
     float freq = get_command_float(parser, command);
     pwm_set_freq(freq * 1e3);
-    printf("writing freq %f\n", freq * 1e3);
 }
 
 void parse_write_machine_state(parser_t *parser, command_t *command)
 {
     int state = get_command_int(parser, command);
-    printf("writing %d state\n", state);
+    printf("not writing %d state\n", state);
 }
 
 void parse_write_control_algorithm_fixed(parser_t *parser, command_t *command)
 {
     float initial_duty = get_command_float(parser, command);
     control_force_algorithm(FIXED, initial_duty);
-    printf("writing fixed algorithm %f\n", initial_duty);
 }
 
 void parse_write_control_algorithm_peo(parser_t *parser, command_t *command)
 {
     float initial_duty = get_command_float(parser, command);
     control_force_algorithm(PEO, initial_duty);
-    printf("writing peo algorithm %f\n", initial_duty);
 }
 
 void parse_write_control_algorithm_brute_force(parser_t *parser, command_t *command)
 {
     float initial_duty = get_command_float(parser, command);
     control_force_algorithm(BRUTE_FORCE, initial_duty);
-    printf("writing brute force algorithm %f\n", initial_duty);
 }
 
 
@@ -329,14 +324,19 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
      *            IBAT? Get Battery Current
      *            VPAN? Get Panel Voltage
      *            IPAN? Get Panel Current
-     *            ALLM? Get All Measurements
+     *            ALLM? Get All Measurements comma separated
+     *      CTRL: ConTRol
+     *            ALGO? Get the current algorithm
+     * 
      *
      * WRTE:
      *      HARD: HARDware
-     *          DUTY:0000.0000 Write PWM DUTY cycle
+     *          DUTY:0000.0000 Write PWM DUTY cycle (Is not recommended write directly in the hardware
+     *                                                   because control algorithms change the duty cycle,
+     *                                                   is recommended to use the command: WRTE:CTRL:ALGO:FIXD:0000.0000 instead)
      *          FREQ:0000.0000 Write FREQuency in kHz
      *      MACH: MACHine
-     *          STAT:XXX0% Force machine state
+     *          STAT:(Not implemented)XXX0% Force machine state 
      *      CTRL: ConTRoL
      *          ALGO: Force Control Algorithm
      *              FIXD:0000.0000  Change to fixed duty cycle algorithm with initial duty cycle 0000.0000
