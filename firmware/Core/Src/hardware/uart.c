@@ -1,5 +1,7 @@
 #include "uart.h"
 #include "adc.h"
+#include "pwm.h"
+#include "control.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -110,6 +112,16 @@ void parse_read_meas_ipan(parser_t *parser, command_t *command)
     printf("%f\n", adc_get_measurements()->i_p);
 }
 
+void parse_read_duty_cycle(parser_t *parser, command_t *command)
+{
+    printf("%f\n", pwm_get_duty());
+}
+
+void parse_read_frequency(parser_t *parser, command_t *command)
+{
+    printf("%f\n", pwm_get_freq());
+}
+
 void parse_read_meas_allm(parser_t *parser, command_t *command)
 {
     for (int i = 0; i < sizeof(inputs_t) / sizeof(float); i++)
@@ -119,16 +131,25 @@ void parse_read_meas_allm(parser_t *parser, command_t *command)
     printf("\n");
 }
 
+void parse_read_control_algorithm(parser_t *parser, command_t *command)
+{
+
+    printf("%d\n", control_get_algorithm());
+}
+
 void parse_write_duty(parser_t *parser, command_t *command)
 {
     float duty = get_command_float(parser, command);
+    pwm_set_duty(duty);
     printf("writing duty %f\n", duty);
 }
 
 void parse_write_freq(parser_t *parser, command_t *command)
 {
+    /* In kHz*/
     float freq = get_command_float(parser, command);
-    printf("writing freq %f\n", freq);
+    pwm_set_freq(freq * 1e3);
+    printf("writing freq %f\n", freq * 1e3);
 }
 
 void parse_write_machine_state(parser_t *parser, command_t *command)
@@ -137,12 +158,35 @@ void parse_write_machine_state(parser_t *parser, command_t *command)
     printf("writing %d state\n", state);
 }
 
-void parse_write_control_algotithm(parser_t *parser, command_t *command)
+void parse_write_control_algorithm_fixed(parser_t *parser, command_t *command)
 {
-    int algorithm = get_command_int(parser, command);
-    printf("writing %d algorithm\n", algorithm);
+    float initial_duty = get_command_float(parser, command);
+    control_force_algorithm(FIXED, initial_duty);
+    printf("writing fixed algorithm %f\n", initial_duty);
 }
 
+void parse_write_control_algorithm_peo(parser_t *parser, command_t *command)
+{
+    float initial_duty = get_command_float(parser, command);
+    control_force_algorithm(PEO, initial_duty);
+    printf("writing peo algorithm %f\n", initial_duty);
+}
+
+void parse_write_control_algorithm_brute_force(parser_t *parser, command_t *command)
+{
+    float initial_duty = get_command_float(parser, command);
+    control_force_algorithm(BRUTE_FORCE, initial_duty);
+    printf("writing brute force algorithm %f\n", initial_duty);
+}
+
+
+/**
+ * @brief Get the int value of a command XXXX%
+ * 
+ * @param parser parser object that have buffer consumption info
+ * @param command the first command (first 4 chars)
+ * @return int value
+ */
 int get_command_int(parser_t *parser, command_t *command)
 {
     int value = 0;
@@ -155,6 +199,13 @@ int get_command_int(parser_t *parser, command_t *command)
     return value;
 }
 
+/**
+ * @brief Get the float value of a command XXXX.XXXX
+ * 
+ * @param parser parser object that have buffer consumption info
+ * @param command the first command (first 4 chars)
+ * @return float value
+ */
 float get_command_float(parser_t *parser, command_t *command)
 {
     float value = 0;
@@ -265,6 +316,12 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
     /**
      * Sample command: XXXX:XXXX:XXXX:0000.0000
      * Command should have 4 chars + separator
+     * Separators:
+     * '.': Float value
+     * '%': Int value
+     * '?': Respose
+     * ':': Command
+     * 
      * Commands:
      * READ:
      *      MEAS: MEASurements
@@ -281,7 +338,10 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
      *      MACH: MACHine
      *          STAT:XXX0% Force machine state
      *      CTRL: ConTRoL
-     *          ALGO:XXX0% Force Control State
+     *          ALGO: Force Control Algorithm
+     *              FIXD:0000.0000  Change to fixed duty cycle algorithm with initial duty cycle 0000.0000
+     *              PEOF:0000.0000  Change to PeO fixed step algorithm with initial duty cycle 0000.0000
+     *              BRUT:0000.0000  Change to Brute Force algorithm with initial duty cycle 0000.0000
      *
      */
 
@@ -314,9 +374,32 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         });
 
     MAKE_NODES(
+        read_duty_cycle,
+        {MAKE_NODE(VARIABLE, UNDEFINED, parse_read_duty_cycle, NULL)});
+    MAKE_NODES(
+        read_frequency,
+        {MAKE_NODE(VARIABLE, UNDEFINED, parse_read_frequency, NULL)});
+
+    MAKE_NODES(
+        read_hardware,
+        {
+            MAKE_NODE("DUTY", QUESTION, NULL, &read_duty_cycle),
+            MAKE_NODE("FREQ", QUESTION, NULL, &read_frequency),
+        });
+
+    MAKE_NODES(
+        read_control,
+        {
+            MAKE_NODE("ALGO", QUESTION, parse_read_control_algorithm, NULL),
+        });
+
+
+    MAKE_NODES(
         read,
         {
             MAKE_NODE("MEAS", COLON, NULL, &meas),
+            MAKE_NODE("HARD", COLON, NULL, &read_hardware),        
+            MAKE_NODE("CTRL", COLON, NULL, &read_control),        
         });
 
     /* WRITE COMMANDS */
@@ -333,38 +416,52 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         });
 
     MAKE_NODES(
-        hardware,
+        write_hardware,
         {
             MAKE_NODE("DUTY", COLON, NULL, &duty),
             MAKE_NODE("FREQ", COLON, NULL, &freq),
         });
 
     MAKE_NODES(
-        machine_state,
+        write_machine_state,
         {MAKE_NODE(VARIABLE, PERCENT, parse_write_machine_state, NULL)});
 
     MAKE_NODES(
-        machine,
+        write_machine,
         {
-            MAKE_NODE("STAT", COLON, NULL, &machine_state),
+            MAKE_NODE("STAT", COLON, NULL, &write_machine_state),
         });
 
     MAKE_NODES(
-        control_algorithm,
-        {MAKE_NODE(VARIABLE, PERCENT, parse_write_control_algotithm, NULL)});
+        write_fixed_algorithm,
+        {MAKE_NODE(VARIABLE, DOT, parse_write_control_algorithm_fixed, NULL)});
+    MAKE_NODES(
+        write_peo_algorithm,
+        {MAKE_NODE(VARIABLE, DOT, parse_write_control_algorithm_peo, NULL)});
+    MAKE_NODES(
+        write_brute_force_algorithm,
+        {MAKE_NODE(VARIABLE, DOT, parse_write_control_algorithm_brute_force, NULL)});
 
     MAKE_NODES(
-        control,
+        write_control_algorithm,
         {
-            MAKE_NODE("ALGO", COLON, NULL, &control_algorithm),
+            MAKE_NODE("FIXD", COLON, NULL, &write_fixed_algorithm),
+            MAKE_NODE("PEOF", COLON, NULL, &write_peo_algorithm),
+            MAKE_NODE("BRUT", COLON, NULL, &write_brute_force_algorithm)
+        });
+
+    MAKE_NODES(
+        write_control,
+        {
+            MAKE_NODE("ALGO", COLON, NULL, &write_control_algorithm),
         });
 
     MAKE_NODES(
         write,
         {
-            MAKE_NODE("HARD", COLON, NULL, &hardware),
-            MAKE_NODE("MACH", COLON, NULL, &machine),
-            MAKE_NODE("CTRL", COLON, NULL, &control),
+            MAKE_NODE("HARD", COLON, NULL, &write_hardware),
+            MAKE_NODE("MACH", COLON, NULL, &write_machine),
+            MAKE_NODE("CTRL", COLON, NULL, &write_control),
         });
 
     /* ROOT COMMAND */
