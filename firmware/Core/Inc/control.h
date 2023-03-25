@@ -39,6 +39,8 @@ typedef struct
     /**
      * Internal variables
      */
+    // if algorithm is in follower mode
+    FunctionalState forced_algorithm;
     // adc values
     const volatile inputs_t *inputs;
 
@@ -53,6 +55,20 @@ void control_init(void);
  * Run control algorithms
  */
 void control_run(void);
+
+/**
+ * @brief Force an algorithm 
+ * 
+ * @param algorithm the algorithm to use
+ * @param initial_duty initial duty cycle
+ */
+void control_force_algorithm(algorithms_t algorithm, float initial_duty);
+
+/**
+ * @brief get the actual algorithm
+ * 
+ */
+algorithms_t control_get_algorithm(void);
 
 /**
  * @brief enable/disable control.

@@ -77,6 +77,7 @@ void control_set_fixed(float initial_duty)
 
 void control_start(void)
 {
+    control.forced_algorithm = DISABLE;
     control_set_brute_force(0.0);
 }
 
@@ -89,12 +90,45 @@ void control_set_enable(FunctionalState enable)
         control_start();
 }
 
+algorithms_t control_get_algorithm(void)
+{
+    return control.algorithm_running;
+}
+
+void control_force_algorithm(algorithms_t algorithm, float initial_duty)
+{
+    switch (algorithm)
+    {
+    case BRUTE_FORCE:
+        control_set_brute_force(initial_duty);
+        break;
+    case PEO:
+        control_set_peo(initial_duty);
+        break;
+    case PEO_DYN_STEP:
+        control_set_peo_dynamic_step(initial_duty);
+        break;
+    case PI:
+        control_set_pi(initial_duty);
+        break;
+    case FIXED:
+        control_set_fixed(initial_duty);
+        break;
+    default:
+        return;
+    }
+
+    control.forced_algorithm = ENABLE;
+}
+
 /**
  * @brief Script for the control logic,
  * this function describes the sequence and the conditions to use different algorithms
  */
 void control_script(void)
 {
+    if (control.forced_algorithm)
+        return;
 
     // // When brute force ends initialize the continuous algorithm
     // if (control.algorithm_running == BRUTE_FORCE && brute_force_get_metadata()->done)
