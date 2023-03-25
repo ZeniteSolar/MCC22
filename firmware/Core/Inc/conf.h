@@ -13,8 +13,8 @@
 
 
 // PWM Configuration
-#define PWM_MIN 0.0f
-#define PWM_MAX 0.98f
+#define PWM_MIN 0.1f
+#define PWM_MAX 0.8f
 
 
 // Control Configuration

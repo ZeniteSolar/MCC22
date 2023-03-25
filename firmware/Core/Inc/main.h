@@ -69,8 +69,6 @@ void Error_Handler(void);
 #define LED_CAN_BUSY_GPIO_Port GPIOH
 #define IBat__Pin GPIO_PIN_0
 #define IBat__GPIO_Port GPIOC
-#define TempAmb_Pin GPIO_PIN_1
-#define TempAmb_GPIO_Port GPIOC
 #define Vpanel__Pin GPIO_PIN_2
 #define Vpanel__GPIO_Port GPIOC
 #define IPanel__Pin GPIO_PIN_0

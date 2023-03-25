@@ -25,6 +25,8 @@
 /* USER CODE END Includes */
 extern DMA_HandleTypeDef hdma_adc1;
 
+extern DMA_HandleTypeDef hdma_usart1_rx;
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -121,21 +123,20 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     PA6     ------> ADC1_IN11
     PC5     ------> ADC1_IN14
     */
-    GPIO_InitStruct.Pin = IBat__Pin|TempAmb_Pin|Vpanel__Pin;
+    GPIO_InitStruct.Pin = IBat__Pin|GPIO_PIN_1|Vpanel__Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = IPanel__Pin|Vbat_comp_Pin|TempDiode_Pin|TempMos_Pin
-                          |Rad__Pin;
+    GPIO_InitStruct.Pin = IPanel__Pin|TempDiode_Pin|TempMos_Pin|Rad__Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = Vbat__Pin;
+    GPIO_InitStruct.Pin = Vbat_comp_Pin|Vbat__Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(Vbat__GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = Vbat_comp_EXT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
@@ -152,7 +153,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     hdma_adc1.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
     hdma_adc1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
     hdma_adc1.Init.Mode = DMA_CIRCULAR;
-    hdma_adc1.Init.Priority = DMA_PRIORITY_LOW;
+    hdma_adc1.Init.Priority = DMA_PRIORITY_MEDIUM;
     if (HAL_DMA_Init(&hdma_adc1) != HAL_OK)
     {
       Error_Handler();
@@ -198,7 +199,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     PA6     ------> ADC1_IN11
     PC5     ------> ADC1_IN14
     */
-    HAL_GPIO_DeInit(GPIOC, IBat__Pin|TempAmb_Pin|Vpanel__Pin|Vbat_comp_EXT_Pin);
+    HAL_GPIO_DeInit(GPIOC, IBat__Pin|GPIO_PIN_1|Vpanel__Pin|Vbat_comp_EXT_Pin);
 
     HAL_GPIO_DeInit(GPIOA, IPanel__Pin|Vbat_comp_Pin|Vbat__Pin|TempDiode_Pin
                           |TempMos_Pin|Rad__Pin);
@@ -314,9 +315,6 @@ void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
     GPIO_InitStruct.Alternate = GPIO_AF12_COMP1;
     HAL_GPIO_Init(Bat_OverV_Out_EXT_GPIO_Port, &GPIO_InitStruct);
 
-    /* COMP1 interrupt Init */
-    HAL_NVIC_SetPriority(COMP_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(COMP_IRQn);
   /* USER CODE BEGIN COMP1_MspInit 1 */
 
   /* USER CODE END COMP1_MspInit 1 */
@@ -335,15 +333,10 @@ void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
     PA7     ------> COMP2_OUT
     PB12     ------> TIM1_BKIN_COMP2
     */
-    GPIO_InitStruct.Pin = Vbat_comp_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(Vbat_comp_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = Vbat__Pin;
+    GPIO_InitStruct.Pin = Vbat_comp_Pin|Vbat__Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(Vbat__GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = Bat_OverV_Out_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -359,9 +352,6 @@ void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
     GPIO_InitStruct.Alternate = GPIO_AF3_TIM1_COMP2;
     HAL_GPIO_Init(TImer_break_GPIO_Port, &GPIO_InitStruct);
 
-    /* COMP2 interrupt Init */
-    HAL_NVIC_SetPriority(COMP_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(COMP_IRQn);
   /* USER CODE BEGIN COMP2_MspInit 1 */
 
   /* USER CODE END COMP2_MspInit 1 */
@@ -392,15 +382,6 @@ void HAL_COMP_MspDeInit(COMP_HandleTypeDef* hcomp)
 
     HAL_GPIO_DeInit(Bat_OverV_Out_EXT_GPIO_Port, Bat_OverV_Out_EXT_Pin);
 
-    /* COMP1 interrupt DeInit */
-  /* USER CODE BEGIN COMP1:COMP_IRQn disable */
-    /**
-    * Uncomment the line below to disable the "COMP_IRQn" interrupt
-    * Be aware, disabling shared interrupt may affect other IPs
-    */
-    /* HAL_NVIC_DisableIRQ(COMP_IRQn); */
-  /* USER CODE END COMP1:COMP_IRQn disable */
-
   /* USER CODE BEGIN COMP1_MspDeInit 1 */
 
   /* USER CODE END COMP1_MspDeInit 1 */
@@ -421,15 +402,6 @@ void HAL_COMP_MspDeInit(COMP_HandleTypeDef* hcomp)
 
     HAL_GPIO_DeInit(TImer_break_GPIO_Port, TImer_break_Pin);
 
-    /* COMP2 interrupt DeInit */
-  /* USER CODE BEGIN COMP2:COMP_IRQn disable */
-    /**
-    * Uncomment the line below to disable the "COMP_IRQn" interrupt
-    * Be aware, disabling shared interrupt may affect other IPs
-    */
-    /* HAL_NVIC_DisableIRQ(COMP_IRQn); */
-  /* USER CODE END COMP2:COMP_IRQn disable */
-
   /* USER CODE BEGIN COMP2_MspDeInit 1 */
 
   /* USER CODE END COMP2_MspDeInit 1 */
@@ -445,7 +417,6 @@ void HAL_COMP_MspDeInit(COMP_HandleTypeDef* hcomp)
 */
 void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(hdac->Instance==DAC1)
   {
   /* USER CODE BEGIN DAC1_MspInit 0 */
@@ -453,17 +424,6 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
   /* USER CODE END DAC1_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_DAC1_CLK_ENABLE();
-
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**DAC1 GPIO Configuration
-    PA4     ------> DAC1_OUT1
-    PA5     ------> DAC1_OUT2
-    */
-    GPIO_InitStruct.Pin = TempDiode_Pin|TempMos_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /* USER CODE BEGIN DAC1_MspInit 1 */
 
   /* USER CODE END DAC1_MspInit 1 */
@@ -486,13 +446,6 @@ void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
   /* USER CODE END DAC1_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_DAC1_CLK_DISABLE();
-
-    /**DAC1 GPIO Configuration
-    PA4     ------> DAC1_OUT1
-    PA5     ------> DAC1_OUT2
-    */
-    HAL_GPIO_DeInit(GPIOA, TempDiode_Pin|TempMos_Pin);
-
   /* USER CODE BEGIN DAC1_MspDeInit 1 */
 
   /* USER CODE END DAC1_MspDeInit 1 */
@@ -647,6 +600,27 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* USART1 DMA Init */
+    /* USART1_RX Init */
+    hdma_usart1_rx.Instance = DMA1_Channel5;
+    hdma_usart1_rx.Init.Request = DMA_REQUEST_2;
+    hdma_usart1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_usart1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_usart1_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_usart1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_usart1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_usart1_rx.Init.Mode = DMA_CIRCULAR;
+    hdma_usart1_rx.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_usart1_rx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(huart,hdmarx,hdma_usart1_rx);
+
+    /* USART1 interrupt Init */
+    HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(USART1_IRQn);
   /* USER CODE BEGIN USART1_MspInit 1 */
 
   /* USER CODE END USART1_MspInit 1 */
@@ -676,6 +650,11 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_9|GPIO_PIN_10);
 
+    /* USART1 DMA DeInit */
+    HAL_DMA_DeInit(huart->hdmarx);
+
+    /* USART1 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(USART1_IRQn);
   /* USER CODE BEGIN USART1_MspDeInit 1 */
 
   /* USER CODE END USART1_MspDeInit 1 */
