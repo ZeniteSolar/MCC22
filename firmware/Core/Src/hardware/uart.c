@@ -1,5 +1,6 @@
 #include "uart.h"
 #include "adc.h"
+#include "dac.h"
 #include "pwm.h"
 #include "control.h"
 #include <math.h>
@@ -8,7 +9,7 @@
 
 #define STR_2_UINT32(STR) *(const uint32_t *)STR
 #define VARIABLE 0
-#define UART_BUFFER_SIZE 32
+#define UART_BUFFER_SIZE 64
 
 /**
  * Helper macro for make a array of nodes
@@ -80,7 +81,8 @@ typedef struct nodes_t
     const node_t *nodes;
 } nodes_t;
 
-UART_HandleTypeDef *huart;
+static UART_HandleTypeDef *huart;
+static uint32_t echo_command = 0;
 
 command_t get_command(parser_t *parser);
 int get_command_int(parser_t *parser, command_t *command);
@@ -150,6 +152,30 @@ void parse_write_freq(parser_t *parser, command_t *command)
     pwm_set_freq(freq * 1e3);
 }
 
+void parse_write_dac1(parser_t *parser, command_t *command)
+{
+    /* Dac Voltage*/
+    int channel_command = get_command_int(parser, command);
+    command_t command_voltage = get_command(parser);
+    int voltage = get_command_int(parser, &command_voltage);
+
+    DAC_HandleTypeDef *hdac = dac_get_handler();
+
+    uint32_t channel = 
+        (channel_command == 1) ? DAC_CHANNEL_1 : 
+        (channel_command == 2) ? DAC_CHANNEL_2 : 
+        999; 
+
+    printf("chabnel: %d channel_p: %ld, %d\n", channel_command, channel, (channel_command == 1));
+    if (channel == 999)
+    {
+        printf("Unrecognized channel\n");
+        return;
+    }
+
+    dac_set_voltage(hdac, channel, (float)voltage / 1000);
+}
+
 void parse_write_machine_state(parser_t *parser, command_t *command)
 {
     int state = get_command_int(parser, command);
@@ -172,6 +198,31 @@ void parse_write_control_algorithm_brute_force(parser_t *parser, command_t *comm
 {
     float initial_duty = get_command_float(parser, command);
     control_force_algorithm(BRUTE_FORCE, initial_duty);
+}
+
+void parse_write_syst_ping(parser_t *parser, command_t *command)
+{
+    printf("PONG\n");
+}
+
+void parse_write_syst_echo(parser_t *parser, command_t *command)
+{
+    int echo = get_command_int(parser, command);
+    echo_command = echo ? 1 : 0; 
+}
+
+void parse_write_control_algorithm_conf_peof_step(parser_t *parser, command_t *command)
+{
+    float step = get_command_float(parser, command);
+
+    printf("peo step: %f\n", step);
+}
+
+void parse_write_control_algorithm_conf_peof_freq(parser_t *parser, command_t *command)
+{
+    float freq = get_command_float(parser, command);
+
+    adc_set_freq(freq);
 }
 
 
@@ -268,6 +319,10 @@ void leaf_node_parser(parser_t *parser, command_t *command, const node_t *node)
 const nodes_t *node_parser(parser_t *parser, command_t *command, const nodes_t *nodes)
 {
     const node_t *node = nodes->nodes;
+
+    if (echo_command)
+        printf("%s ", (uint8_t *)command->string);
+
     for (int i = 0; i < nodes->size; i++)
     {
         /* Commands with dot and percent separator are variable*/
@@ -324,17 +379,21 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
      *            IBAT? Get Battery Current
      *            VPAN? Get Panel Voltage
      *            IPAN? Get Panel Current
-     *            ALLM? Get All Measurements comma separated
+     *            ALLM? Get All Measurements comma separatedRRRRR
      *      CTRL: ConTRol
      *            ALGO? Get the current algorithm
      * 
      *
      * WRTE:
+     *      SYST: System
+     *          PING? Reply the sent message with a ping to the terminal
+     *          ECHO:XXXE% Reply the sent message with the same message (E = 1 enabled, E = 0 disabled)
      *      HARD: HARDware
      *          DUTY:0000.0000 Write PWM DUTY cycle (Is not recommended write directly in the hardware
      *                                                   because control algorithms change the duty cycle,
      *                                                   is recommended to use the command: WRTE:CTRL:ALGO:FIXD:0000.0000 instead)
      *          FREQ:0000.0000 Write FREQuency in kHz
+     *          DAC1:0000%0000 Write Voltage in DAC first int is the channel and second is voltage in mV
      *      MACH: MACHine
      *          STAT:(Not implemented)XXX0% Force machine state 
      *      CTRL: ConTRoL
@@ -342,6 +401,11 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
      *              FIXD:0000.0000  Change to fixed duty cycle algorithm with initial duty cycle 0000.0000
      *              PEOF:0000.0000  Change to PeO fixed step algorithm with initial duty cycle 0000.0000
      *              BRUT:0000.0000  Change to Brute Force algorithm with initial duty cycle 0000.0000
+	 * 				CONF: CONFigure algorithms 
+	 * 					PEOF:	Perturbe and Observe
+	 * 						STEP:0000.0000 Perturbation steps
+	 * 						FREQ:0000.0000 Perturbation frequency in khz
+	 * 
      *
      */
 
@@ -409,6 +473,7 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         {
             MAKE_NODE(VARIABLE, DOT, parse_write_duty, NULL),
         });
+
     MAKE_NODES(
         freq,
         {
@@ -416,10 +481,17 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         });
 
     MAKE_NODES(
+        dac1,
+        {
+            MAKE_NODE(VARIABLE, DOT, parse_write_dac1, NULL),
+        });
+
+    MAKE_NODES(
         write_hardware,
         {
             MAKE_NODE("DUTY", COLON, NULL, &duty),
             MAKE_NODE("FREQ", COLON, NULL, &freq),
+            MAKE_NODE("DAC1", COLON, NULL, &dac1),
         });
 
     MAKE_NODES(
@@ -443,11 +515,33 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         {MAKE_NODE(VARIABLE, DOT, parse_write_control_algorithm_brute_force, NULL)});
 
     MAKE_NODES(
+        write_conf_peof_step,
+        {MAKE_NODE(VARIABLE, DOT, parse_write_control_algorithm_conf_peof_step, NULL)});
+    MAKE_NODES(
+        write_conf_peof_freq,
+        {MAKE_NODE(VARIABLE, DOT, parse_write_control_algorithm_conf_peof_freq, NULL)});
+
+    MAKE_NODES(
+        write_conf_peof,
+        {
+            MAKE_NODE("STEP", COLON, NULL, &write_conf_peof_step),
+            MAKE_NODE("FREQ", COLON, NULL, &write_conf_peof_freq),
+        });
+
+    MAKE_NODES(
+        write_conf,
+        {
+            MAKE_NODE("PEOF", COLON, NULL, &write_conf_peof),
+            MAKE_NODE("BRUT", COLON, NULL, NULL),
+        });
+
+    MAKE_NODES(
         write_control_algorithm,
         {
             MAKE_NODE("FIXD", COLON, NULL, &write_fixed_algorithm),
             MAKE_NODE("PEOF", COLON, NULL, &write_peo_algorithm),
-            MAKE_NODE("BRUT", COLON, NULL, &write_brute_force_algorithm)
+            MAKE_NODE("BRUT", COLON, NULL, &write_brute_force_algorithm),
+            MAKE_NODE("CONF", COLON, NULL, &write_conf),
         });
 
     MAKE_NODES(
@@ -457,11 +551,31 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         });
 
     MAKE_NODES(
+        write_syst_ping,
+        {
+            MAKE_NODE(VARIABLE, UNDEFINED, parse_write_syst_ping, NULL)
+        });
+
+    MAKE_NODES(
+        write_syst_echo,
+        {
+            MAKE_NODE(VARIABLE, PERCENT, parse_write_syst_echo, NULL)
+        });
+
+    MAKE_NODES(
+        write_syst,
+        {
+            MAKE_NODE("PING", QUESTION, NULL, &write_syst_ping),
+            MAKE_NODE("ECHO", COLON, NULL, &write_syst_echo),
+        });
+
+    MAKE_NODES(
         write,
         {
             MAKE_NODE("HARD", COLON, NULL, &write_hardware),
             MAKE_NODE("MACH", COLON, NULL, &write_machine),
             MAKE_NODE("CTRL", COLON, NULL, &write_control),
+            MAKE_NODE("SYST", COLON, NULL, &write_syst),
         });
 
     /* ROOT COMMAND */

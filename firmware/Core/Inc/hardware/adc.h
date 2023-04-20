@@ -33,8 +33,9 @@ extern uint8_t adc_ready;
 
 void adc_init(ADC_HandleTypeDef *hadc, TIM_HandleTypeDef *htim_trigger);
 
-HAL_StatusTypeDef adc_start(void);
+HAL_StatusTypeDef adc_start(float freq);
 
+void adc_set_freq(float freq);
 /**
  * @brief returns the pointer of the measurements values 
  * @return pointer of the measurements 

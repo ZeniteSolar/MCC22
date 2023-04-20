@@ -30,8 +30,10 @@ void adc_init(ADC_HandleTypeDef *hadc, TIM_HandleTypeDef *htim_trigger)
     adc.htim_trigger = htim_trigger;
 }
 
-HAL_StatusTypeDef adc_start(void)
+HAL_StatusTypeDef adc_start(float freq)
 {
+
+
     if (HAL_ADCEx_Calibration_Start(adc.hadc, ADC_SINGLE_ENDED) != HAL_OK)
     {
         LOG_ERROR("error calibrating ADC");
@@ -49,8 +51,36 @@ HAL_StatusTypeDef adc_start(void)
         LOG_ERROR("error starting timer 2");
         return HAL_ERROR;
     }
+    adc_set_freq(freq);
 
     return HAL_OK;
+}
+
+void adc_set_freq(float freq)
+{
+    
+    /**
+     * Frequency = ADC_TIM_FREQ / (2 * period * prescaler)
+     * for better resolution period should be great as possible
+     */
+
+    float trigger_freq = freq * ADC_SAMPLES;
+
+    // Calculate period for the required frequency assuming prescaler as 1
+    uint32_t period = ADC_TIM_FREQ / (2 * trigger_freq);
+
+    if (period > 65535)
+        period = 65535; // 16bit period
+
+    // if period was not enough to achieve the frequency, calculate the prescaler
+    uint32_t prescaler = ADC_TIM_FREQ / (2 * trigger_freq * period);
+
+    if (prescaler > 65535)
+        prescaler = 65535;
+
+    __HAL_TIM_SetAutoreload(adc.htim_trigger, period);
+    __HAL_TIM_SET_PRESCALER(adc.htim_trigger, prescaler);
+
 }
 
 const volatile inputs_t *adc_get_measurements(void)
@@ -60,6 +90,7 @@ const volatile inputs_t *adc_get_measurements(void)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
+    
     for (int i = (ADC_BUFFER_SIZE / 2); i < ADC_BUFFER_SIZE; i++)
     {
         adc_sum[i % ADC_CHANNELS] += adc_buffer[i];
@@ -80,3 +111,4 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
         adc_sum[i % ADC_CHANNELS] += adc_buffer[i];
     }
 }
+
