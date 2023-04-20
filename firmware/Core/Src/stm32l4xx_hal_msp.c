@@ -315,6 +315,9 @@ void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
     GPIO_InitStruct.Alternate = GPIO_AF12_COMP1;
     HAL_GPIO_Init(Bat_OverV_Out_EXT_GPIO_Port, &GPIO_InitStruct);
 
+    /* COMP1 interrupt Init */
+    HAL_NVIC_SetPriority(COMP_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(COMP_IRQn);
   /* USER CODE BEGIN COMP1_MspInit 1 */
 
   /* USER CODE END COMP1_MspInit 1 */
@@ -352,6 +355,9 @@ void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
     GPIO_InitStruct.Alternate = GPIO_AF3_TIM1_COMP2;
     HAL_GPIO_Init(TImer_break_GPIO_Port, &GPIO_InitStruct);
 
+    /* COMP2 interrupt Init */
+    HAL_NVIC_SetPriority(COMP_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(COMP_IRQn);
   /* USER CODE BEGIN COMP2_MspInit 1 */
 
   /* USER CODE END COMP2_MspInit 1 */
@@ -382,6 +388,15 @@ void HAL_COMP_MspDeInit(COMP_HandleTypeDef* hcomp)
 
     HAL_GPIO_DeInit(Bat_OverV_Out_EXT_GPIO_Port, Bat_OverV_Out_EXT_Pin);
 
+    /* COMP1 interrupt DeInit */
+  /* USER CODE BEGIN COMP1:COMP_IRQn disable */
+    /**
+    * Uncomment the line below to disable the "COMP_IRQn" interrupt
+    * Be aware, disabling shared interrupt may affect other IPs
+    */
+    /* HAL_NVIC_DisableIRQ(COMP_IRQn); */
+  /* USER CODE END COMP1:COMP_IRQn disable */
+
   /* USER CODE BEGIN COMP1_MspDeInit 1 */
 
   /* USER CODE END COMP1_MspDeInit 1 */
@@ -401,6 +416,15 @@ void HAL_COMP_MspDeInit(COMP_HandleTypeDef* hcomp)
     HAL_GPIO_DeInit(GPIOA, Vbat_comp_Pin|Vbat__Pin|Bat_OverV_Out_Pin);
 
     HAL_GPIO_DeInit(TImer_break_GPIO_Port, TImer_break_Pin);
+
+    /* COMP2 interrupt DeInit */
+  /* USER CODE BEGIN COMP2:COMP_IRQn disable */
+    /**
+    * Uncomment the line below to disable the "COMP_IRQn" interrupt
+    * Be aware, disabling shared interrupt may affect other IPs
+    */
+    /* HAL_NVIC_DisableIRQ(COMP_IRQn); */
+  /* USER CODE END COMP2:COMP_IRQn disable */
 
   /* USER CODE BEGIN COMP2_MspDeInit 1 */
 

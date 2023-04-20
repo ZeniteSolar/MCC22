@@ -31,6 +31,18 @@ typedef struct
 
 } algorithms_metadata_t;
 
+
+typedef enum {
+    INPUT_OVER_VOLTAGE = (1U << 0),
+    OUTPUT_OVER_VOLTAGE = (1U << 1),
+    INPUT_OVER_CURRENT = (1U << 2),
+    OUTPUT_OVER_CURRENT = (1U << 3),
+    INPUT_OVER_POWER = (1U << 4),
+    OUTPUT_OVER_POWER = (1U << 5),
+} errors_t;
+
+
+
 typedef struct
 {
     FunctionalState enable;
@@ -43,6 +55,8 @@ typedef struct
     FunctionalState forced_algorithm;
     // adc values
     const volatile inputs_t *inputs;
+
+    errors_t errors;
 
 } control_t;
 
@@ -57,8 +71,8 @@ void control_init(void);
 void control_run(void);
 
 /**
- * @brief Force an algorithm 
- * 
+ * @brief Force an algorithm
+ *
  * @param algorithm the algorithm to use
  * @param initial_duty initial duty cycle
  */
@@ -66,7 +80,7 @@ void control_force_algorithm(algorithms_t algorithm, float initial_duty);
 
 /**
  * @brief get the actual algorithm
- * 
+ *
  */
 algorithms_t control_get_algorithm(void);
 
@@ -76,5 +90,12 @@ algorithms_t control_get_algorithm(void);
  * start control if enabled.
  */
 void control_set_enable(FunctionalState enable);
+
+/**
+ * @brief Trigger an hardware error 
+ * @param error: triggered error
+ * 
+ */
+void control_set_error(errors_t error);
 
 #endif

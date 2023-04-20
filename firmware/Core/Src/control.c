@@ -28,7 +28,7 @@ void control_init(void)
 {
     control.inputs = adc_get_measurements();
 
-    if (adc_start() != HAL_OK)
+    if (adc_start(DEFAULT_ADC_FREQ) != HAL_OK)
     {
         LOG_ERROR("error starting adc");
     }
@@ -39,6 +39,12 @@ void control_init(void)
     }
 
     control_start();
+}
+
+void control_set_error(errors_t error)
+{
+
+    control.errors = error;
 }
 
 /**
@@ -127,6 +133,24 @@ void control_force_algorithm(algorithms_t algorithm, float initial_duty)
  */
 void control_script(void)
 {
+    static uint32_t error_triggered_time = 0;
+    if (control.errors){
+        /* Trate errors */
+        control_set_fixed(0.0);
+        printf("Trating errors\n");
+        error_triggered_time = HAL_GetTick();
+
+        control.errors = 0;
+    }
+
+    /* Wait CONTROL_ERROR_RESET_MILLIS when a error was triggered for system stabilization*/
+    if (error_triggered_time + CONTROL_ERROR_RESET_MILLIS > HAL_GetTick())
+    {
+        control_set_fixed(0.0);
+        printf("Waiting system stabilization\n");
+        return;
+    }
+
     if (control.forced_algorithm)
         return;
 
@@ -137,14 +161,29 @@ void control_script(void)
     // }
 
     // if power is too low, maybe the algorithm is lost
-    if (control.inputs->v_p * control.inputs->i_p <= MINIMUM_POWER)
+    static uint32_t last_brute_force_time = 0;
+    if ((control.inputs->v_p * control.inputs->i_p <= MINIMUM_POWER) && (control.algorithm_running != BRUTE_FORCE))
     {
-        control_set_brute_force(PWM_MIN);
+        if (last_brute_force_time + 250 >= HAL_GetTick())
+        {
+            last_brute_force_time = HAL_GetTick();
+            printf("Alg: %d\n", control.algorithm_running);
+            printf("Is brut\n");
+            control_set_brute_force(0.1);
+            return;
+        }
+    }
+
+    if (brute_force_get_metadata()->done && control.algorithm_running == BRUTE_FORCE)
+    {
+        printf("Set fixed with %f\n", brute_force_get_metadata()->absolute_mpp_duty);
+        control_set_fixed(brute_force_get_metadata()->absolute_mpp_duty);
     }
 }
 
 void control_run(void)
 {
+    HAL_GPIO_WritePin(DB_0_GPIO_Port, DB_0_Pin, GPIO_PIN_SET);
     float duty = 0.0;
     control_script();
 
@@ -171,4 +210,5 @@ void control_run(void)
     }
 
     pwm_set_duty(duty);
+    HAL_GPIO_WritePin(DB_0_GPIO_Port, DB_0_Pin, GPIO_PIN_RESET);
 }

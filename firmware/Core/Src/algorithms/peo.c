@@ -2,6 +2,9 @@
 
 static algorithms_metadata_t metadata;
 
+static float step = 0.005;
+static float duty;
+
 enum observations{
     PREV = 0,
     ACTUAL = 1,
@@ -13,11 +16,18 @@ void peo_init(float initial_duty)
     metadata.absolute_mpp_duty = 0;
     metadata.absolute_mpp_power = 0;
     metadata.done = 0;
+
+    duty = initial_duty;
+}
+
+void peo_set_step(float step_input)
+{
+    step = step_input;
 }
 
 float peo_run(const volatile inputs_t *inputs)
 {
-    static float step = 0.01;
+    
     static float pi[SIZE] = {0.0, 0.0};
     
     // Compute input power
@@ -39,7 +49,7 @@ float peo_run(const volatile inputs_t *inputs)
         metadata.absolute_mpp_power = pi[ACTUAL];
     }
 
-    return pwm_get_duty() + step;
+    return duty + step;
 }
 
 const algorithms_metadata_t *peo_get_metadata(void)

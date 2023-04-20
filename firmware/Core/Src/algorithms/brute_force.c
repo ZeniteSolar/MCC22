@@ -3,6 +3,7 @@
  * iterating for all the possible duty cycles with a defined step and frequency
 */
 #include "brute_force.h"
+#include "math.h"
 
 static algorithms_metadata_t metadata;
 static float actual_duty = 0.0;
@@ -26,7 +27,15 @@ float brute_force_run(const volatile inputs_t *inputs)
         metadata.absolute_mpp_power = pi;
         metadata.absolute_mpp_duty = pwm_get_duty();
     }
-    actual_duty += step;
+
+/** When sweep is done go to mppt point*/
+    if (!metadata.done)
+        actual_duty += step;
+    else
+    {
+        if ((int)(1000 * actual_duty) != (int)(1000 * metadata.absolute_mpp_duty))
+            actual_duty -= step;
+    }
 
     if (actual_duty > PWM_MAX)
     {

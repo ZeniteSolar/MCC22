@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "utils.h"
+#include "pwm.h"
+#include "control.h"
 #include "comparators.h"
 #include "main.h"
 #include "dac.h"
@@ -27,7 +29,19 @@ void comparator_init_extern(COMP_HandleTypeDef *hcomp, DAC_HandleTypeDef *hdac, 
 void HAL_COMP_TriggerCallback(COMP_HandleTypeDef *hcomp)
 {
     if (hcomp->Instance == COMP1)
-        HAL_GPIO_WritePin(DB_0_GPIO_Port, DB_0_Pin, GPIO_PIN_SET);
+    {
+        printf("COMP1\n");
+
+    }
     if (hcomp->Instance == COMP2)
-        HAL_GPIO_WritePin(DB_1_GPIO_Port, DB_1_Pin, GPIO_PIN_SET);
+    {
+        if (HAL_COMP_GetOutputLevel(hcomp))
+        {
+            printf("COMP2\n");
+            pwm_set_duty(0.0);
+            
+            control_set_error(OUTPUT_OVER_VOLTAGE);
+
+        }
+    }
 }
