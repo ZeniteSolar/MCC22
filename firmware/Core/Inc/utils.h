@@ -29,6 +29,6 @@
 /**
  * @brief Init leds with a fancy animation
  */
-void leds_init(void);
+void leds_init(uint8_t signature);
 
 #endif
