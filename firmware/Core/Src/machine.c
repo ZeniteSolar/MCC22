@@ -67,7 +67,7 @@ static void task_idle(void)
 	machine.flags.enable = 1;
 	if (machine.flags.enable)
 	{
-	   machine_set_state_running();
+		machine_set_state_running();
 	}
 }
 

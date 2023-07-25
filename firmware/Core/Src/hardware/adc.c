@@ -27,6 +27,7 @@ void adc_init(ADC_HandleTypeDef *hadc, TIM_HandleTypeDef *htim_trigger)
 HAL_StatusTypeDef adc_restart(float freq)
 {
 	printf(">%ld\n", HAL_ADC_GetError(adc.hadc));
+	return HAL_OK;
 }
 
 HAL_StatusTypeDef adc_start(float freq)
@@ -35,8 +36,8 @@ HAL_StatusTypeDef adc_start(float freq)
 
 	if (HAL_ADCEx_Calibration_Start(adc.hadc, ADC_SINGLE_ENDED) != HAL_OK)
 	{
-	    LOG_ERROR("error calibrating ADC");
-	    return HAL_ERROR;
+		LOG_ERROR("error calibrating ADC");
+		return HAL_ERROR;
 	}
 
 	if (HAL_ADC_Start_DMA(adc.hadc, (uint32_t *)adc_buffer, ADC_BUFFER_SIZE) != HAL_OK)

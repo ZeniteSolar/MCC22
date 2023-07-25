@@ -131,7 +131,6 @@ int main(void)
 	adc_init(&hadc1, &htim2);
 	pwm_init(&htim1);
 	machine_init();
-	// comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.3);
 	comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.999);
 	comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
 
@@ -145,7 +144,7 @@ int main(void)
 
 		/* USER CODE BEGIN 3 */
 
-		static uint32_t uart_delay = HAL_GetTick() + 250U;
+		static uint32_t uart_delay = 0U;
 
 		/* Machine */
 		machine_set_run();

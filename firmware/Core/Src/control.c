@@ -153,8 +153,6 @@ void control_script(void)
 {
 	static uint32_t error_triggered_time = 0;
 
-	return;
-
 	if (control.errors && !error_triggered_time){
 		/* Trate errors */
 		control_set_fixed(0.0);
