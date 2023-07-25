@@ -2,22 +2,16 @@
 
 static adc_t adc;
 
-const float ADC_ANG_COEFFS[ADC_CHANNELS] =
-    {0.00022896,
-     0.00263243,
-     0.00092899,
-     0.00044165,
-     4.65838685983877E-05,
-     4.65838685983877E-05,
-     4.65838685983877E-05};
-const float ADC_LIN_COEFFS[ADC_CHANNELS] =
-    {0.0062598,
-     0.21382463,
-     -0.06610585,
-     0.01470944,
-     4.65838685983877E-05,
-     4.65838685983877E-05,
-     4.65838685983877E-05};
+const float ADC_ANG_COEFFS[] =
+	{1.7053928645698802e-05f,
+	 0.00037580291345935937f,
+	 0.00012337107021362354f,
+	 5.665965783264343e-05f,};
+const float ADC_LIN_COEFFS[] =
+	{1.7053928645698802e-05f,
+	 1.1496591365051616f,
+	 -0.06610585f,
+	 0.15480921578799672f};
 
 uint8_t adc_ready = 0;
 volatile inputs_t adc_avg;
@@ -97,11 +91,26 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     }
 
     for (int i = 0; i < ADC_CHANNELS; i++)
+	{
+		// linear channels
+		if (i < (sizeof(ADC_ANG_COEFFS) / sizeof(ADC_ANG_COEFFS[0])))
     {
         adc_avg.channels[i] = ADC_ANG_COEFFS[i] * (float)adc_sum[i] + ADC_LIN_COEFFS[i];
+		}
+		// log channels (temperature sensors)
+		else 
+		{
+			// Compute average
+			float vout = (float)(adc_sum[i]) / (ADC_SAMPLES * ADC_OVERSAMPLE);
+			// Convert adc value to voltage
+			vout = ANALOG_VREF * (vout / ADC_MAX_VALUE);
+			// Convert voltage to temperature
+			adc_avg.channels[i] = (3950.0f / (log((-5671419.57303391f * vout) / (10.0f * vout - 33.0f)))) - 273.15;
+		}
         adc_sum[i] = 0;
     }
     adc_ready = 1;
+	
 }
 
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
