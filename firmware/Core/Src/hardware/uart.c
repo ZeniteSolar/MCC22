@@ -2,6 +2,7 @@
 #include "adc.h"
 #include "dac.h"
 #include "pwm.h"
+#include "peo.h"
 #include "control.h"
 #include <math.h>
 #include <stdio.h>
@@ -38,6 +39,7 @@
     }
 
 uint8_t data_uart[UART_BUFFER_SIZE];
+
 
 typedef enum
 {
@@ -126,10 +128,13 @@ void parse_read_frequency(parser_t *parser, command_t *command)
 
 void parse_read_meas_allm(parser_t *parser, command_t *command)
 {
+	static uint8_t state = 1;
     for (int i = 0; i < sizeof(inputs_t) / sizeof(float); i++)
     {
         printf("%f, ", adc_get_measurements()->channels[i]);
     }
+	control_set_print(state);
+	state = !state;
     printf("\n");
 }
 
@@ -211,18 +216,25 @@ void parse_write_syst_echo(parser_t *parser, command_t *command)
     echo_command = echo ? 1 : 0; 
 }
 
+void parse_write_syst_reset(parser_t *parser, command_t *command)
+{
+    printf("reset\n");
+	if (get_command_int(parser, command) == 1)
+	{
+		adc_restart(DEFAULT_ADC_FREQ);
+	}
+}
+
 void parse_write_control_algorithm_conf_peof_step(parser_t *parser, command_t *command)
 {
-    float step = get_command_float(parser, command);
-
-    printf("peo step: %f\n", step);
+	float step = get_command_float(parser, command);
+	printf("command: %f\n", step);
+    peo_set_step(step);
 }
 
 void parse_write_control_algorithm_conf_peof_freq(parser_t *parser, command_t *command)
 {
-    float freq = get_command_float(parser, command);
-
-    adc_set_freq(freq);
+    control_set_freq(get_command_float(parser, command) * 10000);
 }
 
 
@@ -388,6 +400,7 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
      *      SYST: System
      *          PING? Reply the sent message with a ping to the terminal
      *          ECHO:XXXE% Reply the sent message with the same message (E = 1 enabled, E = 0 disabled)
+	 * 			REST:XXXE% Reset peripherical (E = 1: ADC)
      *      HARD: HARDware
      *          DUTY:0000.0000 Write PWM DUTY cycle (Is not recommended write directly in the hardware
      *                                                   because control algorithms change the duty cycle,
@@ -563,10 +576,17 @@ void uart_parse(uint32_t last_index, uint32_t index_diff)
         });
 
     MAKE_NODES(
+        write_syst_reset,
+        {
+            MAKE_NODE(VARIABLE, PERCENT, parse_write_syst_reset, NULL)
+        });
+
+    MAKE_NODES(
         write_syst,
         {
             MAKE_NODE("PING", QUESTION, NULL, &write_syst_ping),
             MAKE_NODE("ECHO", COLON, NULL, &write_syst_echo),
+            MAKE_NODE("REST", COLON, NULL, &write_syst_reset),
         });
 
     MAKE_NODES(
