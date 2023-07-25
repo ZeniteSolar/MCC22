@@ -24,6 +24,11 @@ void adc_init(ADC_HandleTypeDef *hadc, TIM_HandleTypeDef *htim_trigger)
     adc.htim_trigger = htim_trigger;
 }
 
+HAL_StatusTypeDef adc_restart(float freq)
+{
+	printf(">%ld\n", HAL_ADC_GetError(adc.hadc));
+}
+
 HAL_StatusTypeDef adc_start(float freq)
 {
 
@@ -72,9 +77,18 @@ void adc_set_freq(float freq)
     if (prescaler > 65535)
         prescaler = 65535;
 
+	
+	__HAL_TIM_SET_PRESCALER(adc.htim_trigger, prescaler);
     __HAL_TIM_SetAutoreload(adc.htim_trigger, period);
-    __HAL_TIM_SET_PRESCALER(adc.htim_trigger, prescaler);
 
+}
+
+float adc_get_freq(void)
+{
+	uint32_t period = __HAL_TIM_GET_AUTORELOAD(adc.htim_trigger);
+	// HAL doesn't have macro to get prescaler
+	uint32_t prescaler = adc.htim_trigger->Instance->PSC;
+	return ADC_TIM_FREQ / (2 * period * prescaler);
 }
 
 const volatile inputs_t *adc_get_measurements(void)
