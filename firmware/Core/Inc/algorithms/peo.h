@@ -19,6 +19,8 @@ void peo_init(float initial_duty);
 */
 float peo_run(const volatile inputs_t *inputs);
 
+void peo_set_step(float step_input);
+
 /**
  * @brief get metadata
  * @return metadata
