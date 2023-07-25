@@ -20,10 +20,11 @@
 // Control Configuration
 #define MINIMUM_POWER 1.0f // in W
 #define CONTROL_ERROR_RESET_MILLIS 3000 /* Time to wait for system stabilization when a error is triggered*/
+#define CONTROL_DEFAULT_FREQUENCY  10.0f
 
 // ADC default frequency
 #define ADC_TIM_FREQ 80e6 //ADC timer clock frequency
-#define DEFAULT_ADC_FREQ 800.0f
+#define DEFAULT_ADC_FREQ CONTROL_DEFAULT_FREQUENCY
 
 
 #endif

@@ -98,4 +98,8 @@ void control_set_enable(FunctionalState enable);
  */
 void control_set_error(errors_t error);
 
+float control_get_freq(void);
+void control_set_freq(float freq);
+void control_set_print(uint8_t enable);
+
 #endif
