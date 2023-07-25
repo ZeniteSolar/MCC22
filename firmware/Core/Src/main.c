@@ -131,6 +131,7 @@ int main(void)
 	adc_init(&hadc1, &htim2);
 	pwm_init(&htim1);
 	machine_init();
+	// comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.3);
 	comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.999);
 	comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
 
@@ -580,7 +581,7 @@ static void MX_TIM2_Init(void)
 	htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
 	htim2.Init.Period = 1428;
 	htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+	htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
 	if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
 	{
 		Error_Handler();
@@ -635,21 +636,6 @@ static void MX_USART1_UART_Init(void)
 	/* USER CODE END USART1_Init 2 */
 }
 
-// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-// {
-// 	// if (htim->Instance == htim2.Instance)
-// 	// {
-// 	// 	HAL_GPIO_WritePin(DB_1_GPIO_Port, DB_1_Pin, GPIO_PIN_SET);
-// 	// 	for(double i = 0; i < 3.0f; i = i + 1.0)
-// 	// 	{
-// 	// 		__asm(
-// 	// 			"nop"
-// 	// 		);
-// 	// 	}
-// 	// // 	HAL_GPIO_WritePin(DB_1_GPIO_Port, DB_1_Pin, GPIO_PIN_RESET);
-
-// 	// }
-// }
 /**
  * Enable DMA controller clock
  */
@@ -690,7 +676,7 @@ static void MX_GPIO_Init(void)
 	HAL_GPIO_WritePin(LED_CAN_BUSY_GPIO_Port, LED_CAN_BUSY_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOB, DB_1_Pin | DB_0_Pin | ID_0_Pin | ID_1_Pin | ID_2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, DB_1_Pin | DB_0_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pins : LED_0_Pin LED_1_Pin LED_STATUS_Pin */
 	GPIO_InitStruct.Pin = LED_0_Pin | LED_1_Pin | LED_STATUS_Pin;
@@ -706,22 +692,28 @@ static void MX_GPIO_Init(void)
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(LED_CAN_BUSY_GPIO_Port, &GPIO_InitStruct);
 
-	/*Configure GPIO pins : DB_1_Pin DB_0_Pin ID_0_Pin ID_1_Pin
-							 ID_2_Pin */
-	GPIO_InitStruct.Pin = DB_1_Pin | DB_0_Pin | ID_0_Pin | ID_1_Pin | ID_2_Pin;
+	/*Configure GPIO pins : DB_1_Pin DB_0_Pin */
+	GPIO_InitStruct.Pin = DB_1_Pin | DB_0_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-	/*Configure GPIO pin : ID_3_Pin */
-	GPIO_InitStruct.Pin = ID_3_Pin;
+	/*Configure GPIO pins : ID_0_Pin ID_1_Pin ID_2_Pin ID_3_Pin */
+	GPIO_InitStruct.Pin = ID_0_Pin | ID_1_Pin | ID_2_Pin | ID_3_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(ID_3_GPIO_Port, &GPIO_InitStruct);
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim == &htim2)
+	{
+		HAL_GPIO_TogglePin(DB_1_GPIO_Port, DB_1_Pin);
+	}
+}
 
 /* USER CODE END 4 */
 
