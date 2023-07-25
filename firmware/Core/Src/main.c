@@ -143,24 +143,22 @@ int main(void)
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+
+		static uint32_t uart_delay = HAL_GetTick() + 250U;
+
+		/* Machine */
 		machine_set_run();
 		machine_set_enable(DISABLE);
-		static uint32_t clk_div = 0;
 		machine_run();
 
-		static inputs_t *adc;
-		static float sum = 0;
-		static float avg = 0;
-		static uint32_t samples = 0;
-		adc = adc_get_measurements();
-		static uint32_t last_millis = 0;
-		const uint32_t millis = HAL_GetTick();
-		if ((millis - last_millis) > 250)
+		/* Uart */
+		if (uart_delay < HAL_GetTick())
 		{
-			last_millis = millis;
+			uart_delay = HAL_GetTick() + 250U;
 			uart_run();
 		}
 
+		/* Adc */
 		if (adc_ready)
 		{
 			adc_ready = 0;
