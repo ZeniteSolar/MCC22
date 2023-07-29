@@ -5,6 +5,8 @@
 #include "pi.h"
 #include "peo_dynamic_step.h"
 
+static uint32_t ctrl_clk_div = 2;
+
 uint8_t print;
 static control_t control;
 
@@ -27,7 +29,7 @@ void control_set_enable(FunctionalState enable);
 
 void control_init(void)
 {
-	print = 0;
+	print = 1;
 	control.inputs = adc_get_measurements();
 
 	if (adc_start(DEFAULT_ADC_FREQ) != HAL_OK)
@@ -51,7 +53,7 @@ void control_set_error(errors_t error)
 
 void control_set_freq(float freq)
 {
-	adc_set_freq(freq);
+	ctrl_clk_div = 5e3 / freq;
 }
 
 float control_get_freq(void)
@@ -102,7 +104,7 @@ void control_start(void)
 {
 	control.forced_algorithm = DISABLE;
 	control.errors = 0;
-	control_set_brute_force(0.001);
+	control_set_brute_force(0.6);
 }
 
 void control_set_enable(FunctionalState enable)
@@ -121,6 +123,7 @@ algorithms_t control_get_algorithm(void)
 
 void control_force_algorithm(algorithms_t algorithm, float initial_duty)
 {
+
 	switch (algorithm)
 	{
 	case BRUTE_FORCE:
@@ -155,17 +158,17 @@ void control_script(void)
 
 	if (control.errors && !error_triggered_time){
 		/* Trate errors */
-		control_set_fixed(0.0);
+		//control_set_fixed(0.0);
 		printf("Trating errors\n");
 		error_triggered_time = HAL_GetTick();
 	}
 
 	/* Wait CONTROL_ERROR_RESET_MILLIS when a error was triggered for system stabilization*/
-	if (control.errors)
+	if (0)
 	{
 		if ((error_triggered_time + CONTROL_ERROR_RESET_MILLIS > HAL_GetTick()))
 		{
-			control_set_fixed(0.0);
+			//control_set_fixed(0.0);
 			printf("Waiting system stabilization\n");
 			return;
 		} else
@@ -212,50 +215,57 @@ void control_run(void)
 	static float duty = PWM_MIN;
 	static uint32_t print_delay = 0;
 
-	control_script();
+	static uint32_t ctrl_clk_div_value = 0;
 
-	switch (control.algorithm_running)
+	if (++ctrl_clk_div_value >= ctrl_clk_div)
 	{
-	case BRUTE_FORCE:
-		duty = brute_force_run(control.inputs);
-		break;
-	case PEO:
-		duty = peo_run(control.inputs);
-		break;
-	case PEO_DYN_STEP:
-		duty = peo_dynamic_step_run(control.inputs);
-		break;
-	case PI:
-		duty = pi_run(control.inputs);
-		break;
-	case FIXED:
-		duty = fixed_run(control.inputs);
-		break;
-	default:
-		control_set_brute_force(0.0);
-		duty = 0;
-	}
+		ctrl_clk_div_value = 0;
+		control_script();
 
-	if (print)
-	{
-		if (print_delay < HAL_GetTick())
+		switch (control.algorithm_running)
 		{
-			print_delay = HAL_GetTick() + 250;
-			printf("Vpan: %0.2f, Ipan: %0.2f, Vbat %0.2f, Ibat: %0.2f, Duty: %0.3f, Freq: %0.2f, Pin: %0.2f, Tr: %0.2f, Td: %0.2f, Tm: %0.2f\n", 
-				control.inputs->v_p,
-				control.inputs->i_p,
-				control.inputs->v_b,
-				control.inputs->i_b,
-				pwm_get_duty(),
-				pwm_get_freq(),
-				control.inputs->v_p * control.inputs->i_p,
-				control.inputs->t_r,
-				control.inputs->t_d,
-				control.inputs->t_m
-			);
+		case BRUTE_FORCE:
+			duty = brute_force_run(control.inputs);
+			break;
+		case PEO:
+			duty = peo_run(control.inputs);
+			break;
+		case PEO_DYN_STEP:
+			duty = peo_dynamic_step_run(control.inputs);
+			break;
+		case PI:
+			duty = pi_run(control.inputs);
+			break;
+		case FIXED:
+			duty = fixed_run(control.inputs);
+			break;
+		default:
+			control_set_brute_force(0.0);
+			duty = 0;
 		}
-	}
 
-	pwm_set_duty(duty);
+		if (print)
+		{
+			if (print_delay < HAL_GetTick())
+			{
+				print_delay = HAL_GetTick() + 250;
+				printf("Algo: %d, Vpan: %0.2f, Ipan: %0.2f, Vbat %0.2f, Ibat: %0.2f, Duty: %0.3f, Freq: %0.2f, Pin: %0.2f, Tr: %0.2f, Td: %0.2f, Tm: %0.2f\n", 
+					control.algorithm_running,
+					control.inputs->v_p,
+					control.inputs->i_p,
+					control.inputs->v_b,
+					control.inputs->i_b,
+					pwm_get_duty(),
+					pwm_get_freq(),
+					control.inputs->v_p * control.inputs->i_p,
+					control.inputs->t_r,
+					control.inputs->t_d,
+					control.inputs->t_m
+				);
+			}
+		}
+
+		pwm_set_duty(duty);
+	}
 
 }

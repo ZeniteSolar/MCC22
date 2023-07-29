@@ -7,6 +7,8 @@
 
 // Brute Force configuration 
 #define CONTROL_BRUTE_FORCE_FREQUENCY 7e3f
+#define BRUTE_FORCE_PWM_MAX 0.8f
+#define BRUTE_FORCE_PWM_MIN 0.5f
 
 static algorithms_metadata_t metadata;
 static float actual_duty = 0.0;
@@ -40,15 +42,15 @@ float brute_force_run(const volatile inputs_t *inputs)
         actual_duty += step;
     else
     {
-        if ((int)(1000 * actual_duty) != (int)(1000 * metadata.absolute_mpp_duty))
+        if ((int)(100 * actual_duty) != (int)(100 * metadata.absolute_mpp_duty))
             actual_duty -= step;
 		else
 			metadata.done = 1;
     }
 
-    if (actual_duty > PWM_MAX)
+    if (actual_duty > BRUTE_FORCE_PWM_MAX)
     {
-        actual_duty = PWM_MAX;
+        actual_duty = BRUTE_FORCE_PWM_MAX;
         done = 1;
     }
 

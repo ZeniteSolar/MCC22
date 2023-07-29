@@ -38,9 +38,9 @@ void HAL_COMP_TriggerCallback(COMP_HandleTypeDef *hcomp)
 		if (HAL_COMP_GetOutputLevel(hcomp))
 		{
 			printf("COMP2\n");
-			pwm_set_duty(0.0);
+			//pwm_set_duty(0.0);
 			
-			control_set_error(OUTPUT_OVER_VOLTAGE);
+			//control_set_error(OUTPUT_OVER_VOLTAGE);
 
 		}
 	}
