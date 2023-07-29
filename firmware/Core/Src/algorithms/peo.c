@@ -3,8 +3,8 @@
 #include "stdlib.h"
 
 static algorithms_metadata_t metadata;
-#define CONTROL_PEO_FREQUENCY 1000.0f
-#define CONTROL_PEO_STEP 0.005f
+#define CONTROL_PEO_FREQUENCY 100.0f
+#define CONTROL_PEO_STEP 0.001f
 #define PEO_PWM_MAX 0.78f
 #define PEO_PWM_MIN 0.51f
 
@@ -51,7 +51,7 @@ float peo_run(const volatile inputs_t *inputs)
 	// Compute input power variation
 	float dpi = (pi[ACTUAL] - pi[PREV]);
 
-	if (dpi <= -2.0){
+	if (dpi <= -1.0){
 		dir = -dir;
 	}
 
