@@ -189,19 +189,19 @@ void control_script(void)
 		control_set_peo(brute_force_get_metadata()->absolute_mpp_duty);
 	}
 
-	// if power is too low, maybe the algorithm is lost
-	// static uint32_t last_brute_force_time = 0;
-	// if ((control.inputs->v_p * control.inputs->i_p <= MINIMUM_POWER) && (control.algorithm_running != BRUTE_FORCE))
-	// {
-	//     if (last_brute_force_time + 250 >= HAL_GetTick())
-	//     {
-	//         last_brute_force_time = HAL_GetTick();
-	//         printf("Alg: %d\n", control.algorithm_running);
-	//         printf("Is brut\n");
-	//         control_set_brute_force(0.1);
-	//         return;
-	//     }
-	// }
+	//if power is too low, maybe the algorithm is lost
+	static uint32_t last_brute_force_time = 0;
+	if ((control.inputs->v_p * control.inputs->i_p <= MINIMUM_POWER) && (control.algorithm_running != BRUTE_FORCE))
+	{
+		if (HAL_GetTick() >= last_brute_force_time)
+		{
+			last_brute_force_time = HAL_GetTick() + 3000;
+			printf("Alg: %d\n", control.algorithm_running);
+			printf("Is brut\n");
+			control_set_brute_force(0.5);
+			return;
+		}
+	}
 
 	// if (brute_force_get_metadata()->done && control.algorithm_running == BRUTE_FORCE)
 	// {
@@ -248,7 +248,7 @@ void control_run(void)
 		{
 			if (print_delay < HAL_GetTick())
 			{
-				print_delay = HAL_GetTick() + 250;
+				print_delay = HAL_GetTick() + 50;
 				printf("Algo: %d, Vpan: %0.2f, Ipan: %0.2f, Vbat %0.2f, Ibat: %0.2f, Duty: %0.3f, Freq: %0.2f, Pin: %0.2f, Tr: %0.2f, Td: %0.2f, Tm: %0.2f\n", 
 					control.algorithm_running,
 					control.inputs->v_p,

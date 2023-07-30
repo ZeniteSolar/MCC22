@@ -21,7 +21,7 @@
 
 
 // Control Configuration
-#define MINIMUM_POWER 1.0f // in W
+#define MINIMUM_POWER 20.0f // in W
 #define CONTROL_ERROR_RESET_MILLIS 3000 /* Time to wait for system stabilization when a error is triggered*/
 #define CONTROL_DEFAULT_FREQUENCY  10.0f
 

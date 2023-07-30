@@ -51,7 +51,7 @@ float peo_run(const volatile inputs_t *inputs)
 	// Compute input power variation
 	float dpi = (pi[ACTUAL] - pi[PREV]);
 
-	if (dpi <= -1.0){
+	if (dpi <= -0.7){
 		dir = -dir;
 	}
 
