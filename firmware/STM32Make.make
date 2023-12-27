@@ -43,6 +43,7 @@ Core/Src/algorithms/peo_dynamic_step.c \
 Core/Src/algorithms/pi.c \
 Core/Src/control.c \
 Core/Src/hardware/adc.c \
+Core/Src/hardware/ads111x.c \
 Core/Src/hardware/comparators.c \
 Core/Src/hardware/dac.c \
 Core/Src/hardware/pwm.c \
