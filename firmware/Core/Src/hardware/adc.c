@@ -91,6 +91,9 @@ HAL_StatusTypeDef adc_init(I2C_HandleTypeDef *hi2c)
 		adc.channels[i].value.avg = 0;
 	}	
 
+	/* Adc initialized correctly */
+	return HAL_OK;
+
 }
 
 /**
@@ -206,7 +209,7 @@ HAL_StatusTypeDef adc_measure(void)
 /** 
  * @brief Calculate average of all channels
 */
-HAL_StatusTypeDef adc_calculate_average(void)
+void adc_calculate_average(void)
 {
 	/* Iterate over channels */
 	for (uint8_t i = 0; i < ADC_CHANNELS_SIZE; i++)

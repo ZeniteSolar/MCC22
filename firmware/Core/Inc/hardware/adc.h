@@ -78,7 +78,7 @@ HAL_StatusTypeDef adc_measure(void);
 /** 
  * @brief Calculate average of all channels
 */
-HAL_StatusTypeDef adc_calculate_average(void);
+void adc_calculate_average(void);
 
 /**
  * @brief Get channel value

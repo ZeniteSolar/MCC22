@@ -5,9 +5,16 @@
 #include "pi.h"
 #include "peo_dynamic_step.h"
 
-static uint32_t ctrl_clk_div = 2;
-
+/**
+ * @brief Enable/disable control variables print
+ * 
+ */
 uint8_t print;
+
+/**
+ * @brief Control main structure
+ * 
+ */
 static control_t control;
 
 /**
@@ -220,29 +227,23 @@ void control_script(void)
 		control_set_peo(brute_force_get_metadata()->absolute_mpp_duty);
 	}
 
-	// //if power is too low, maybe the algorithm is lost
-	// static uint32_t last_brute_force_time = 0;
-	// float panel_power = adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT);
-	// if ( 
-	// 	(panel_power <= MINIMUM_POWER) && 
-	// 	(control.algorithm_running != BRUTE_FORCE)
-	// )
-	// {
-	// 	if (HAL_GetTick() >= last_brute_force_time)
-	// 	{
-	// 		last_brute_force_time = HAL_GetTick() + 10000;
-	// 		printf("Alg: %d\n", control.algorithm_running);
-	// 		printf("Is brut\n");
-	// 		control_set_brute_force(0.2f);
-	// 		return;
-	// 	}
-	// }
+	//if power is too low, maybe the algorithm is lost
+	static uint32_t last_brute_force_time = 0;
+	float panel_power = adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT);
+	if ( 
+		(panel_power <= MINIMUM_POWER) && 
+		(control.algorithm_running != BRUTE_FORCE)
+	)
+	{
+		if (HAL_GetTick() >= last_brute_force_time)
+		{
+			last_brute_force_time = HAL_GetTick() + 10000;
+			printf("Power too low, running brute force from algorithm %d\n", control.algorithm_running);
+			control_set_brute_force(0.2f);
+			return;
+		}
+	}
 
-	// if (brute_force_get_metadata()->done && control.algorithm_running == BRUTE_FORCE)
-	// {
-	//     printf("Set fixed with %f\n", brute_force_get_metadata()->absolute_mpp_duty);
-	//     control_set_fixed(brute_force_get_metadata()->absolute_mpp_duty);
-	// }
 }
 
 void control_run(void)
