@@ -220,19 +220,23 @@ void control_script(void)
 		control_set_peo(brute_force_get_metadata()->absolute_mpp_duty);
 	}
 
-	//if power is too low, maybe the algorithm is lost
-	static uint32_t last_brute_force_time = 0;
-	if ((control.inputs->v_p * control.inputs->i_p <= MINIMUM_POWER) && (control.algorithm_running != BRUTE_FORCE))
-	{
-		if (HAL_GetTick() >= last_brute_force_time)
-		{
-			last_brute_force_time = HAL_GetTick() + 3000;
-			printf("Alg: %d\n", control.algorithm_running);
-			printf("Is brut\n");
-			control_set_brute_force(0.5);
-			return;
-		}
-	}
+	// //if power is too low, maybe the algorithm is lost
+	// static uint32_t last_brute_force_time = 0;
+	// float panel_power = adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT);
+	// if ( 
+	// 	(panel_power <= MINIMUM_POWER) && 
+	// 	(control.algorithm_running != BRUTE_FORCE)
+	// )
+	// {
+	// 	if (HAL_GetTick() >= last_brute_force_time)
+	// 	{
+	// 		last_brute_force_time = HAL_GetTick() + 10000;
+	// 		printf("Alg: %d\n", control.algorithm_running);
+	// 		printf("Is brut\n");
+	// 		control_set_brute_force(0.2f);
+	// 		return;
+	// 	}
+	// }
 
 	// if (brute_force_get_metadata()->done && control.algorithm_running == BRUTE_FORCE)
 	// {

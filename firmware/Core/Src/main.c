@@ -134,23 +134,25 @@ int main(void)
 
 	//dac_init(&hdac1);
 	uart_init(&huart1);
-	adc_init(&hadc1, &htim2);
+	adc_init(&hi2c3);
 	pwm_init(&htim1);
 	machine_init();
-	comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.999);
-	comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
+	//comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.999);
+	//comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
+	
+	/* USER CODE END 2 */
 
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
-    /* USER CODE END WHILE */
+		/* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+		/* USER CODE BEGIN 3 */
 
 		static uint32_t uart_delay = 0U;
+		static uint32_t adc_delay = 0U;
+		static uint32_t control_delay = 0U;
 
 		/* Machine */
 		machine_set_run();
@@ -165,13 +167,21 @@ int main(void)
 		}
 
 		/* Adc */
-		if (adc_ready)
+		if (adc_delay < HAL_GetTick())
 		{
-			adc_ready = 0;
+			adc_delay = HAL_GetTick() + (uint32_t)(1000 / ADC_DEFAULT_FREQUENCY);
+			adc_measure();
+		}
+
+		/* Control */
+		if (control_delay < HAL_GetTick() && adc_all_channels_measured())
+		{
+			control_delay = HAL_GetTick() + control_get_period();
 			control_run();
 		}
+
 	}
-  /* USER CODE END 3 */
+	/* USER CODE END 3 */
 }
 
 /**

@@ -98,22 +98,22 @@ void uart_init(UART_HandleTypeDef *huart_rx)
 
 void parse_read_meas_vbat(parser_t *parser, command_t *command)
 {
-	printf("%f\n", adc_get_measurements()->v_b);
+	printf("%f\n", adc_get_value(ADC_BATTERY_VOLTAGE));
 }
 
 void parse_read_meas_vpan(parser_t *parser, command_t *command)
 {
-	printf("%f\n", adc_get_measurements()->v_p);
+	printf("%f\n", adc_get_value(ADC_PANEL_VOLTAGE));
 }
 
 void parse_read_meas_ibat(parser_t *parser, command_t *command)
 {
-	printf("%f\n", adc_get_measurements()->i_b);
+	printf("%f\n", adc_get_value(ADC_BATTERY_CURRENT));
 }
 
 void parse_read_meas_ipan(parser_t *parser, command_t *command)
 {
-	printf("%f\n", adc_get_measurements()->i_p);
+	printf("%f\n", adc_get_value(ADC_PANEL_CURRENT));
 }
 
 void parse_read_duty_cycle(parser_t *parser, command_t *command)
@@ -129,10 +129,7 @@ void parse_read_frequency(parser_t *parser, command_t *command)
 void parse_read_meas_allm(parser_t *parser, command_t *command)
 {
 	static uint8_t state = 1;
-	for (int i = 0; i < sizeof(inputs_t) / sizeof(float); i++)
-	{
-		printf("%f, ", adc_get_measurements()->channels[i]);
-	}
+
 	control_set_print(state);
 	state = !state;
 	printf("\n");
@@ -221,7 +218,7 @@ void parse_write_syst_reset(parser_t *parser, command_t *command)
 	printf("reset\n");
 	if (get_command_int(parser, command) == 1)
 	{
-		adc_restart(DEFAULT_ADC_FREQ);
+		printf("TODO");
 	}
 }
 

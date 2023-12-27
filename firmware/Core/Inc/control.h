@@ -8,55 +8,56 @@
 
 typedef enum
 {
-    // Perturb and Observe
-    PEO,
-    // Perturb and Observe with dynamic step
-    PEO_DYN_STEP,
-    // Brute Force
-    BRUTE_FORCE,
-    // Proportional Integrator
-    PI,
-    // Fixed duty cycle
-    FIXED,
+	// Perturb and Observe
+	PEO,
+	// Perturb and Observe with dynamic step
+	PEO_DYN_STEP,
+	// Brute Force
+	BRUTE_FORCE,
+	// Proportional Integrator
+	PI,
+	// Fixed duty cycle
+	FIXED,
 } algorithms_t;
 
 typedef struct
 {
-    // absolute maximum power
-    float absolute_mpp_power;
-    // absolute maximum power duty cycle
-    float absolute_mpp_duty;
-    // if the algorithm is finite should be true when is done
-    uint32_t done;
+	// absolute maximum power
+	float absolute_mpp_power;
+	// absolute maximum power duty cycle
+	float absolute_mpp_duty;
+	// if the algorithm is finite should be true when is done
+	uint32_t done;
 
 } algorithms_metadata_t;
 
 
 typedef enum {
-    INPUT_OVER_VOLTAGE = (1U << 0),
-    OUTPUT_OVER_VOLTAGE = (1U << 1),
-    INPUT_OVER_CURRENT = (1U << 2),
-    OUTPUT_OVER_CURRENT = (1U << 3),
-    INPUT_OVER_POWER = (1U << 4),
-    OUTPUT_OVER_POWER = (1U << 5),
+	INPUT_OVER_VOLTAGE = (1U << 0),
+	OUTPUT_OVER_VOLTAGE = (1U << 1),
+	INPUT_OVER_CURRENT = (1U << 2),
+	OUTPUT_OVER_CURRENT = (1U << 3),
+	INPUT_OVER_POWER = (1U << 4),
+	OUTPUT_OVER_POWER = (1U << 5),
 } errors_t;
 
 
 
 typedef struct
 {
-    FunctionalState enable;
-    // Actual state
-    algorithms_t algorithm_running;
-    /**
-     * Internal variables
-     */
-    // if algorithm is in follower mode
-    FunctionalState forced_algorithm;
-    // adc values
-    const volatile inputs_t *inputs;
+	FunctionalState enable;
+	// Actual state
+	algorithms_t algorithm_running;
+	/**
+	 * Internal variables
+	 */
+	// if algorithm is in follower mode
+	FunctionalState forced_algorithm;
 
-    errors_t errors;
+	/* Control period in ms */
+	uint32_t period; 
+
+	errors_t errors;
 
 } control_t;
 
@@ -98,8 +99,25 @@ void control_set_enable(FunctionalState enable);
  */
 void control_set_error(errors_t error);
 
+/**
+ * @brief  Set control frequency
+ * 
+ * @param freq control frequency in Hz
+ */
 float control_get_freq(void);
+
+/**
+ * @brief  Set control frequency
+ * 
+ * @param freq control frequency in Hz
+ */
 void control_set_freq(float freq);
+
+/**
+ * @brief  Set control print
+ * 
+ * @param enable enable/disable print
+ */
 void control_set_print(uint8_t enable);
 
 /**
