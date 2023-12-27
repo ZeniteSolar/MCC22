@@ -1,61 +1,97 @@
 #ifndef ADC_H
 #define ADC_H
 
-#include "stm32l4xx_hal.h"
-#include "conf.h"
-#include "utils.h"
-#include <math.h>
+/* ADS111x Driver*/
+#include "ads111x.h"
 
+/**
+ * @brief ADC channels in order of the ADC multiplexer
+ * 
+ */
+typedef enum {
+	ADC_PANEL_CURRENT,
+	ADC_PANEL_VOLTAGE,
+	ADC_BATTERY_CURRENT,
+	ADC_BATTERY_VOLTAGE,
+	ADC_CHANNELS_SIZE
+} adc_channels_t;
+
+/**
+ * @brief ADC average structure
+ * 
+ */
 typedef struct
 {
-    union 
-    {
-        float channels[ADC_CHANNELS];
-        struct 
-        {
-            float i_b; // Battery current
-            float v_b; // Battery voltage
-            float v_p; // Panel voltage
-            float i_p; // Panel current
-            float t_d; // Diode temperature
-            float t_m; // Mosfet temperature
-            float t_r; // Room temperature 
-        };
-    };
-}inputs_t;
+	/* Sum of samples */
+	float sum;
+	/* Number of samples */
+	uint32_t samples;
+	/* Average value */
+	float avg;
 
+} adc_average_t;
+
+/**
+ * @brief ADC channel structure
+ * 	Contains gain and value
+ */
 typedef struct
 {
-    ADC_HandleTypeDef *hadc;
-    TIM_HandleTypeDef *htim_trigger;
-}adc_t;
+	/* Channel gain */
+	ads111x_gain_t gain;
+	/* Channel value */
+	adc_average_t value;
 
-extern uint8_t adc_ready;
-
-void adc_init(ADC_HandleTypeDef *hadc, TIM_HandleTypeDef *htim_trigger);
-HAL_StatusTypeDef adc_restart(float freq);
-
-HAL_StatusTypeDef adc_start(float freq);
+} adc_channel_t;
 
 /**
- * @brief Set adc frequency 
- * @note Adc frequency is the frequency of a complete DMA buffer
- * 
- * @param freq frequency in Hz
+ * @brief ADC structure
+ * 	Contains I2C handler and channels
  */
-void adc_set_freq(float freq);
+typedef struct
+{
+	/* I2C Handler */
+	I2C_HandleTypeDef *hi2c;
+	/* ADC channels */
+	adc_channel_t channels[ADC_CHANNELS_SIZE];
+	/* Last channel read */
+	uint8_t last_channel_index;
+	/* ADC all channels measured */
+	uint8_t all_channels_measured;
+} adc_t;
 
 /**
- * @brief get adc frequency 
- * @note Adc frequency is the frequency of a complete DMA buffer
+ * @brief Initialize ADC
  * 
- * @return freq frequency in Hz
+ * @param hi2c I2C handle
+ * @return HAL_StatusTypeDef HAL status
  */
-float adc_get_freq(void);
+HAL_StatusTypeDef adc_init(I2C_HandleTypeDef *hi2c);
+
 /**
- * @brief returns the pointer of the measurements values 
- * @return pointer of the measurements 
+ * @brief Measure a channel
+ * 
+ * @return HAL_StatusTypeDef HAL status
+ */
+HAL_StatusTypeDef adc_measure(void);
+
+/** 
+ * @brief Calculate average of all channels
 */
-const volatile inputs_t *adc_get_measurements(void);
+HAL_StatusTypeDef adc_calculate_average(void);
 
-#endif
+/**
+ * @brief Get channel value
+ * 
+ * @param channel Channel
+ * @return float Value
+ */
+float adc_get_value(adc_channels_t channel);
+
+/**
+ * @brief ADC all channels measured
+ * 
+ */
+uint8_t adc_all_channels_measured(void);
+
+#endif // ADC_H

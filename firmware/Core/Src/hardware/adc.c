@@ -1,138 +1,263 @@
+/* Stm32 HAL */
+#include "stm32l4xx_hal.h"
+/* ADS111x Driver*/
+#include "ads111x.h"
+/* Utils */
+#include "utils.h"
+/* ADC header */
 #include "adc.h"
 
-static adc_t adc;
+/**
+ * @brief ADC correction coefficients
+ *  Linearization equation: 
+ *  y = ADC_CORRECTION_COEFFICIENTS[0] + ADC_CORRECTION_COEFFICIENTS[1] * x
+ * 
+ */
+const static float ADC_CORRECTION_COEFFICIENTS[ADC_CHANNELS_SIZE][2] = {
+	{0.0f, 4.6315942f},
+	{0.0f, 10.236966f},
+	{0.0f, 0.0f},
+	{0.0f, 0.0f}
+};
 
-const float ADC_ANG_COEFFS[] =
-	{1.7053928645698802e-05f,
-	 0.00037580291345935937f,
-	 0.00012337107021362354f,
-	 5.665965783264343e-05f,};
-const float ADC_LIN_COEFFS[] =
-	{1.7053928645698802e-05f,
-	 1.1496591365051616f,
-	 -0.06610585f,
-	 0.15480921578799672f};
+const static uint8_t ADC_CHANNELS[] = {
+	ADS111X_MUX_0_GND,
+	ADS111X_MUX_1_GND,
+	ADS111X_MUX_2_GND,
+	ADS111X_MUX_3_GND,
+};
 
-uint8_t adc_ready = 0;
-volatile inputs_t adc_avg;
-volatile uint16_t adc_buffer[ADC_BUFFER_SIZE];
-volatile uint32_t adc_sum[ADC_CHANNELS];
+/**
+ * @brief ADC structure
+ * 
+ */
+adc_t adc;
 
-void adc_init(ADC_HandleTypeDef *hadc, TIM_HandleTypeDef *htim_trigger)
+
+/**
+ * @brief Initialize ADC
+ * 
+ * @param hi2c I2C handle
+ * @return HAL_StatusTypeDef HAL status
+ */
+HAL_StatusTypeDef adc_init(I2C_HandleTypeDef *hi2c)
 {
-	adc.hadc = hadc;
-	adc.htim_trigger = htim_trigger;
+	/* Check if device is ready */
+	if (HAL_I2C_IsDeviceReady(hi2c, (uint16_t)(ADS111X_ADDR_GND << 1), 10, 100) != HAL_OK)
+	{
+		return HAL_ERROR;
+	}
+
+	/* Save I2C handler */
+	adc.hi2c = hi2c;
+
+	/* Initialize in continuous mode */
+	if (ads111x_set_mode(hi2c, ADS111X_MODE_SINGLE_SHOT) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_set_mode");
+	}
+
+	/* Initialize data rate */
+	if (ads111x_set_data_rate(hi2c, ADS111X_DATA_RATE_860) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_set_data_rate");
+	}
+
+	/* Initialize on channel 0 */
+	if (ads111x_set_input_mux(hi2c, ADS111X_MUX_0_GND) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_set_input_mux");
+	}
+	/* Save last channel */
+	adc.last_channel_index = 0;
+
+	/* Initialize gain */
+	if (ads111x_set_gain(hi2c, ADS111X_GAIN_4V096) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_set_gain");
+	}
+	/* Start conversion */
+	if (ads111x_start_conversion(hi2c) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_start_conversion");
+	}
+
+	/* Initialize channels */
+	for (uint8_t i = 0; i < ADC_CHANNELS_SIZE; i++)
+	{
+		adc.channels[i].gain = ADS111X_GAIN_4V096;
+		adc.channels[i].value.samples = 0;
+		adc.channels[i].value.sum = 0;
+		adc.channels[i].value.avg = 0;
+	}	
+
 }
 
-HAL_StatusTypeDef adc_restart(float freq)
+/**
+ * @brief Set ADC channel gain
+ * 
+ */
+HAL_StatusTypeDef adc_set_gain(adc_channels_t channel, uint16_t value)
 {
-	printf(">%ld\n", HAL_ADC_GetError(adc.hadc));
+	const uint16_t LOW_TRESHOLD = (ADS111X_MAX_VALUE / 2);
+	const uint16_t HIGH_TRESHOLD = ADS111X_MAX_VALUE;
+	const uint16_t HYSTERESIS = ADS111X_MAX_VALUE / 50;
+	
+
+	/* Check if channel is valid */
+	if (channel >= ADC_CHANNELS_SIZE)
+	{
+		LOG_ERROR("Invalid channel");
+		return HAL_ERROR;
+	}
+
+	/* if value is near of top reduce gain */
+	ads111x_gain_t gain = adc.channels[channel].gain;
+	if (value > (ADS111X_MAX_VALUE - HYSTERESIS) && gain != ADS111X_GAIN_4V096)
+	{
+		gain--;
+		printf("Setting gain of channel %d: %f\n",channel , ads111x_gain_values[gain]);
+	}
+	else if (value < (LOW_TRESHOLD - HYSTERESIS) && gain != ADS111X_GAIN_0V256)
+	{
+		gain++;
+		printf("Setting gain of channel %d: %f\n",channel , ads111x_gain_values[gain]);
+	}
+
+
+
+	/* Set gain */
+	adc.channels[channel].gain = gain;
+
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef adc_start(float freq)
+/**
+ * @brief Measure a channel
+ * 
+ * @return HAL_StatusTypeDef HAL status
+ */
+HAL_StatusTypeDef adc_measure(void)
 {
-
-
-	if (HAL_ADCEx_Calibration_Start(adc.hadc, ADC_SINGLE_ENDED) != HAL_OK)
+	/* If conversion available */
+	uint8_t busy;
+	
+	if (ads111x_is_busy(adc.hi2c, &busy) != HAL_OK)
 	{
-		LOG_ERROR("error calibrating ADC");
+		LOG_ERROR("ads111x_failed reading busy flag");
 		return HAL_ERROR;
 	}
 
-	if (HAL_ADC_Start_DMA(adc.hadc, (uint32_t *)adc_buffer, ADC_BUFFER_SIZE) != HAL_OK)
+	if (busy)
 	{
-		LOG_ERROR("error starting DMA");
+		printf("busy\n");
+		return HAL_OK;
+	}
+
+	/* Read conversion result */
+	int16_t value;
+	if (ads111x_get_value(adc.hi2c, &value) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_get_value");
+		return HAL_ERROR;
+	}
+	/* Convert to voltage */
+	float voltage = (float)value * (ads111x_gain_values[adc.channels[adc.last_channel_index].gain] / ADS111X_MAX_VALUE);
+
+	/* Sum the sample */
+	adc.channels[adc.last_channel_index].value.sum += voltage;
+	adc.channels[adc.last_channel_index].value.samples++;
+
+	adc_set_gain(adc.last_channel_index, value);
+
+	/* Read next channel */
+	adc.last_channel_index = (adc.last_channel_index + 1) % ADC_CHANNELS_SIZE;
+
+	/* If all channels are measured set flag */
+	if (adc.last_channel_index == 0)
+	{
+		adc.all_channels_measured = 1;
+	}
+
+	/* Select next channel */
+	if (ads111x_set_input_mux(adc.hi2c, ADC_CHANNELS[adc.last_channel_index]) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_set_input_mux");
 		return HAL_ERROR;
 	}
 
-	if (HAL_TIM_Base_Start_IT(adc.htim_trigger) != HAL_OK)
+	/* Select gain of the channel */
+	if (ads111x_set_gain(adc.hi2c, adc.channels[adc.last_channel_index].gain) != HAL_OK)
 	{
-		LOG_ERROR("error starting timer 2");
+		LOG_ERROR("ads111x_set_gain");
 		return HAL_ERROR;
 	}
-	adc_set_freq(freq);
+
+	/* Start conversion */
+	if (ads111x_start_conversion(adc.hi2c) != HAL_OK)
+	{
+		LOG_ERROR("ads111x_start_conversion");
+		return HAL_ERROR;
+	}
 
 	return HAL_OK;
 }
 
-void adc_set_freq(float freq)
+/** 
+ * @brief Calculate average of all channels
+*/
+HAL_StatusTypeDef adc_calculate_average(void)
 {
-	
-	/**
-	 * Frequency = ADC_TIM_FREQ / (2 * period * prescaler)
-	 * for better resolution period should be great as possible
-	 */
-
-	float trigger_freq = freq * ADC_SAMPLES;
-
-	// Calculate period for the required frequency assuming prescaler as 1
-	uint32_t period = ADC_TIM_FREQ / (2 * trigger_freq);
-
-	if (period > 65535)
-		period = 65535; // 16bit period
-
-	// if period was not enough to achieve the frequency, calculate the prescaler
-	uint32_t prescaler = ADC_TIM_FREQ / (2 * trigger_freq * period);
-
-	if (prescaler > 65535)
-		prescaler = 65535;
-
-	
-	__HAL_TIM_SET_PRESCALER(adc.htim_trigger, prescaler);
-	__HAL_TIM_SetAutoreload(adc.htim_trigger, period);
-
-}
-
-float adc_get_freq(void)
-{
-	uint32_t period = __HAL_TIM_GET_AUTORELOAD(adc.htim_trigger);
-	// HAL doesn't have macro to get prescaler
-	uint32_t prescaler = adc.htim_trigger->Instance->PSC;
-	return ADC_TIM_FREQ / (2 * period * prescaler);
-}
-
-const volatile inputs_t *adc_get_measurements(void)
-{
-	return &adc_avg;
-}
-
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
-	
-	for (int i = (ADC_BUFFER_SIZE / 2); i < ADC_BUFFER_SIZE; i++)
+	/* Iterate over channels */
+	for (uint8_t i = 0; i < ADC_CHANNELS_SIZE; i++)
 	{
-		adc_sum[i % ADC_CHANNELS] += adc_buffer[i];
-	}
-
-	for (int i = 0; i < ADC_CHANNELS; i++)
-	{
-		// linear channels
-		if (i < (sizeof(ADC_ANG_COEFFS) / sizeof(ADC_ANG_COEFFS[0])))
+		/* Division by zero protection */
+		if (adc.channels[i].value.samples == 0)
 		{
-			adc_avg.channels[i] = ADC_ANG_COEFFS[i] * (float)adc_sum[i] + ADC_LIN_COEFFS[i];
+			continue;
 		}
-		// log channels (temperature sensors)
-		else 
-		{
-			// Compute average
-			float vout = (float)(adc_sum[i]) / (ADC_SAMPLES * ADC_OVERSAMPLE);
-			// Convert adc value to voltage
-			vout = ANALOG_VREF * (vout / ADC_MAX_VALUE);
-			// Convert voltage to temperature
-			adc_avg.channels[i] = (3950.0f / (log((-5671419.57303391f * vout) / (10.0f * vout - 33.0f)))) - 273.15;
-		}
-		adc_sum[i] = 0;
+		
+		/* Calculate average */
+		adc.channels[i].value.avg = adc.channels[i].value.sum / adc.channels[i].value.samples;
+		
+		/* Reset sum and samples */
+		adc.channels[i].value.sum = 0;
+		adc.channels[i].value.samples = 0;
 	}
-	adc_ready = 1;
-	
 }
 
-void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
+/**
+ * @brief Get channel value
+ * 
+ * @param channel Channel
+ * @return float Value
+ */
+float adc_get_value(adc_channels_t channel)
 {
-	for (int i = 0; i < ADC_BUFFER_SIZE / 2; i++)
+	/* Check if channel is valid */
+	if (channel >= ADC_CHANNELS_SIZE)
 	{
-		adc_sum[i % ADC_CHANNELS] += adc_buffer[i];
+		LOG_ERROR("Invalid channel");
+		return 0;
 	}
+
+	float value = adc.channels[channel].value.avg;
+
+	/* Apply correction coefficients */
+	value = ADC_CORRECTION_COEFFICIENTS[channel][1] * value + ADC_CORRECTION_COEFFICIENTS[channel][0];
+
+	/* Get value */
+	return value;
+
 }
 
+/**
+ * @brief ADC all channels measured
+ * 
+ */
+uint8_t adc_all_channels_measured(void)
+{
+	uint8_t all_channels_measured = adc.all_channels_measured;
+	adc.all_channels_measured = 0;
+	return all_channels_measured;
+}
