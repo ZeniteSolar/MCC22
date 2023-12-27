@@ -17,7 +17,7 @@ void peo_dynamic_step_init(float initial_duty);
  * @brief Run a iteration of the algorithm
  * @retval duty cycle control action 
 */
-float peo_dynamic_step_run(const volatile inputs_t *inputs);
+float peo_dynamic_step_run(void);
 
 /**
  * @brief get metadata

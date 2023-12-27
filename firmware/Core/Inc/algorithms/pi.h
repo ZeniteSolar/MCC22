@@ -16,7 +16,7 @@ void pi_init(float initial_duty);
  * @brief Run a iteration of the algorithm
  * @retval duty cycle control action 
 */
-float pi_run(const volatile inputs_t *inputs);
+float pi_run(void);
 
 /**
  * @brief get metadata

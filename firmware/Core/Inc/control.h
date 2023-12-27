@@ -102,4 +102,18 @@ float control_get_freq(void);
 void control_set_freq(float freq);
 void control_set_print(uint8_t enable);
 
+/**
+ * @brief  Set control period
+ * 
+ * @param period control period in ms
+ */
+void control_set_period(uint32_t period);
+
+/**
+ * @brief Get control period
+ * 
+ * @return uint32_t control period in ms
+ */
+uint32_t control_get_period(void);
+
 #endif
