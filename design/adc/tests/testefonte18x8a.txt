@@ -1,0 +1,672 @@
+Algo: 0, Vpan: 14.78, Ipan: 7.33, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 108.32
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.41, Ipan: 7.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.81
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.84, Ipan: 6.74, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.73
+�b����� 15.46, Ipan: 7.08, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.47
+INFO: ==> STATE INITIALIZING
+INFO: ==> STATE IDLE
+Setting gain of channel 0: 2.048000
+INFO: ==> STATE RUNNING
+Setting gain of channel 1: 2.048000
+busy
+Setting gain of channel 2: 2.048000
+busy
+Setting gain of channel 3: 2.048000
+Algo: 2, Vpan: 20.04, Ipan: 0.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.000, Freq: 300751.88, Pin: 1.07
+Setting gain of channel 0: 1.024000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 2, Vpan: 18.53, Ipan: 2.67, Vbat: 0.00, Ibat: 0.00, Duty: 0.627, Freq: 300751.88, Pin: 49.40
+Setting gain of channel 2: 0.256000
+busy
+Algo: 2, Vpan: 18.16, Ipan: 4.46, Vbat: 0.00, Ibat: 0.00, Duty: 0.657, Freq: 300751.88, Pin: 80.98
+Setting gain of channel 0: 2.048000
+busy
+Algo: 2, Vpan: 17.16, Ipan: 5.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.687, Freq: 300751.88, Pin: 86.80
+Algo: 2, Vpan: 15.92, Ipan: 6.77, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 107.86
+Algo: 2, Vpan: 13.89, Ipan: 8.19, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 113.75
+Setting gain of channel 1: 1.024000
+busy
+Algo: 2, Vpan: 10.02, Ipan: 7.89, Vbat: 0.00, Ibat: 0.00, Duty: 0.776, Freq: 300751.88, Pin: 79.03
+Setting gain of channel 2: 0.512000
+busy
+Algo: 2, Vpan: 7.90, Ipan: 8.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.799, Freq: 300751.88, Pin: 63.41
+Setting gain of channel 1: 2.048000
+busy
+Algo: 2, Vpan: 9.92, Ipan: 7.76, Vbat: 0.00, Ibat: 0.00, Duty: 0.769, Freq: 300751.88, Pin: 77.02
+Setting gain of channel 2: 0.256000
+busy
+Brute force done!
+Algo: 2, Vpan: 13.74, Ipan: 7.44, Vbat: 0.00, Ibat: 0.00, Duty: 0.739, Freq: 300751.88, Pin: 102.16
+Algo: 0, Vpan: 13.78, Ipan: 7.33, Vbat: 0.00, Ibat: 0.00, Duty: 0.739, Freq: 300751.88, Pin: 101.06
+Algo: 0, Vpan: 12.89, Ipan: 7.46, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 96.19
+Algo: 0, Vpan: 12.87, Ipan: 7.46, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 96.02
+Algo: 0, Vpan: 12.86, Ipan: 7.45, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.83
+Algo: 0, Vpan: 12.86, Ipan: 7.45, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.71
+Algo: 0, Vpan: 12.85, Ipan: 7.44, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.65
+Algo: 0, Vpan: 12.85, Ipan: 7.44, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.55
+Algo: 0, Vpan: 12.84, Ipan: 7.44, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.48
+Algo: 0, Vpan: 12.83, Ipan: 7.43, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.33
+Algo: 0, Vpan: 12.82, Ipan: 7.43, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.24
+Algo: 0, Vpan: 12.82, Ipan: 7.42, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.18
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 12.83, Ipan: 7.42, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.16
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 12.81, Ipan: 7.42, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.03
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 12.82, Ipan: 7.41, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 95.05
+Algo: 0, Vpan: 12.15, Ipan: 7.49, Vbat: 0.00, Ibat: 0.00, Duty: 0.754, Freq: 300751.88, Pin: 91.01
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 12.74, Ipan: 7.41, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 94.40
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 12.80, Ipan: 7.41, Vbat: 0.00, Ibat: 0.00, Duty: 0.746, Freq: 300751.88, Pin: 94.82
+Algo: 0, Vpan: 13.70, Ipan: 7.28, Vbat: 0.00, Ibat: 0.00, Duty: 0.739, Freq: 300751.88, Pin: 99.71
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 14.50, Ipan: 7.17, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 103.97
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.34, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 107.96
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.35, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 107.88
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.36, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.01
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 14.54, Ipan: 7.16, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 104.14
+Algo: 0, Vpan: 15.37, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.09
+Algo: 0, Vpan: 15.37, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.13
+Algo: 0, Vpan: 15.85, Ipan: 6.74, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.85
+Algo: 0, Vpan: 15.51, Ipan: 7.09, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 110.05
+Algo: 0, Vpan: 15.51, Ipan: 7.09, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.99
+Algo: 0, Vpan: 15.39, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.32
+Algo: 0, Vpan: 15.39, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.30
+Algo: 0, Vpan: 15.40, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.35
+Algo: 0, Vpan: 15.91, Ipan: 6.74, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 107.21
+Algo: 0, Vpan: 15.52, Ipan: 7.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.55
+Algo: 0, Vpan: 15.52, Ipan: 7.09, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 110.01
+Algo: 0, Vpan: 14.58, Ipan: 7.18, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 104.72
+Algo: 0, Vpan: 15.40, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.37
+Algo: 0, Vpan: 15.41, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.43
+Algo: 0, Vpan: 15.86, Ipan: 6.73, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.80
+Algo: 0, Vpan: 15.52, Ipan: 7.09, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 110.03
+Algo: 0, Vpan: 15.52, Ipan: 7.09, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 110.01
+Algo: 0, Vpan: 15.45, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.91
+Algo: 0, Vpan: 15.42, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.50
+Algo: 0, Vpan: 15.42, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.53
+Algo: 0, Vpan: 15.91, Ipan: 6.73, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 107.07
+Algo: 0, Vpan: 15.53, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.45
+Algo: 0, Vpan: 15.53, Ipan: 7.08, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.93
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 14.64, Ipan: 7.20, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 105.45
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.34, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 107.92
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.43, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.53
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.91, Ipan: 6.72, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.92
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.52, Ipan: 7.07, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.78
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.52, Ipan: 7.07, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.77
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.52, Ipan: 7.07, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.76
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+Algo: 0, Vpan: 15.44, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.66
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.43, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.53
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.43, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.51
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+Algo: 0, Vpan: 15.44, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.51
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.91, Ipan: 6.72, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.85
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.57, Ipan: 7.07, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 110.07
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.07, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.78
+Algo: 0, Vpan: 15.53, Ipan: 7.07, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.76
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.51, Ipan: 7.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.48
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.77
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.73
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.68
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.69
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 14.63, Ipan: 7.18, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 105.02
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+Algo: 0, Vpan: 15.46, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.89
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.71
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.72
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+Algo: 0, Vpan: 14.64, Ipan: 7.16, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 104.80
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.63
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.64
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.92, Ipan: 6.74, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 107.26
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.64
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.62
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.06, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.60
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.57
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.47, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.73
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.47, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.75
+Algo: 0, Vpan: 14.72, Ipan: 7.17, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 105.59
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.47, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.70
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.48, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.71
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.92, Ipan: 6.70, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.65
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.52
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.53
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 14.81, Ipan: 7.26, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 107.61
+Algo: 0, Vpan: 15.48, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.70
+Algo: 0, Vpan: 15.48, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.77
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.92, Ipan: 6.73, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 107.13
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.49
+Algo: 0, Vpan: 15.54, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.45
+Algo: 0, Vpan: 15.54, Ipan: 7.05, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.47
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.93, Ipan: 6.73, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 107.14
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.57, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.68
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.39
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.37
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.32
+Setting gain of channel 2: 1.024000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 1.024000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.31
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.28
+Algo: 0, Vpan: 15.53, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.30
+Algo: 0, Vpan: 15.92, Ipan: 6.72, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.94
+Algo: 0, Vpan: 15.57, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.56
+Algo: 0, Vpan: 15.54, Ipan: 7.04, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.31
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.29
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.29
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.26
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.25
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.27
+Algo: 0, Vpan: 15.93, Ipan: 6.68, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.43
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.33
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.29
+Algo: 0, Vpan: 15.55, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.28
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.29
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 14.79, Ipan: 7.21, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 106.70
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.51, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.01
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.51, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.80
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.52, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.85
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 14.69, Ipan: 7.16, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 105.16
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.51, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.77
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.52, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.80
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.90, Ipan: 6.68, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.14
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+Algo: 0, Vpan: 15.55, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.29
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.23
+Algo: 0, Vpan: 15.55, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.24
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.94, Ipan: 6.67, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.39
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.03, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.24
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.24
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.22
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.23
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 14.90, Ipan: 7.25, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 107.96
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.45, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.29
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.53, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.95
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.94, Ipan: 6.67, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.32
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.25
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.23
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.22
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.21
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.18
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.18
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 14.81, Ipan: 7.16, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 106.07
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.90
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.54, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.94
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.91, Ipan: 6.67, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.03
+Algo: 0, Vpan: 15.57, Ipan: 6.99, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.75
+Algo: 0, Vpan: 15.56, Ipan: 7.02, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.19
+Algo: 0, Vpan: 14.98, Ipan: 7.28, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 109.07
+Algo: 0, Vpan: 15.54, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.89
+Algo: 0, Vpan: 14.72, Ipan: 7.14, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 105.06
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.46, Ipan: 7.00, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.31
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.00, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.91
+Algo: 0, Vpan: 15.95, Ipan: 6.66, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.28
+Algo: 0, Vpan: 15.57, Ipan: 6.98, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.68
+Algo: 0, Vpan: 15.57, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.17
+Algo: 0, Vpan: 14.98, Ipan: 7.28, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 109.09
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.96
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 14.72, Ipan: 7.15, Vbat: 0.00, Ibat: 0.00, Duty: 0.731, Freq: 300751.88, Pin: 105.26
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Setting gain of channel 2: 0.256000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.00, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.85
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.55, Ipan: 7.00, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 108.89
+Algo: 0, Vpan: 15.96, Ipan: 6.69, Vbat: 0.00, Ibat: 0.00, Duty: 0.716, Freq: 300751.88, Pin: 106.74
+Setting gain of channel 2: 0.256000
+busy
+Setting gain of channel 2: 0.512000
+busy
+Algo: 0, Vpan: 15.61, Ipan: 7.01, Vbat: 0.00, Ibat: 0.00, Duty: 0.724, Freq: 300751.88, Pin: 109.48

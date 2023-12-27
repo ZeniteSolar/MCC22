@@ -7,24 +7,24 @@
  * Debugging macros
  */
 
-#define LOG_INFO(x)       \
-    {                     \
-        printf("INFO: "); \
-        printf(x);        \
-        printf("\n");      \
-    }
-#define LOG_WARN(x)       \
-    {                     \
-        printf("WARN: "); \
-        printf(x);        \
-        printf("\n");      \
-    }
-#define LOG_ERROR(x)       \
-    {                      \
-        printf("ERROR: "); \
-        printf(x);         \
-        printf("\n");       \
-    }
+	#define LOG_INFO(...)       \
+	{                     \
+		printf("INFO: "); \
+		printf(__VA_ARGS__);        \
+		printf("\n");      \
+	}
+	#define LOG_WARN(...)       \
+	{                     \
+		printf("WARN: "); \
+		printf(__VA_ARGS__);        \
+		printf("\n");      \
+	}
+	#define LOG_ERROR(...)       \
+	{                      \
+		printf("ERROR: at line %d in function %s", __LINE__, __func__); \
+		printf(__VA_ARGS__);         \
+		printf("\n");       \
+	}
 
 /**
  * @brief Init leds with a fancy animation

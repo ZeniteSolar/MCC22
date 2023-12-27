@@ -17,7 +17,7 @@ void peo_init(float initial_duty);
  * @brief Run a iteration of the algorithm
  * @retval duty cycle control action 
 */
-float peo_run(const volatile inputs_t *inputs);
+float peo_run(void);
 
 void peo_set_step(float step_input);
 
