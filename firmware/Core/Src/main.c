@@ -132,13 +132,10 @@ int main(void)
 	MX_I2C3_Init();
 	/* USER CODE BEGIN 2 */
 
-	//dac_init(&hdac1);
 	uart_init(&huart1);
 	adc_init(&hi2c3);
 	pwm_init(&htim1);
 	machine_init();
-	//comparator_init_dac(&hcomp2, &hdac1, DAC_CHANNEL_1, 2.999);
-	//comparator_init_extern(&hcomp1, &hdac1, DAC_CHANNEL_1);
 	
 	/* USER CODE END 2 */
 
