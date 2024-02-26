@@ -194,15 +194,20 @@ void control_script(void)
 {
 	static uint32_t error_triggered_time = 0;
 
+	if (adc_get_value(ADC_BATTERY_VOLTAGE) > CONTROL_MAXIMUM_BATTERY_VOLTAGE)
+	{
+		control.errors |= OUTPUT_OVER_VOLTAGE;
+	}
+
 	if (control.errors && !error_triggered_time){
-		/* Trate errors */
-		//control_set_fixed(0.0);
+		/* Error handling */
+		control_set_fixed(0.0);
 		printf("Trating errors\n");
 		error_triggered_time = HAL_GetTick();
 	}
 
 	/* Wait CONTROL_ERROR_RESET_MILLIS when a error was triggered for system stabilization*/
-	if (0)
+	if (error_triggered_time)
 	{
 		if ((error_triggered_time + CONTROL_ERROR_RESET_MILLIS > HAL_GetTick()))
 		{
