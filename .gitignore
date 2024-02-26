@@ -111,3 +111,4 @@ firmware/.mxproject
 openocd.cfg
 STM32-for-VSCode.config.yaml
 */log/**
+.lib_version
