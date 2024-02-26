@@ -288,16 +288,18 @@ void control_run(void)
 	{
 		if (print_delay < HAL_GetTick())
 		{
-			print_delay = HAL_GetTick() + 50;
-			printf("Algo: %d, Vpan: %0.2f, Ipan: %0.2f, Vbat %0.2f, Ibat: %0.2f, Duty: %0.3f, Freq: %0.2f, Pin: %0.2f\n", 
+			print_delay = HAL_GetTick() + 500;
+			printf("Algo: %d, Vpan: %0.2f, Ipan: %0.2f, Vbat: %0.2f, Ibat: %0.2f, Duty: %0.2f, Freq: %0.1f, Pin: %0.2f, Pout: %0.2f, Eff: %0.2f\n", 
 				control.algorithm_running,
 				adc_get_value(ADC_PANEL_VOLTAGE),
 				adc_get_value(ADC_PANEL_CURRENT),
 				adc_get_value(ADC_BATTERY_VOLTAGE),
 				adc_get_value(ADC_BATTERY_CURRENT),
-				pwm_get_duty(),
+				pwm_get_duty() * 100.0f,
 				pwm_get_freq(),
-				adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT)
+				adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT),
+				adc_get_value(ADC_BATTERY_VOLTAGE) * adc_get_value(ADC_BATTERY_CURRENT),
+				(adc_get_value(ADC_BATTERY_VOLTAGE) * adc_get_value(ADC_BATTERY_CURRENT)) / (adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT)) * 100.0f
 			);
 		}
 	}
