@@ -112,3 +112,5 @@ openocd.cfg
 STM32-for-VSCode.config.yaml
 */log/**
 .lib_version
+can_ids.h
+can_parser_types.h
