@@ -14,10 +14,10 @@
  * 
  */
 const static float ADC_CORRECTION_COEFFICIENTS[ADC_CHANNELS_SIZE][2] = {
-	{0.0f, 4.6315942f},
-	{0.0f, 10.236966f},
-	{0.0f, 0.0f},
-	{0.0f, 0.0f}
+	{-0.0014958, 4.659992f},
+	{-0.133195, 10.16618f},
+	{0.0330273983f, 2.3719258767660f},
+	{0.12551552f, 30.30599253f}
 };
 
 const static uint8_t ADC_CHANNELS[] = {
@@ -51,7 +51,7 @@ HAL_StatusTypeDef adc_init(I2C_HandleTypeDef *hi2c)
 	/* Save I2C handler */
 	adc.hi2c = hi2c;
 
-	/* Initialize in continuous mode */
+	/* Initialize in single mode */
 	if (ads111x_set_mode(hi2c, ADS111X_MODE_SINGLE_SHOT) != HAL_OK)
 	{
 		LOG_ERROR("ads111x_set_mode");
