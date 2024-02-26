@@ -151,7 +151,7 @@ int main(void)
 		static uint32_t uart_delay = 0U;
 		static uint32_t adc_delay = 0U;
 		static uint32_t control_delay = 0U;
-		static uint32_t canbus_delay = 0U
+		static uint32_t canbus_delay = 0U;
 
 		/* Machine */
 		machine_set_run();
