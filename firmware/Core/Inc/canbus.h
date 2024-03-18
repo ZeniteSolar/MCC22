@@ -29,7 +29,7 @@ typedef struct {
 	/* Frequency of the message */
 	uint32_t frequency;
 	/* Update function */
-	void (*update)(can_msg_t*);
+	void (*update)(uint32_t, can_msg_t*);
 } canbus_tx_msg_t;
 
 /**

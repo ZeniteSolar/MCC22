@@ -154,6 +154,7 @@ C_INCLUDES =  \
 -ICore/Inc \
 -ICore/Inc/algorithms \
 -ICore/Inc/canbus \
+-ICore/Inc/canbus/messages \
 -ICore/Inc/hardware \
 -IDrivers/CMSIS/Device/ST/STM32L4xx/Include \
 -IDrivers/CMSIS/Include \
