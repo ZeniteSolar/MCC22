@@ -27,9 +27,11 @@
 #include "comparators.h"
 #include "pwm.h"
 #include "adc.h"
+#include "canbus.h"
 #include "dac.h"
 #include "uart.h"
 #include "ads111x.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -182,7 +184,7 @@ int main(void)
 		/* CanBus */
 		if (canbus_delay < HAL_GetTick())
 		{
-			canbus_delay = HAL_GetTick() + 100U;
+			canbus_delay = HAL_GetTick() + 50U;
 			canbus_run();
 		}
 
