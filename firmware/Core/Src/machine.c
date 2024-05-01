@@ -100,10 +100,10 @@ void machine_set_enable(FunctionalState enable)
 
 uint8_t machine_get_signature(void)
 {
-	uint8_t signature = ((!HAL_GPIO_ReadPin(ID_0_GPIO_Port, ID_0_Pin)) << 0);
-	signature |= ((!HAL_GPIO_ReadPin(ID_1_GPIO_Port, ID_1_Pin)) << 1);
-	signature |= ((!HAL_GPIO_ReadPin(ID_2_GPIO_Port, ID_2_Pin)) << 2);
-	signature |= ((!HAL_GPIO_ReadPin(ID_3_GPIO_Port, ID_3_Pin)) << 3);
+	uint8_t signature = (!(HAL_GPIO_ReadPin(ID_0_GPIO_Port, ID_0_Pin)) << 3);
+	signature |= (!(HAL_GPIO_ReadPin(ID_1_GPIO_Port, ID_1_Pin)) << 2);
+	signature |= (!(HAL_GPIO_ReadPin(ID_2_GPIO_Port, ID_2_Pin)) << 1);
+	signature |= (!(HAL_GPIO_ReadPin(ID_3_GPIO_Port, ID_3_Pin)) << 0);
 	return signature;
 
 }
