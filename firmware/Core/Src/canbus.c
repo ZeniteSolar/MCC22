@@ -92,10 +92,13 @@ void canbus_send_messages(void)
 		if (messages[i].schedule_time <= HAL_GetTick())
 		{
 			/* Update message */
-			canbus_update_measurements_message(
+			messages[i].update(
 				canbus.self_board_number,
 				&messages[i].message
 			);
+
+			/* Schedule next message */
+			messages[i].schedule_time = HAL_GetTick() + (1000.0f / (float)messages[i].frequency);
 
 			/* Send message */
 			canbus_send(&messages[i]);
