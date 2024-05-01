@@ -12,7 +12,7 @@
  */
 typedef struct {
 	/* Canbus handler */
-	CAN_HandleTypeDef hcan;
+	CAN_HandleTypeDef *hcan;
 	/* Board distinction number */
 	uint8_t self_board_number;
 } canbus_t;
@@ -29,14 +29,14 @@ typedef struct {
 	/* Frequency of the message */
 	uint32_t frequency;
 	/* Update function */
-	void (*update)(uint32_t, can_msg_t*);
+	void (*update)(uint8_t, can_msg_t*);
 } canbus_tx_msg_t;
 
 /**
  * @brief Init canbus controller
  * @param hcan canbus handler 
  */
-void canbus_init(CAN_HandleTypeDef hcan);
+void canbus_init(CAN_HandleTypeDef *hcan);
 
 /**
  * @brief Run canbus task

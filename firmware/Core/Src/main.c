@@ -136,7 +136,7 @@ int main(void)
 	adc_init(&hi2c3);
 	pwm_init(&htim1);
 	machine_init();
-	canbus_init();
+	canbus_init(&hcan1);
 	
 	/* USER CODE END 2 */
 

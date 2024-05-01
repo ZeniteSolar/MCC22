@@ -10,11 +10,12 @@
 
 static canbus_t canbus;
 
-void canbus_init(CAN_HandleTypeDef hcan)
+void canbus_init(CAN_HandleTypeDef *hcan)
 {
 	/** Save can handler */
 	canbus.hcan = hcan;
 	canbus.self_board_number = machine_get_signature();
+	HAL_CAN_Start(canbus.hcan);
 }
 
 uint32_t canbus_get_signature(uint8_t board_number)
@@ -61,7 +62,7 @@ void canbus_send(canbus_tx_msg_t *message)
 
 	/* Send message */
 	uint32_t mailbox;
-	HAL_CAN_AddTxMessage(&canbus.hcan, &txHeader, message->message.raw, &mailbox);
+	HAL_CAN_AddTxMessage(canbus.hcan, &txHeader, message->message.raw, &mailbox);
 }
 
 /**
