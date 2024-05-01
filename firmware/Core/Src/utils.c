@@ -21,7 +21,7 @@ void leds_init(uint8_t signature)
 	for (uint32_t i = 0; i <= 2 * LEDS_SIZE; i++)
 	{
 		uint32_t index = i < LEDS_SIZE ? i : 2 * LEDS_SIZE - (i);
-		HAL_GPIO_WritePin(LEDS_PORT[index], LEDS_PIN[index], i <= LEDS_SIZE ? GPIO_PIN_SET : GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LEDS_PORT[index], LEDS_PIN[index], i <= LEDS_SIZE ? GPIO_PIN_RESET : GPIO_PIN_SET);
 		HAL_Delay(100);
 	}
 
@@ -35,7 +35,7 @@ void leds_init(uint8_t signature)
 			HAL_GPIO_WritePin(
 				LEDS_PORT[j],
 				LEDS_PIN[j],
-				((signature >> ((LEDS_SIZE - 1) - j)) & 0x1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+				((signature >> ((LEDS_SIZE - 1) - j)) & 0x1) ? GPIO_PIN_RESET : GPIO_PIN_SET);
 		}
 
 		HAL_Delay(200);

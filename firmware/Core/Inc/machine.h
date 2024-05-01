@@ -82,4 +82,10 @@ void machine_set_run(void);
  */
 void machine_set_enable(FunctionalState enable);
 
+/**
+ * @brief Get machine signature
+ * 
+ */
+uint8_t machine_get_signature(void);
+
 #endif

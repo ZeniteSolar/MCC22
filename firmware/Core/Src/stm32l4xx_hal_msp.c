@@ -129,15 +129,16 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(Vpanel__GPIO_Port, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = IPanel__Pin|TempDiode_Pin|TempMos_Pin|Rad__Pin;
+    GPIO_InitStruct.Pin = IPanel__Pin|Vbat__Pin|TempDiode_Pin|TempMos_Pin
+                          |Rad__Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = Vbat_comp_Pin|Vbat__Pin;
+    GPIO_InitStruct.Pin = Vbat_comp_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(Vbat_comp_GPIO_Port, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = Vbat_comp_EXT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
@@ -335,10 +336,15 @@ void HAL_COMP_MspInit(COMP_HandleTypeDef* hcomp)
     PA7     ------> COMP2_OUT
     PB12     ------> TIM1_BKIN_COMP2
     */
-    GPIO_InitStruct.Pin = Vbat_comp_Pin|Vbat__Pin;
+    GPIO_InitStruct.Pin = Vbat_comp_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(Vbat_comp_GPIO_Port, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = Vbat__Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(Vbat__GPIO_Port, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = Bat_OverV_Out_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;

@@ -41,6 +41,7 @@ Core/Src/algorithms/fixed.c \
 Core/Src/algorithms/peo.c \
 Core/Src/algorithms/peo_dynamic_step.c \
 Core/Src/algorithms/pi.c \
+Core/Src/canbus.c \
 Core/Src/control.c \
 Core/Src/hardware/adc.c \
 Core/Src/hardware/ads111x.c \
@@ -152,6 +153,8 @@ AS_INCLUDES = \
 C_INCLUDES =  \
 -ICore/Inc \
 -ICore/Inc/algorithms \
+-ICore/Inc/canbus \
+-ICore/Inc/canbus/messages \
 -ICore/Inc/hardware \
 -IDrivers/CMSIS/Device/ST/STM32L4xx/Include \
 -IDrivers/CMSIS/Include \
@@ -212,7 +215,6 @@ vpath %.cpp $(sort $(dir $(CPP_SOURCES)))
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
 
-# list of ASM program objects
 # list of ASM program objects
 UPPER_CASE_ASM_SOURCES = $(filter %.S,$(ASM_SOURCES))
 LOWER_CASE_ASM_SOURCES = $(filter %.s,$(ASM_SOURCES))

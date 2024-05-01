@@ -17,6 +17,7 @@ _autosave-*
 *-save.pro
 *-save.kicad_pcb
 fp-info-cache
+*.lck
 
 # Netlist files (exported from Eeschema)
 *.net
@@ -111,3 +112,6 @@ firmware/.mxproject
 openocd.cfg
 STM32-for-VSCode.config.yaml
 */log/**
+.lib_version
+can_ids.h
+can_parser_types.h
