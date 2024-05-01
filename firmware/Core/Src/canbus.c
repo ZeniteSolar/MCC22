@@ -6,6 +6,7 @@
 /* Can messages */
 #include "canbus/messages/state.h"
 #include "canbus/messages/measurements.h"
+#include "canbus/messages/aux_measurements.h"
 
 
 static canbus_t canbus;
@@ -22,20 +23,23 @@ uint32_t canbus_get_signature(uint8_t board_number)
 {
 	/* Signatures */
 	const uint8_t signatures[] = {
-		CAN_SIGNATURE_MCC19_1,
-		CAN_SIGNATURE_MCC19_2,
-		CAN_SIGNATURE_MCC19_3,
-		CAN_SIGNATURE_MCC19_4,
-		CAN_SIGNATURE_MCC19_5,
-		CAN_SIGNATURE_MCC19_6,
+		CAN_SIGNATURE_MCC23_1,
+		CAN_SIGNATURE_MCC23_2,
+		CAN_SIGNATURE_MCC23_3,
+		CAN_SIGNATURE_MCC23_4,
+		CAN_SIGNATURE_MCC23_5,
+		CAN_SIGNATURE_MCC23_6,
+		CAN_SIGNATURE_MCC23_7,
+		CAN_SIGNATURE_MCC23_8,
+		CAN_SIGNATURE_MCC23_9,
 	};
 
 	/* Check signature */
-	if (board_number > 6)
+	if (board_number > (sizeof(signatures) / sizeof(signatures[0])))
 	{
 		LOG_ERROR("invalid board number");
 		/* Return default signature */
-		return CAN_SIGNATURE_MCC19_1;
+		return CAN_SIGNATURE_MCC23_1;
 	}
 	
 	/* Return signature */
@@ -73,16 +77,24 @@ void canbus_send_messages(void)
 {
 	/* Initialize messages */
 	static canbus_tx_msg_t messages[] = {
+		/* Measurements message */
 		{
 			.schedule_time = 0,
-			.frequency = CAN_MSG_MCC19_1_MEASUREMENTS_FREQUENCY,
+			.frequency = CAN_MSG_MCC23_1_MEASUREMENTS_FREQUENCY,
 			.update = canbus_update_measurements_message,
 		},
+		/* State message */
 		{
 			.schedule_time = 0,
-			.frequency = CAN_MSG_GENERIC_STATE_FREQUENCY,
+			.frequency = CAN_MSG_MCC23_1_STATE_FREQUENCY,
 			.update = canbus_update_state_message,
-		}
+		},
+		/* Aux measurements message */
+		{
+			.schedule_time = 0,
+			.frequency = CAN_MSG_MCC23_1_AUX_MEASUREMENTS_FREQUENCY,
+			.update = canbus_update_aux_measurements_message,
+		},
 	};
 
 	/* Loop through messages */
