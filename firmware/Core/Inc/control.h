@@ -31,14 +31,20 @@ typedef struct
 
 } algorithms_metadata_t;
 
+#define INPUT_OVER_VOLTAGE_MASK 0
+#define OUTPUT_OVER_VOLTAGE_MASK 1
+#define INPUT_OVER_CURRENT_MASK 2
+#define OUTPUT_OVER_CURRENT_MASK 3
+#define INPUT_OVER_POWER_MASK 4
+#define OUTPUT_OVER_POWER_MASK 5
 
 typedef enum {
-	INPUT_OVER_VOLTAGE = (1U << 0),
-	OUTPUT_OVER_VOLTAGE = (1U << 1),
-	INPUT_OVER_CURRENT = (1U << 2),
-	OUTPUT_OVER_CURRENT = (1U << 3),
-	INPUT_OVER_POWER = (1U << 4),
-	OUTPUT_OVER_POWER = (1U << 5),
+	INPUT_OVER_VOLTAGE = (1U << INPUT_OVER_VOLTAGE_MASK),
+	OUTPUT_OVER_VOLTAGE = (1U << OUTPUT_OVER_VOLTAGE_MASK),
+	INPUT_OVER_CURRENT = (1U << INPUT_OVER_CURRENT_MASK),
+	OUTPUT_OVER_CURRENT = (1U << OUTPUT_OVER_CURRENT_MASK),
+	INPUT_OVER_POWER = (1U << INPUT_OVER_POWER_MASK),
+	OUTPUT_OVER_POWER = (1U << OUTPUT_OVER_POWER_MASK),
 } errors_t;
 
 
@@ -46,8 +52,10 @@ typedef enum {
 typedef struct
 {
 	FunctionalState enable;
+	
 	// Actual state
 	algorithms_t algorithm_running;
+	
 	/**
 	 * Internal variables
 	 */
@@ -133,5 +141,12 @@ void control_set_period(uint32_t period);
  * @return uint32_t control period in ms
  */
 uint32_t control_get_period(void);
+
+/**
+ * @brief Get control error state
+ * 
+ * @return error_t error state
+ */
+errors_t control_get_error_state(void);
 
 #endif

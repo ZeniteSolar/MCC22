@@ -159,6 +159,11 @@ algorithms_t control_get_algorithm(void)
 	return control.algorithm_running;
 }
 
+errors_t control_get_error_state(void)
+{
+	return control.errors;
+}
+
 void control_force_algorithm(algorithms_t algorithm, float initial_duty)
 {
 

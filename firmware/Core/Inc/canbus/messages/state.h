@@ -1,6 +1,10 @@
 #ifndef MESSAGE_STATE_H
 #define MESSAGE_STATE_H
 
+#include "control.h"
+#include "../can_parser_types.h"
+#include "../can_ids.h"
+
 /**
  * @brief Return the id of the state message
  * 
@@ -44,7 +48,19 @@ void canbus_update_state_message(uint8_t board_number, can_msg_t *message)
 	/* Update ID */
 	message->id = canbus_get_state_id(board_number);
 	/* Update message */
-	message->mcc23_1_state.state = 0;
+	message->mcc23_1_state.state = (uint8_t)control_get_algorithm();
+	
+	/* Get control errors */
+	errors_t control_errors = control_get_error_state();
+	
+	message->mcc23_1_state.control.vo_safe_range = 
+		!(control_errors & (OUTPUT_OVER_VOLTAGE));
+
+	message->mcc23_1_state.control.vi_safe_range =
+		!(control_errors & (INPUT_OVER_VOLTAGE));
+
+	message->mcc23_1_state.control.vi_stable = 
+		(control_get_algorithm() == PEO);
 
 	/* Update length */
 	message->dlc = CAN_MSG_MCC23_1_STATE_LENGTH;
