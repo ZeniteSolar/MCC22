@@ -73,7 +73,16 @@ void canbus_send(canbus_tx_msg_t *message)
 	txHeader.TransmitGlobalTime = DISABLE;
 
 	/* Send message */
-	uint32_t mailbox;
+	static uint32_t mailbox;
+
+	/* Check if exist message in queue*/
+	if (HAL_CAN_GetTxMailboxesFreeLevel(canbus.hcan) == 0)
+	{
+		LOG_WARN("Canbus mailbox is full");
+		/* Clearing mailbox */
+		HAL_CAN_AbortTxRequest(canbus.hcan, mailbox);
+	}
+
 	if (HAL_CAN_AddTxMessage(canbus.hcan, &txHeader, message->message.raw, &mailbox) != HAL_OK) 
 	{
 		LOG_ERROR("Failed to add message to mailbox");
