@@ -19,6 +19,14 @@ void canbus_init(CAN_HandleTypeDef *hcan)
 	HAL_CAN_Start(canbus.hcan);
 }
 
+void canbus_handle_error(CAN_HandleTypeDef *hcan)
+{
+	LOG_ERROR("Canbus error: Restarting device...");
+	/* Restart device */
+	HAL_CAN_Stop(hcan);
+	HAL_CAN_Start(hcan);
+}
+
 uint32_t canbus_get_signature(uint8_t board_number)
 {
 	/* Signatures */
@@ -66,7 +74,12 @@ void canbus_send(canbus_tx_msg_t *message)
 
 	/* Send message */
 	uint32_t mailbox;
-	HAL_CAN_AddTxMessage(canbus.hcan, &txHeader, message->message.raw, &mailbox);
+	if (HAL_CAN_AddTxMessage(canbus.hcan, &txHeader, message->message.raw, &mailbox) != HAL_OK) 
+	{
+		LOG_ERROR("Failed to add message to mailbox");
+		/* Restart device */
+		canbus_handle_error(canbus.hcan);
+	}
 }
 
 /**
