@@ -8,6 +8,7 @@ void pwm_init(TIM_HandleTypeDef *htim)
 	pwm.htim = htim;
 	pwm.freq = 0;
 	pwm.duty = 0;
+	LOG_INFO("PWM initialized");
 }
 
 HAL_StatusTypeDef pwm_start(float initial_freq, float initial_duty)

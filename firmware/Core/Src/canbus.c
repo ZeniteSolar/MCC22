@@ -13,10 +13,12 @@ static canbus_t canbus;
 
 void canbus_init(CAN_HandleTypeDef *hcan)
 {
+	LOG_INFO("Initializing canbus...");
 	/** Save can handler */
 	canbus.hcan = hcan;
 	canbus.self_board_number = machine_get_signature();
 	HAL_CAN_Start(canbus.hcan);
+	LOG_INFO("OK.\n");
 }
 
 void canbus_handle_error(CAN_HandleTypeDef *hcan)
