@@ -1,5 +1,11 @@
 # MCC22
 
+## Build
+```bash
+cd firmware
+make -j16 -f STM32Make.make
+```
+
 MPPT Battery charger
 
 | Input Voltage     | 0 ~ 30 V  |

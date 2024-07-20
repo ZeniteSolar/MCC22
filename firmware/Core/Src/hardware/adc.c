@@ -42,6 +42,8 @@ adc_t adc;
  */
 HAL_StatusTypeDef adc_init(I2C_HandleTypeDef *hi2c)
 {
+	LOG_INFO("Initializing ADC...");
+
 	/* Check if device is ready */
 	if (HAL_I2C_IsDeviceReady(hi2c, (uint16_t)(ADS111X_ADDR_GND << 1), 10, 100) != HAL_OK)
 	{
@@ -89,8 +91,9 @@ HAL_StatusTypeDef adc_init(I2C_HandleTypeDef *hi2c)
 		adc.channels[i].value.samples = 0;
 		adc.channels[i].value.sum = 0;
 		adc.channels[i].value.avg = 0;
-	}	
+	}
 
+	LOG_INFO(" OK.\n");
 	/* Adc initialized correctly */
 	return HAL_OK;
 
