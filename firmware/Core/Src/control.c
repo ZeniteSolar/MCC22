@@ -198,6 +198,13 @@ void control_force_algorithm(algorithms_t algorithm, float initial_duty)
 void control_script(void)
 {
 	static uint32_t error_triggered_time = 0;
+	static float max_power = 0.0;
+
+	/* Save maximum power */
+	if (max_power < adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT))
+	{
+		max_power = adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT);
+	}
 
 	if (adc_get_value(ADC_BATTERY_VOLTAGE) > CONTROL_MAXIMUM_BATTERY_VOLTAGE)
 	{
@@ -237,16 +244,19 @@ void control_script(void)
 		control_set_peo(brute_force_get_metadata()->absolute_mpp_duty);
 	}
 
-	//if power is too low, maybe the algorithm is lost
+	//if power is too low, maybe the algorithm is lost or power reduced from maximum
 	static uint32_t last_brute_force_time = 0;
 	float panel_power = adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT);
+	uint8_t power_too_low = panel_power <= MINIMUM_POWER;
+	uint8_t power_reduced = panel_power < (max_power * 0.8);
 	if ( 
-		(panel_power <= MINIMUM_POWER) && 
+		(power_too_low || power_reduced) && 
 		(control.algorithm_running != BRUTE_FORCE)
 	)
 	{
 		if (HAL_GetTick() >= last_brute_force_time)
 		{
+			max_power = 0.0;
 			last_brute_force_time = HAL_GetTick() + 10000;
 			printf("Power too low, running brute force from algorithm %d\n", control.algorithm_running);
 			control_set_brute_force(0.2f);

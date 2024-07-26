@@ -62,6 +62,8 @@ DAC_HandleTypeDef hdac1;
 I2C_HandleTypeDef hi2c3;
 DMA_HandleTypeDef hdma_i2c3_rx;
 
+IWDG_HandleTypeDef hiwdg;
+
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 
@@ -85,6 +87,7 @@ static void MX_COMP2_Init(void);
 static void MX_DAC1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_I2C3_Init(void);
+static void MX_IWDG_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -100,6 +103,7 @@ static void MX_I2C3_Init(void);
 	*/
 int main(void)
 {
+
 	/* USER CODE BEGIN 1 */
 
 	/* USER CODE END 1 */
@@ -132,6 +136,7 @@ int main(void)
 	MX_DAC1_Init();
 	MX_TIM2_Init();
 	MX_I2C3_Init();
+	MX_IWDG_Init();
 	/* USER CODE BEGIN 2 */
 
 	uart_init(&huart1);
@@ -211,7 +216,8 @@ void SystemClock_Config(void)
 	/** Initializes the RCC Oscillators according to the specified parameters
 	* in the RCC_OscInitTypeDef structure.
 	*/
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
+	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_MSI;
+	RCC_OscInitStruct.LSIState = RCC_LSI_ON;
 	RCC_OscInitStruct.MSIState = RCC_MSI_ON;
 	RCC_OscInitStruct.MSICalibrationValue = 0;
 	RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
@@ -481,6 +487,35 @@ static void MX_I2C3_Init(void)
 }
 
 /**
+	* @brief IWDG Initialization Function
+	* @param None
+	* @retval None
+	*/
+static void MX_IWDG_Init(void)
+{
+
+	/* USER CODE BEGIN IWDG_Init 0 */
+
+	/* USER CODE END IWDG_Init 0 */
+
+	/* USER CODE BEGIN IWDG_Init 1 */
+
+	/* USER CODE END IWDG_Init 1 */
+	hiwdg.Instance = IWDG;
+	hiwdg.Init.Prescaler = IWDG_PRESCALER_256;
+	hiwdg.Init.Window = 626;
+	hiwdg.Init.Reload = 626;
+	if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	/* USER CODE BEGIN IWDG_Init 2 */
+
+	/* USER CODE END IWDG_Init 2 */
+
+}
+
+/**
 	* @brief TIM1 Initialization Function
 	* @param None
 	* @retval None
@@ -741,6 +776,16 @@ void Error_Handler(void)
 	__disable_irq();
 	while (1)
 	{
+		for (int i = 0; i < 50; i++)
+		{
+			HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+			HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
+			HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
+			HAL_GPIO_TogglePin(LED_CAN_BUSY_GPIO_Port, LED_CAN_BUSY_Pin);
+			HAL_Delay(100);
+		}
+		/* Reset STM */
+		HAL_NVIC_SystemReset();
 	}
 	/* USER CODE END Error_Handler_Debug */
 }

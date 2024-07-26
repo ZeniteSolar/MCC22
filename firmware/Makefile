@@ -22,7 +22,7 @@ TARGET = firmware
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -0g
+OPT = -Og
 
 
 #######################################
@@ -37,6 +37,17 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 Core/Src/main.c \
+Core/Src/hardware/adc.c \
+Core/Src/hardware/ads111x.c \
+Core/Src/hardware/comparators.c \
+Core/Src/hardware/dac.c \
+Core/Src/hardware/pwm.c \
+Core/Src/hardware/uart.c \
+Core/Src/algorithms/brute_force.c \
+Core/Src/algorithms/fixed.c \
+Core/Src/algorithms/peo_dynamic_step.c \
+Core/Src/algorithms/peo.c \
+Core/Src/algorithms/pi.c \
 Core/Src/stm32l4xx_it.c \
 Core/Src/stm32l4xx_hal_msp.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc.c \
@@ -64,6 +75,7 @@ Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c \
+Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_iwdg.c \
 Core/Src/system_stm32l4xx.c
 
 # ASM sources
@@ -122,6 +134,9 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -ICore/Inc \
+-ICore/Inc/hardware \
+-ICore/Inc/algorithms \
+-ICore/Inc/messages \
 -IDrivers/STM32L4xx_HAL_Driver/Inc \
 -IDrivers/STM32L4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32L4xx/Include \

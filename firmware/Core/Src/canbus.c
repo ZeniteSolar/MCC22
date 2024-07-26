@@ -78,7 +78,7 @@ void canbus_send(canbus_tx_msg_t *message)
 	static uint32_t mailbox;
 
 	/* Check if mailbox is full*/
-	if (HAL_CAN_GetTxMailboxesFreeLevel(canbus.hcan) == 1)
+	if (HAL_CAN_GetTxMailboxesFreeLevel(canbus.hcan) == 0)
 	{
 		LOG_WARN("Canbus mailbox is full");
 		/* Clearing mailbox */

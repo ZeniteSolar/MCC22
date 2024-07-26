@@ -13,20 +13,25 @@ void pwm_init(TIM_HandleTypeDef *htim)
 
 HAL_StatusTypeDef pwm_start(float initial_freq, float initial_duty)
 {
+	LOG_INFO("Starting PWM...");
 	pwm_set_freq(initial_freq);
 	pwm_set_duty(initial_duty);
-
+	
+	LOG_INFO("\n\t Starting PWM timer...");
 	if (HAL_TIM_Base_Start(pwm.htim) != HAL_OK)
 	{
 		LOG_ERROR("error initializing pwm timer");
 		return HAL_ERROR;
 	}
+	LOG_INFO("ok");
 
+	LOG_INFO("\n\t Starting PWM channel...");
 	if (HAL_TIM_PWM_Start(pwm.htim, TIM_CHANNEL_1) != HAL_OK)
 	{
 		LOG_ERROR("error initializing pwm");
 		return HAL_ERROR;
 	}
+	LOG_INFO("ok");
 	return HAL_OK;
 }
 

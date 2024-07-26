@@ -9,7 +9,7 @@
 // Brute Force configuration 
 #define CONTROL_BRUTE_FORCE_FREQUENCY 10.0f
 #define BRUTE_FORCE_PWM_MAX 0.8f
-#define BRUTE_FORCE_PWM_MIN 0.5f
+#define BRUTE_FORCE_PWM_MIN 0.3f
 
 static algorithms_metadata_t metadata;
 static float actual_duty = 0.0;
@@ -28,7 +28,7 @@ void brute_force_init(float initial_duty)
 
 float brute_force_run(void)
 {
-	static float step = 0.03;
+	static float step = 0.01;
 	float pi = adc_get_value(ADC_PANEL_VOLTAGE) * adc_get_value(ADC_PANEL_CURRENT);
 	
 	if (pi > metadata.absolute_mpp_power)
